@@ -112,4 +112,5 @@ dist
 .tern-port
 
 # Keys and credentials
-keys
+keys.js
+server/constants/keys.js
