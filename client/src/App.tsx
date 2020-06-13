@@ -6,7 +6,7 @@ import './App.css';
 import ScrollToTop from './utils/ScrollToTop';
 
 class App extends Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       
@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <ScrollToTop>
+        {/* <ScrollToTop> */}
           <div className="App">
             <Switch>
               {/*
@@ -33,7 +33,7 @@ class App extends Component {
               </Route>
             </Switch>
           </div>
-        </ScrollToTop>
+        {/* </ScrollToTop> */}
       </Router>
     )
   }

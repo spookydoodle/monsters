@@ -1,15 +1,27 @@
 import React from 'react';
 import { useStyles } from '../styles/main';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import { Card, CardMedia, CardHeader, CardContent, CardActions, IconButton, Typography } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { ActionButtons } from './ActionButtons';
 import { CardMenu } from './Menu';
 import { CommentsSection } from './CommentsSection';
+import { CommentType } from '../types/types';
+
+interface Props {
+    user: string,
+    object: Object,
+    model: string,
+    comments: Array<CommentType>,
+    likes: Array<Object>,
+    users: Map<string, any>,
+    title: string,
+    subtitle: string,
+    body: string,
+    mediaTop?: React.Component,
+    mediaMiddle?: React.Component,
+    menuItems: Array<{name:string}>,
+    // updateStateData: any // or void?
+}
 
 // Pass a component to mediaTop or mediaBottom depending on which location it is needed in
 export const MonsterCard = ({
@@ -25,28 +37,28 @@ export const MonsterCard = ({
     mediaTop,
     mediaMiddle,
     menuItems,
-    updateStateData,
-}) => {
+    // updateStateData,
+}: Props) => {
     const classes = useStyles();
+    // TODO: figure out how to declare it in typescript
+    // const [expanded, setExpanded] = React.useState(false);
+    // const handleExpandClick = () => {
+    //     setExpanded(!expanded);
+    // };
 
-    const [expanded, setExpanded] = React.useState(false);
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
+    // const [anchorEl, setAnchorEl] = React.useState(null);
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    // const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    //     setAnchorEl(event.currentTarget);
+    // };
 
-    const handleMenuClick = event => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-    };
+    // const handleMenuClose = () => {
+    //     setAnchorEl(null);
+    // };
 
     return (
         <Card style={{height: "100%"}} >
-            {mediaTop}
+            {mediaTop ? mediaTop : null}
             <CardHeader
                 avatar={null}
                 action={
@@ -54,7 +66,7 @@ export const MonsterCard = ({
                         aria-label="more"
                         aria-controls="long-menu"
                         aria-haspopup="true"
-                        onClick={handleMenuClick}
+                        // onClick={handleMenuClick}
                     >
                         <MoreVertIcon />
                     </IconButton>
@@ -66,28 +78,34 @@ export const MonsterCard = ({
                 user={user}
                 object={object}
                 model={model}
-                anchorEl={anchorEl}
-                handleMenuClose={handleMenuClose}
+                // anchorEl={anchorEl}
+                // handleMenuClose={handleMenuClose}
                 menuItems={menuItems}
             />
-            {mediaMiddle}
+            {mediaMiddle ? mediaMiddle : null}
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
                     {body}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <ActionButtons user={user} comments={comments} likes={likes} handleExpandClick={handleExpandClick} />
+                <ActionButtons 
+                    user={user} 
+                    comments={comments} 
+                    likes={likes} 
+                    // handleExpandClick={handleExpandClick} 
+                />
             </CardActions>
             <CardContent>
                 <CommentsSection
-                    expanded={expanded}
+                    // expanded={expanded}
+                    expanded={false}
                     user={user}
                     object={object}
                     model={model}
                     comments={comments}
                     users={users}
-                    updateStateData={updateStateData}
+                    // updateStateData={updateStateData}
                 />
             </CardContent>
         </Card>

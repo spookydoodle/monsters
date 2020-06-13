@@ -3,8 +3,18 @@ import { Box } from '@material-ui/core';
 import { CommentsList } from './CommentsList';
 // import { AddComment } from './forms/Comment';
 import CollapsePanel from './CollapsePanel';
+import { CommentType } from '../types/types';
 
-const CommentsSection = ({ expanded, user, object, model, comments, users }) => {
+interface Props {
+    expanded: Boolean,
+    user: string,
+    object: Object,
+    model: string,
+    comments: Array<CommentType>,
+    users: Map<string, any>,
+}
+
+const CommentsSection = ({ expanded, user, object, model, comments, users }: Props) => {
     return (
         <Box id="comments">
             <CollapsePanel expanded={expanded}>

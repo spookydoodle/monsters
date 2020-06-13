@@ -17,7 +17,7 @@ export const Empty = () => {
 
     return (
         <div className={classes.loading}>
-            <i className="optin monster icon" style={{color: "#fff"}} href="/" />
+            <i className="optin monster icon" style={{color: "#fff"}} />
             <Typography variant="h5" style={{color: "#fff"}}>Oops... Nothing found. Lazy, lazy...</Typography>
         </div>
     );
