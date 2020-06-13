@@ -1,0 +1,29 @@
+{
+    "name": "react-express-mongo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "install-all": "yarn install && yarn --cwd client install && yarn --cwd server install",
+        "client": "npm run start --prefix client",
+        "server": "npm run start --prefix server",
+        "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+        "start": "npm run dev"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {},
+    "devDependencies": {
+        "concurrently": "^5.1.0",
+        "prettier": "^2.0.4",
+        "source-map-loader": "^1.0.0",
+        "ts-loader": "^7.0.5",
+        "typescript": "^3.9.5"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
+    }
+}
