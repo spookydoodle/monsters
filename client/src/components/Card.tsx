@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from '../styles/main';
-import { Card, CardMedia, CardHeader, CardContent, CardActions, IconButton, Typography } from '@material-ui/core';
+import { Card, CardMedia, CardMediaTypeMap, CardHeader, CardContent, CardActions, IconButton, Typography } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { ActionButtons } from './ActionButtons';
 import { CardMenu } from './Menu';
@@ -17,8 +17,8 @@ interface Props {
     title: string,
     subtitle: string,
     body: string,
-    mediaTop?: React.Component,
-    mediaMiddle?: React.Component,
+    mediaTop?: any,
+    mediaMiddle?: any,
     menuItems: Array<{name:string}>,
     // updateStateData: any // or void?
 }
@@ -105,7 +105,6 @@ export const MonsterCard = ({
                     model={model}
                     comments={comments}
                     users={users}
-                    // updateStateData={updateStateData}
                 />
             </CardContent>
         </Card>

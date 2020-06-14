@@ -110,7 +110,14 @@ export const useStyles = makeStyles((theme: Theme) =>
             [theme.breakpoints.up('sm')]: {
                 marginLeft: `${drawerWidth}px`,
             },
+            
         },
+        // // Can also use this but then change 'content' to 'contentClass' to solve error with abiguity
+        // '@media (min-width: 960px)': {
+        //     contentCl: {
+        //         marginLeft: `${drawerWidth}px`,
+        //     },
+        // },
 
         // Texts
         textColorLight: {
