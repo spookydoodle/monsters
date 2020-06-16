@@ -16,10 +16,9 @@ const Monsters = () => {
     const [monsters, setMonsters] = useState([]);
 
     const getMonsters = async () => {
-        let res = await monstersService.getGoogleScrape('furry+monster');
+        // let res = await monstersService.getGoogleScrape('furry+monster');
         // let res = await monstersService.getGoogleHTML('furry+monster');
-        // let res = await monstersService.getGoogleAPI('furry+monster');
-        console.log(res)
+        let res = await monstersService.getGoogleAPI('furry+monster');
         setMonsters(res);
     }
 

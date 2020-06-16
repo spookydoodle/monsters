@@ -21,7 +21,7 @@ export default {
     },
     // Using custom google search api (only 10 in free version)
     getGoogleAPI: async (query: string) => {
-        let res = await axios.get(`/custom-google/search?q=${query}`);
+        let res = await axios.get(`/google-api/search?q=${query}`);
         return res.data || [];
     },
     // Using html selectors
