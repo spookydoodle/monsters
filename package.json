@@ -5,6 +5,9 @@
     "main": "index.js",
     "scripts": {
         "install-all": "yarn install && yarn --cwd client install && yarn --cwd server install",
+        "test": "run-s test_server test_client",
+        "test_client": "yarn --cwd client test --watch-all=false",
+        "test_server": "yarn --cwd server test --watch-all=false",
         "client": "npm run start --prefix client",
         "server": "npm run start --prefix server",
         "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
@@ -16,7 +19,10 @@
     "dependencies": {},
     "devDependencies": {
         "concurrently": "^5.1.0",
-        "prettier": "^2.0.4"
+        "jest-extended": "^0.11.5",
+        "jest-matcher-utils": "^26.0.1",
+        "prettier": "^2.0.4",
+        "yarn-run-all": "^3.1.1"
     },
     "husky": {
         "hooks": {

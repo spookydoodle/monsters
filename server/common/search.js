@@ -6,9 +6,10 @@ const keys = require('../constants/keys')
 
 // TODO: pull additional keywords by which you can search by. These go to the 'chips' parameter ('chips=q:...g_1:...')
 // the same result as adding the additional keyword in front of the query
+const searchPuppeteer = async query => {
+    if (!query) return []
 
-const searchPuppetier = async (searchQuery) => {
-    const url = `https://www.google.com/search?q=${searchQuery}&tbm=isch&num=20`;
+    const url = `https://www.google.com/search?q=${query}&tbm=isch&num=20`;
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
@@ -18,13 +19,14 @@ const searchPuppetier = async (searchQuery) => {
     // await page.waitFor(durationInMilliseconds)
     // await page.waitForSelector('selector');
     const results = await page.evaluate(() => {
-        return [...document.querySelector('.islrc').querySelectorAll("img")]
+        const container = document.querySelector('.islrc');
+        return container ? [...container.querySelectorAll("img")]
             .filter(img => img.src.length > 0)
             .map(img => ({
                 title: img.alt,
                 src: img.src,
             })
-            )
+            ) : []
     })
 
     await browser.close();
@@ -33,20 +35,22 @@ const searchPuppetier = async (searchQuery) => {
 };
 
 // Get results from the official Google API. Free version includes only 10 results.
-const searchGoogleAPI = query => (
-    axios.get(`https://www.googleapis.com/customsearch/v1?q=${query}&cx=${keys.cx}&key=${keys.key}&searchType=image`)
+const searchGoogleAPI = query => {
+    if (!query) return []
+
+    return axios.get(`https://www.googleapis.com/customsearch/v1?q=${query}&cx=${keys.cx}&key=${keys.key}&searchType=image`)
         .then(results => results.data.items.map(({ title, link }) => ({
             title: title,
             src: link,
         })))
         .catch(err => err)
-)
+}
 
 // Get raw HTML and pull HTML elements properties. Only 20 results returned.
-const searchHTML = async query => (
-    // TODO: try another library, results from axios do not match actual results from google
-    // TODO: Get more than 20 results
-    axios
+const searchHTML = async query => {
+    if (!query) return []
+
+    return axios
         .get(`https://www.google.com/search?q=${query}&tbm=isch`)
         .then(results => {
             const data = results.data;
@@ -68,13 +72,13 @@ const searchHTML = async query => (
             })
         })
         .catch(err => err)
-        
-        // TODO: test 1: Check for an empty array = Google changed table structure in html
-        // TODO: test 2: checl for an array of empty objects = Google changed row structure in the image results table
-)
+
+    // TODO: test 1: Check for an empty array = Google changed table structure in html
+    // TODO: test 2: checl for an array of empty objects = Google changed row structure in the image results table
+}
 
 module.exports = {
-    searchPuppetier: searchPuppetier,
+    searchPuppeteer: searchPuppeteer,
     searchGoogleAPI: searchGoogleAPI,
     searchHTML: searchHTML,
 };

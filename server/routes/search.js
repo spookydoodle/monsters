@@ -1,4 +1,4 @@
-const { searchPuppetier, searchGoogleAPI, searchHTML } = require('../common/search');
+const { searchPuppeteer, searchGoogleAPI, searchHTML } = require('../common/search');
 const keys = require('../constants/keys')
 
 
@@ -8,7 +8,7 @@ const app = app => {
     app.get('/', (req, res) => res.send('Hello Monster!'));
 
     // Web scraping with puppeteer library
-    get(app, '/puppeteer/search', searchPuppetier)
+    get(app, '/puppeteer/search', searchPuppeteer)
 
     // Get results from the official google API. Free version includes only 10 results.
     get(app, '/google-api/search', searchGoogleAPI)
@@ -24,7 +24,7 @@ const get = (app, path, method) => {
     app.get(path, (req, res) => {
         const query = req.query.q;
         if (!query) res.status(400).send("Provide a valid query value using the parameter 'q'.")
-
+        
         method(query)
             .then(results => res.status(200).send(results))
             .catch(err => res.status(500).send({ err: "Error retrieving data", message: err }));
