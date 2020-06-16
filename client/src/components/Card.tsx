@@ -9,10 +9,10 @@ import { CommentType } from '../types/types';
 
 interface Props {
     user: string,
-    object: Object,
+    object: { _id: string },
     model: string,
     comments: Array<CommentType>,
-    likes: Array<Object>,
+    likes: Array<object>,
     users: Map<string, any>,
     title: string,
     subtitle: string,
@@ -41,20 +41,20 @@ export const MonsterCard = ({
 }: Props) => {
     const classes = useStyles();
     // TODO: figure out how to declare it in typescript
-    // const [expanded, setExpanded] = React.useState(false);
-    // const handleExpandClick = () => {
-    //     setExpanded(!expanded);
-    // };
+    const [expanded, setExpanded] = React.useState(false);
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
 
-    // const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
-    // const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    //     setAnchorEl(event.currentTarget);
-    // };
+    const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
 
-    // const handleMenuClose = () => {
-    //     setAnchorEl(null);
-    // };
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+    };
 
     return (
         <Card style={{height: "100%"}} >
@@ -66,7 +66,7 @@ export const MonsterCard = ({
                         aria-label="more"
                         aria-controls="long-menu"
                         aria-haspopup="true"
-                        // onClick={handleMenuClick}
+                        onClick={handleMenuClick}
                     >
                         <MoreVertIcon />
                     </IconButton>
@@ -78,8 +78,8 @@ export const MonsterCard = ({
                 user={user}
                 object={object}
                 model={model}
-                // anchorEl={anchorEl}
-                // handleMenuClose={handleMenuClose}
+                anchorEl={anchorEl}
+                handleMenuClose={handleMenuClose}
                 menuItems={menuItems}
             />
             {mediaMiddle ? mediaMiddle : null}
@@ -93,13 +93,13 @@ export const MonsterCard = ({
                     user={user} 
                     comments={comments} 
                     likes={likes} 
-                    // handleExpandClick={handleExpandClick} 
+                    handleExpandClick={handleExpandClick} 
+                    expanded={expanded}
                 />
             </CardActions>
             <CardContent>
                 <CommentsSection
-                    // expanded={expanded}
-                    expanded={false}
+                    expanded={expanded}
                     user={user}
                     object={object}
                     model={model}

@@ -6,9 +6,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 interface Props {
     user: string,
     model: string,
-    object: Object,
-    // anchorEl: HTMLElement,
-    // handleMenuClose: any,
+    object: object,
+    anchorEl: null | HTMLElement,
+    handleMenuClose: any,
     menuItems: Array<{ name: string }>,
 }
 
@@ -16,18 +16,17 @@ export const CardMenu = ({
     user,
     model,
     object,
-    // anchorEl,
-    // handleMenuClose,
+    anchorEl,
+    handleMenuClose,
     menuItems
 }: Props) => {
     return (
         <Menu 
             id="simple-menu" 
-            // anchorEl={anchorEl} 
+            anchorEl={anchorEl} 
             keepMounted 
-            open={false} 
-            // open={Boolean(anchorEl)} 
-            // onClose={handleMenuClose}
+            open={Boolean(anchorEl)}
+            onClose={handleMenuClose}
         >
             {/* TODO: implement action to go to projects page and change state for current project */}
             {menuItems.map((item, i) => (

@@ -6,9 +6,9 @@ import CollapsePanel from './CollapsePanel';
 import { CommentType } from '../types/types';
 
 interface Props {
-    expanded: Boolean,
+    expanded: boolean,
     user: string,
-    object: Object,
+    object: object,
     model: string,
     comments: Array<CommentType>,
     users: Map<string, any>,

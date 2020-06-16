@@ -6,16 +6,18 @@ import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
 
 interface Props {
     user: string,
-    comments: Array<Object>,
-    likes: Array<Object>,
-    // handleExpandClick: any
+    comments: Array<object>,
+    likes: Array<object>,
+    handleExpandClick: any,
+    expanded: boolean,
 }
 
 export const ActionButtons = ({
     user,
     comments,
     likes,
-    // handleExpandClick
+    handleExpandClick,
+    expanded
 }: Props) => {
     return (
         <React.Fragment>
@@ -27,9 +29,9 @@ export const ActionButtons = ({
                                 <ShareIcon />
                             </IconButton> */}
             <IconButton
-                // onClick={handleExpandClick}
-            // aria-expanded={expanded}
-            // aria-label="show more"
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
             >
                 <ModeCommentOutlinedIcon />
                 <Typography variant="caption">{comments.length}</Typography>

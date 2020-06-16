@@ -16,7 +16,10 @@ const Monsters = () => {
     const [monsters, setMonsters] = useState([]);
 
     const getMonsters = async () => {
-        let res = await monstersService.get1('furry+monster');
+        let res = await monstersService.getGoogleScrape('furry+monster');
+        // let res = await monstersService.getGoogleHTML('furry+monster');
+        // let res = await monstersService.getGoogleAPI('furry+monster');
+        console.log(res)
         setMonsters(res);
     }
 
@@ -35,7 +38,7 @@ const Monsters = () => {
                     <Grid
                         container
                         direction="row"
-                        justify="space-evenly"
+                        // justify="center"
                         alignItems="stretch"
                         spacing={2}
                     >
@@ -44,7 +47,7 @@ const Monsters = () => {
                                 <MonsterCard
                                     key={parseInt(index.toString())}
                                     user={"Alpha"}
-                                    object={new Object()}
+                                    object={{_id: "1234"}}
                                     model="Monster"
                                     comments={[]}
                                     likes={[]}

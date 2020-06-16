@@ -13,6 +13,8 @@
         "axios": "^0.19.2",
         "cheerio": "^1.0.0-rc.3",
         "express": "^4.17.1",
+        "fetch": "^1.1.0",
+        "jsdom": "^16.2.2",
         "puppeteer": "^2.1.1",
         "request": "^2.88.2",
         "xmldom": "^0.3.0"
