@@ -2,7 +2,7 @@
 
 // The purpose of this file is to integrate all styles in one place and reuse classes in various components
 import { createMuiTheme } from '@material-ui/core/styles';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 
 // Below components need to be imported to correctly overwrite styles with classes in useStyle
 import AppBar from '@material-ui/core/AppBar';
@@ -89,14 +89,6 @@ export const useStyles = makeStyles((theme: Theme) =>
         bgHoverLighter: {
             backgroundColor: colorHoverLighter,
         },
-        appBar: {
-            zIndex: theme.zIndex.drawer + 1,
-            color: color3,
-        },
-        toolbar: theme.mixins.toolbar,
-        drawerPaper: {
-            width: `${drawerWidth}px`,
-        },
         formPaper: {
             padding: theme.spacing(2),
             color: color1,
@@ -104,14 +96,14 @@ export const useStyles = makeStyles((theme: Theme) =>
             minWidth: '400px',
             marginTop: '3%',
         },
-        content: {
-            flexGrow: 1,
-            padding: theme.spacing(3),
-            [theme.breakpoints.up('sm')]: {
-                marginLeft: `${drawerWidth}px`,
-            },
-            
-        },
+        // content: {
+        //     flexGrow: 1,
+        //     padding: theme.spacing(3),
+        //     [theme.breakpoints.up('sm')]: {
+        //         marginLeft: `${drawerWidth}px`,
+        //     },
+
+        // },
         // // Can also use this but then change 'content' to 'contentClass' to solve error with abiguity
         // '@media (min-width: 960px)': {
         //     contentCl: {
@@ -146,6 +138,77 @@ export const useStyles = makeStyles((theme: Theme) =>
             [theme.breakpoints.up('md')]: {
                 display: 'none',
             },
+        },
+        // Card
+        card: {
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            // justifyContent: "space-between",
+        },
+        cardTitle: {
+            fontSize: "0.8rem",
+        },
+
+        // NavBar
+        root: {
+            display: 'flex',
+        },
+        appBar: {
+            zIndex: theme.zIndex.drawer + 1,
+            transition: theme.transitions.create(['width', 'margin'], {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.leavingScreen,
+            }),
+        },
+        appBarShift: {
+            marginLeft: drawerWidth,
+            width: `calc(100% - ${drawerWidth}px)`,
+            transition: theme.transitions.create(['width', 'margin'], {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.enteringScreen,
+            }),
+        },
+        menuButton: {
+            marginRight: 36,
+        },
+        hide: {
+            display: 'none',
+        },
+        drawer: {
+            width: drawerWidth,
+            flexShrink: 0,
+            whiteSpace: 'nowrap',
+        },
+        drawerOpen: {
+            width: drawerWidth,
+            transition: theme.transitions.create('width', {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.enteringScreen,
+            }),
+        },
+        drawerClose: {
+            transition: theme.transitions.create('width', {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.leavingScreen,
+            }),
+            overflowX: 'hidden',
+            width: theme.spacing(7) + 1,
+            [theme.breakpoints.up('sm')]: {
+                width: theme.spacing(9) + 1,
+            },
+        },
+        toolbar: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            padding: theme.spacing(0, 1),
+            // necessary for content to be below app bar
+            ...theme.mixins.toolbar,
+        },
+        content: {
+            flexGrow: 1,
+            padding: theme.spacing(3),
         },
 
         // Misc

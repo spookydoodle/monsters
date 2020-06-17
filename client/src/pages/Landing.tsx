@@ -14,7 +14,7 @@ const Landing = (props: any) => (
                     noun | UK <VolumeUpIcon />
                     /ˈmɒn.stər/ | US <VolumeUpIcon /> /ˈmɑːn.stɚ/
                 </Typography>
-                <Link to={'/monsters/monsters'} className="btn-slideshow">
+                <Link to={'/monsters'} className="btn-slideshow">
                 ENTER IF YOU DARE
                 </Link>
             </div>

@@ -19,7 +19,7 @@ interface Props {
     body: string,
     mediaTop?: any,
     mediaMiddle?: any,
-    menuItems: Array<{name:string}>,
+    menuItems: Array<{ name: string }>,
     // updateStateData: any // or void?
 }
 
@@ -57,38 +57,41 @@ export const MonsterCard = ({
     };
 
     return (
-        <Card style={{height: "100%"}} >
+        <Card className={classes.card} >
             {mediaTop ? mediaTop : null}
-            <CardHeader
+            {/* <CardHeader
                 avatar={null}
-                action={
-                    <IconButton
-                        aria-label="more"
-                        aria-controls="long-menu"
-                        aria-haspopup="true"
-                        onClick={handleMenuClick}
-                    >
-                        <MoreVertIcon />
-                    </IconButton>
-                }
+                // action={
+                //     <IconButton
+                //         aria-label="more"
+                //         aria-controls="long-menu"
+                //         aria-haspopup="true"
+                //         onClick={handleMenuClick}
+                //     >
+                //         <MoreVertIcon />
+                //     </IconButton>
+                // }
                 title={title}
                 subheader={subtitle}
-            />
-            <CardMenu
+            /> */}
+            {/* <CardMenu
                 user={user}
                 object={object}
                 model={model}
                 anchorEl={anchorEl}
                 handleMenuClose={handleMenuClose}
                 menuItems={menuItems}
-            />
+            /> */}
             {mediaMiddle ? mediaMiddle : null}
             <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography noWrap variant="h6" color="textPrimary">
+                    {title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
                     {body}
                 </Typography>
             </CardContent>
-            <CardActions disableSpacing>
+            <CardActions style={{ marginTop: "auto" }} disableSpacing>
                 <ActionButtons 
                     user={user} 
                     comments={comments} 
@@ -97,7 +100,7 @@ export const MonsterCard = ({
                     expanded={expanded}
                 />
             </CardActions>
-            <CardContent>
+            {/* <CardContent>
                 <CommentsSection
                     expanded={expanded}
                     user={user}
@@ -106,7 +109,7 @@ export const MonsterCard = ({
                     comments={comments}
                     users={users}
                 />
-            </CardContent>
+            </CardContent> */}
         </Card>
     );
 };

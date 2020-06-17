@@ -6,7 +6,7 @@ import { faRobot, faHatWizard, faGhost, faGamepad, faCat, faBroom } from '@forta
 export const IconRobot = () => (
     <FontAwesomeIcon
         icon={faRobot}
-        size="3x"
+        size="1x"
         // flip="vertical" 
         // rotation={90}
         // spin
@@ -17,6 +17,6 @@ export const IconRobot = () => (
         // transform="shrink-6 left-4"
         // transform={{ rotate: 42 }}
         // mask={['far', 'circle']}
-        color="#ff0000"
+        // color="#ff0000"
     />
 )
