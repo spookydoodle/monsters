@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useStyles } from '../styles/main';
-import monstersService from '../services/monsters'
 import { LinearBuffer } from '../components/Loading'
 import { MonsterCard } from '../components/Card'
 import { Container, Grid, CardMedia } from '@material-ui/core';

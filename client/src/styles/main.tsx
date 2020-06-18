@@ -23,9 +23,11 @@ export const theme = createMuiTheme({
             light: color3,
             main: color1,
             dark: color2,
+            contrastText: color4,
         },
         secondary: {
             main: color2,
+            contrastText: color4,
         },
         text: {
             primary: color1,
@@ -39,7 +41,9 @@ const drawerWidth = 300;
 
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        // Display and size
+        /* 
+            Display and size
+        */
         main: {
             backgroundColor: color3,
             minWidth: '100%',
@@ -73,7 +77,9 @@ export const useStyles = makeStyles((theme: Theme) =>
             marginBottom: '20px',
         },
 
-        // Containers
+        /* 
+            Containers
+        */
         bgDark: {
             backgroundColor: color1,
         },
@@ -111,7 +117,9 @@ export const useStyles = makeStyles((theme: Theme) =>
         //     },
         // },
 
-        // Texts
+        /* 
+            Texts
+        */
         textColorLight: {
             color: color3,
         },
@@ -128,7 +136,9 @@ export const useStyles = makeStyles((theme: Theme) =>
             textAlign: 'center',
         },
 
-        // Hidden
+        /* 
+            Hidden
+        */
         hideMdUp: {
             [theme.breakpoints.down('sm')]: {
                 display: 'none',
@@ -139,7 +149,9 @@ export const useStyles = makeStyles((theme: Theme) =>
                 display: 'none',
             },
         },
-        // Card
+        /* 
+            Card
+        */
         card: {
             height: "100%",
             display: "flex",
@@ -150,27 +162,28 @@ export const useStyles = makeStyles((theme: Theme) =>
             fontSize: "0.8rem",
         },
 
-        // NavBar
-        root: {
+        /* 
+            NavBar
+        */
+        navRoot: {
             display: 'flex',
         },
         appBar: {
-            zIndex: theme.zIndex.drawer + 1,
-            transition: theme.transitions.create(['width', 'margin'], {
+            transition: theme.transitions.create(['margin', 'width'], {
                 easing: theme.transitions.easing.sharp,
                 duration: theme.transitions.duration.leavingScreen,
             }),
         },
         appBarShift: {
-            marginLeft: drawerWidth,
             width: `calc(100% - ${drawerWidth}px)`,
-            transition: theme.transitions.create(['width', 'margin'], {
-                easing: theme.transitions.easing.sharp,
+            marginLeft: drawerWidth,
+            transition: theme.transitions.create(['margin', 'width'], {
+                easing: theme.transitions.easing.easeOut,
                 duration: theme.transitions.duration.enteringScreen,
             }),
         },
         menuButton: {
-            marginRight: 36,
+            marginRight: theme.spacing(2),
         },
         hide: {
             display: 'none',
@@ -178,37 +191,33 @@ export const useStyles = makeStyles((theme: Theme) =>
         drawer: {
             width: drawerWidth,
             flexShrink: 0,
-            whiteSpace: 'nowrap',
         },
-        drawerOpen: {
+        drawerPaper: {
             width: drawerWidth,
-            transition: theme.transitions.create('width', {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.enteringScreen,
-            }),
         },
-        drawerClose: {
-            transition: theme.transitions.create('width', {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.leavingScreen,
-            }),
-            overflowX: 'hidden',
-            width: theme.spacing(7) + 1,
-            [theme.breakpoints.up('sm')]: {
-                width: theme.spacing(9) + 1,
-            },
-        },
-        toolbar: {
+        drawerHeader: {
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'flex-end',
             padding: theme.spacing(0, 1),
             // necessary for content to be below app bar
             ...theme.mixins.toolbar,
+            justifyContent: 'flex-end',
         },
         content: {
             flexGrow: 1,
             padding: theme.spacing(3),
+            transition: theme.transitions.create('margin', {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.leavingScreen,
+            }),
+            marginLeft: -drawerWidth,
+        },
+        contentShift: {
+            transition: theme.transitions.create('margin', {
+                easing: theme.transitions.easing.easeOut,
+                duration: theme.transitions.duration.enteringScreen,
+            }),
+            marginLeft: 0,
         },
 
         // Misc
