@@ -6,7 +6,7 @@ import './App.css';
 // import ScrollToTop from './utils/ScrollToTop';
 import monstersService from './services/monsters'
 import { INITIAL_STATE, CATEGORIES } from './constants/data'
-import { StateType } from './types/types'
+import { ModeType, StateType } from './types/types'
 import Layout from './components/navigation/Layout'
 
 class App extends Component<{}, StateType> {
@@ -15,7 +15,7 @@ class App extends Component<{}, StateType> {
     this.state = INITIAL_STATE;
   }
 
-  setMode = (mode: "light" | "dark") => {
+  setMode = (mode: ModeType) => {
     this.setState({ mode: mode })
   }
 

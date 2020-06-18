@@ -1,7 +1,7 @@
 import {StateType } from '../types/types'
 
 const INITIAL_STATE: StateType = {
-    mode: "light",
+    mode: "dark",
     query: 'furry+monster',
     data: [],
 }

@@ -1,6 +1,5 @@
-//TODO: add some fancy transition when opening a new page, currently updating page feels unnatural
-
 // The purpose of this file is to integrate all styles in one place and reuse classes in various components
+import { ModeType } from '../types/types'
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 
@@ -18,7 +17,7 @@ const colorHoverDarker = 'rgba(0, 0, 0, 0.075)';
 
 // Wrapper for the function in order to pass type parameter. 
 // Requires defining 'const theme' in components which make use of it. See Layout.tsx
-const createTheme = (type: "dark" | "light" | undefined) => {
+const createTheme = (type: ModeType) => {
 
     let theme = createMuiTheme({
         // For more customization options see https://material-ui.com/customization/default-theme/

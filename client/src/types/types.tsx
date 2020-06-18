@@ -1,10 +1,8 @@
-// FIXME: Check why using Mode as type in App, Layout and styles/main generates type errors
-type Mode = {
-    mode: "light" | "dark" | undefined
-}
+
+type ModeType = "light" | "dark" | undefined
 
 interface StateType {
-    mode: Mode,
+    mode: ModeType,
     query: string,
     data: Array<{ title: string, src: string }>
 }
@@ -16,4 +14,4 @@ interface CommentType {
     body: string,
 }
 
-export type { Mode, StateType, CommentType }
+export type { ModeType, StateType, CommentType }
