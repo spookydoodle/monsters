@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
-import { useStyles, theme } from '../../styles/main';
+import { useStyles, createTheme } from '../../styles/main';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,17 +18,22 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Switch from '@material-ui/core/Switch';
 import { CATEGORIES } from '../../constants/data';
 
 
 interface Props {
   children: React.ReactChild,
+  mode: "light" | "dark" | undefined,
   changeQuery: any,
+  setMode: any,
 }
 
-const Layout = ({ children, changeQuery }: Props) => {
+const Layout = ({ children, mode, changeQuery, setMode }: Props) => {
   const classes = useStyles();
-  // const theme = useTheme();
+  const theme = createTheme(mode);
+
+  // Drawer functions
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -37,6 +42,17 @@ const Layout = ({ children, changeQuery }: Props) => {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  // Toggle mode light/dark
+  const [state, setState] = useState({
+    darkModeChecked: mode === "dark",
+  });
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const darkModeChecked = event.target.checked;
+    setState({ ...state, [event.target.name]: darkModeChecked });
+    setMode(darkModeChecked ? "dark" : "light");
   };
 
   return (
@@ -62,6 +78,12 @@ const Layout = ({ children, changeQuery }: Props) => {
             <Typography variant="h6" noWrap>
               Monsters Gallery
           </Typography>
+            <Switch
+              checked={state.darkModeChecked}
+              onChange={handleChange}
+              name="darkModeChecked"
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
           </Toolbar>
         </AppBar>
         <Drawer
@@ -82,7 +104,7 @@ const Layout = ({ children, changeQuery }: Props) => {
           <List>
             {CATEGORIES.map((text, index) => (
               <ListItem button key={text} onClick={changeQuery(text)}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
                 <ListItemText primary={text} />
               </ListItem>
             ))}

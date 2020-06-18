@@ -5,20 +5,24 @@ import Monsters from './pages/Monsters';
 import './App.css';
 // import ScrollToTop from './utils/ScrollToTop';
 import monstersService from './services/monsters'
+import { INITIAL_STATE, CATEGORIES } from './constants/data'
+import { StateType } from './types/types'
+import Layout from './components/navigation/Layout'
 
-class App extends Component<{}, { query: string, data: Array<{ title: string, src: string }> }> {
+class App extends Component<{}, StateType> {
   constructor(props: any) {
     super(props);
-    this.state = {
-      query: "furry+monster",
-      data: [],
-    };
+    this.state = INITIAL_STATE;
+  }
+
+  setMode = (mode: "light" | "dark") => {
+    this.setState({ mode: mode })
   }
 
   getMonsters = async () => {
-    // let res = await monstersService.getGoogleScrape('furry+monster');
+    // let res = await monstersService.getGoogleScrape(this.state.query);
     let res = await monstersService.getGoogleHTML(this.state.query);
-    // let res = await monstersService.getGoogleAPI('furry+monster');
+    // let res = await monstersService.getGoogleAPI(this.state.query);
     this.setState({ data: res })
   }
 
@@ -26,9 +30,7 @@ class App extends Component<{}, { query: string, data: Array<{ title: string, sr
     this.setState(state => {
       const data = [...state.data, ...list];
 
-      return {
-        data
-      }
+      return { data }
     })
   }
 
@@ -41,26 +43,28 @@ class App extends Component<{}, { query: string, data: Array<{ title: string, sr
   }
 
   render() {
-    const { query, data } = this.state;
+    const { mode, query, data } = this.state;
 
     return (
       <Router>
         {/* <ScrollToTop> */}
         <div className="App">
-          <Switch>
-            {/*
+          <Layout mode={this.state.mode} changeQuery={this.changeQuery} setMode={this.setMode}>
+            <Switch>
+              {/*
                 A Switch will iterate through all routes and return
                 on the first match.
                 The order matters - the most generic paths should
                 be at the very end.
               */}
-            <Route path="/monsters">
-              <Monsters query={query} data={data} changeQuery={this.changeQuery} />
-            </Route>
-            <Route path="/">
-              <Landing />
-            </Route>
-          </Switch>
+              <Route path="/monsters">
+                <Monsters query={query} data={data} />
+              </Route>
+              <Route path="/">
+                <Landing />
+              </Route>
+            </Switch>
+          </Layout>
         </div>
         {/* </ScrollToTop> */}
       </Router>

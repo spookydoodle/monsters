@@ -1,7 +1,7 @@
 //TODO: add some fancy transition when opening a new page, currently updating page feels unnatural
 
 // The purpose of this file is to integrate all styles in one place and reuse classes in various components
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 
 // Below components need to be imported to correctly overwrite styles with classes in useStyle
@@ -16,30 +16,115 @@ const color4 = '#6e6e6e'; // lighter black
 const colorHoverLighter = 'rgba(255, 255, 255, 0.075)';
 const colorHoverDarker = 'rgba(0, 0, 0, 0.075)';
 
-// Overwrite colors with custom color palette
-export const theme = createMuiTheme({
-    palette: {
-        primary: {
-            light: color3,
-            main: color1,
-            dark: color2,
-            contrastText: color4,
+// Wrapper for the function in order to pass type parameter. 
+// Requires defining 'const theme' in components which make use of it. See Layout.tsx
+const createTheme = (type: "dark" | "light" | undefined) => {
+
+    let theme = createMuiTheme({
+        // For more customization options see https://material-ui.com/customization/default-theme/
+        palette: {
+            type: type,
+            primary: {
+                light: "#FCBA04",
+                main: "#590004",
+                dark: "#250001",
+                // contrastText: "#fff",
+            },
+            secondary: {
+                light: "#F3F3F3",
+                main: "#FCBA04",
+                dark: "#590004",
+                // contrastText: color4,
+            },
+            common: {
+                black: "#000",
+                white: "#fff"
+            },
+            // background: {
+            //     paper: "#fff",
+            //     default: "#fafafa"
+            // },
+            error: {
+                light: "#e57373",
+                main: "#f44336",
+                dark: "#d32f2f",
+                contrastText: "#fff"
+            },
+            warning: {
+                light: "#ffb74d",
+                main: "#ff9800",
+                dark: "#f57c00",
+                contrastText: "#rgba(0, 0, 0, 0.87"
+            },
+            info: {
+                light: "#64b5f6",
+                main: "#2196f3",
+                dark: "#1976d2",
+                contrastText: "#fff"
+            },
+            success: {
+                light: "#81c784",
+                main: "#4caf50",
+                dark: "#388e3c",
+                contrastText: "#rgba(0, 0, 0, 0.87"
+            },
+            grey: {
+                50: "#fafafa",
+                100: "#f5f5f5",
+                200: "#eeeeee",
+                300: "#e0e0e0",
+                400: "#bdbdbd",
+                500: "#9e9e9e",
+                600: "#757575",
+                700: "#616161",
+                800: "#424242",
+                900: "#212121",
+                A100: "#d5d5d5",
+                A200: "#aaaaaa",
+                A400: "#303030",
+                A700: "#616161",
+            },
+            text: {
+                primary: "#590004",
+                secondary: "#250001",
+                disabled: "rgba(133, 30, 30, 0.38)",
+                hint: "rgba(0, 0, 0, 0.38)"
+            }
         },
-        secondary: {
-            main: color2,
-            contrastText: color4,
+        typography: {
+            fontFamily: [
+                '-apple-system',
+                'BlinkMacSystemFont',
+                '"Segoe UI"',
+                'Roboto',
+                '"Helvetica Neue"',
+                'Arial',
+                'sans-serif',
+                '"Apple Color Emoji"',
+                '"Segoe UI Emoji"',
+                '"Segoe UI Symbol"',
+            ].join(','),
+            fontSize: 12,   // Base font size to which variants are relative. Default material-ui is 16px
+            // Modify variants here if needed
+            // h6: {
+            //     fontSize: "0.5rem",
+            //     '@media (min-width:600px)': {
+            //       fontSize: '1rem',
+            //     },
+            // }
         },
-        text: {
-            primary: color1,
-            secondary: color4,
-        },
-    },
-});
+
+    });
+
+    theme = responsiveFontSizes(theme);
+
+    return theme
+}
 
 // Misc const used in styles
-const drawerWidth = 300;
+const drawerWidth = 240;
 
-export const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         /* 
             Display and size
@@ -120,15 +205,6 @@ export const useStyles = makeStyles((theme: Theme) =>
         /* 
             Texts
         */
-        textColorLight: {
-            color: color3,
-        },
-        textColorDark: {
-            color: color1,
-        },
-        textColor: {
-            color: color2,
-        },
         noDecoration: {
             textDecoration: 'none',
         },
@@ -233,3 +309,6 @@ export const useStyles = makeStyles((theme: Theme) =>
         },
     })
 );
+
+
+export { useStyles, createTheme };

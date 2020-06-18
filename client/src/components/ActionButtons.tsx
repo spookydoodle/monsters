@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStyles } from '../styles/main';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -26,7 +27,7 @@ export const ActionButtons = ({
         <React.Fragment>
             <IconButton style={{marginLeft: "auto"}} aria-label="add to favorites">
                 {/* <Typography variant="caption">{likes.length}</Typography> */}
-                <FavoriteBorderOutlinedIcon />
+                <FavoriteBorderOutlinedIcon color="primary" />
             </IconButton>
             {/* <IconButton aria-label="share">
                 <SaveAltIcon />
