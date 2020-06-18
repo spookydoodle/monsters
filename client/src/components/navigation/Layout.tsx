@@ -78,12 +78,15 @@ const Layout = ({ children, mode, changeQuery, setMode }: Props) => {
             <Typography variant="h6" noWrap>
               Monsters Gallery
           </Typography>
+          <Typography style={{marginLeft: "auto"}} variant="subtitle2" noWrap>
+              Dark Mode
             <Switch
               checked={state.darkModeChecked}
               onChange={handleChange}
               name="darkModeChecked"
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
+            </Typography>
           </Toolbar>
         </AppBar>
         <Drawer

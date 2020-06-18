@@ -19,11 +19,12 @@ class App extends Component<{}, StateType> {
     this.setState({ mode: mode })
   }
 
-  getMonsters = async () => {
-    // let res = await monstersService.getGoogleScrape(this.state.query);
-    let res = await monstersService.getGoogleHTML(this.state.query);
-    // let res = await monstersService.getGoogleAPI(this.state.query);
-    this.setState({ data: res })
+  getMonsters = () => {
+    const { getGoogleAPI, getGoogleHTML, getGoogleScrape } = monstersService;
+    const { query } = this.state;
+    // TODO: Check for received errors and run another method if the previous one failed
+    getGoogleHTML(query)
+      .then(res => this.setState({ data: res }))
   }
 
   addItems = (list: Array<({ title: string, src: string })>) => () => {
@@ -49,22 +50,23 @@ class App extends Component<{}, StateType> {
       <Router>
         {/* <ScrollToTop> */}
         <div className="App">
-          <Layout mode={this.state.mode} changeQuery={this.changeQuery} setMode={this.setMode}>
-            <Switch>
-              {/*
+
+          <Switch>
+            {/*
                 A Switch will iterate through all routes and return
                 on the first match.
                 The order matters - the most generic paths should
                 be at the very end.
               */}
-              <Route path="/monsters">
+            <Route path="/monsters">
+              <Layout mode={this.state.mode} changeQuery={this.changeQuery} setMode={this.setMode}>
                 <Monsters query={query} data={data} />
-              </Route>
-              <Route path="/">
-                <Landing />
-              </Route>
-            </Switch>
-          </Layout>
+              </Layout>
+            </Route>
+            <Route path="/">
+              <Landing />
+            </Route>
+          </Switch>
         </div>
         {/* </ScrollToTop> */}
       </Router>

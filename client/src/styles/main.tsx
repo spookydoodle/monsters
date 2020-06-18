@@ -1,4 +1,6 @@
-// The purpose of this file is to integrate all styles in one place and reuse classes in various components
+/* 
+    The purpose of this file is to integrate all styles in one place and reuse classes in various components
+*/
 import { ModeType } from '../types/types'
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
@@ -7,13 +9,13 @@ import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/co
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 
-// Custom palette - colors should be defined here and referenced in classes
-const color1 = '#1A1A1D'; // black
-const color2 = '#950740'; // dark purple
-const color3 = '#F0F0F0'; // light grey
-const color4 = '#6e6e6e'; // lighter black
-const colorHoverLighter = 'rgba(255, 255, 255, 0.075)';
-const colorHoverDarker = 'rgba(0, 0, 0, 0.075)';
+// // Custom palette - colors should be defined here and referenced in classes
+// const color1 = '#1A1A1D'; // black
+// const color2 = '#950740'; // dark purple
+// const color3 = '#F0F0F0'; // light grey
+// const color4 = '#6e6e6e'; // lighter black
+// const colorHoverLighter = 'rgba(255, 255, 255, 0.075)';
+// const colorHoverDarker = 'rgba(0, 0, 0, 0.075)';
 
 // Wrapper for the function in order to pass type parameter. 
 // Requires defining 'const theme' in components which make use of it. See Layout.tsx
@@ -21,6 +23,7 @@ const createTheme = (type: ModeType) => {
 
     let theme = createMuiTheme({
         // For more customization options see https://material-ui.com/customization/default-theme/
+        // TODO: Think if modifying default dark mode backgrounds makes sense, if yes create a separate color palette for dark
         palette: {
             type: type,
             primary: {
@@ -84,8 +87,8 @@ const createTheme = (type: ModeType) => {
                 A700: "#616161",
             },
             text: {
-                primary: "#590004",
-                secondary: "#250001",
+                primary: type === "light" ? "#590004" : "#B1B1B1",
+                secondary: type === "light" ? "#250001" : "#B1B1B1",
                 disabled: "rgba(133, 30, 30, 0.38)",
                 hint: "rgba(0, 0, 0, 0.38)"
             }
@@ -103,7 +106,8 @@ const createTheme = (type: ModeType) => {
                 '"Segoe UI Emoji"',
                 '"Segoe UI Symbol"',
             ].join(','),
-            fontSize: 12,   // Base font size to which variants are relative. Default material-ui is 16px
+            // Base font size to which variants are relative. Default material-ui is 16px
+            fontSize: 12,   
             // Modify variants here if needed
             // h6: {
             //     fontSize: "0.5rem",
@@ -129,7 +133,7 @@ const useStyles = makeStyles((theme: Theme) =>
             Display and size
         */
         main: {
-            backgroundColor: color3,
+            backgroundColor: theme.palette.primary.light,
             minWidth: '100%',
             minHeight: '100%',
         },
@@ -164,24 +168,9 @@ const useStyles = makeStyles((theme: Theme) =>
         /* 
             Containers
         */
-        bgDark: {
-            backgroundColor: color1,
-        },
-        bgColor: {
-            backgroundColor: color2,
-        },
-        bgLight: {
-            backgroundColor: color3,
-        },
-        bgHoverDarker: {
-            backgroundColor: colorHoverDarker,
-        },
-        bgHoverLighter: {
-            backgroundColor: colorHoverLighter,
-        },
         formPaper: {
             padding: theme.spacing(2),
-            color: color1,
+            color: theme.palette.primary.main,
             width: '33%',
             minWidth: '400px',
             marginTop: '3%',
@@ -304,7 +293,7 @@ const useStyles = makeStyles((theme: Theme) =>
             alignItems: 'center',
             padding: '5%',
             fontSize: '10em',
-            color: color1,
+            color: theme.palette.primary.light,
         },
     })
 );

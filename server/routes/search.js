@@ -25,6 +25,7 @@ const get = (app, path, method) => {
         const query = req.query.q;
         if (!query) res.status(400).send("Provide a valid query value using the parameter 'q'.")
         
+        // TODO: send status to client to resolve issue with google API limit error
         method(query)
             .then(results => res.status(200).send(results))
             .catch(err => res.status(500).send({ err: "Error retrieving data", message: err }));
