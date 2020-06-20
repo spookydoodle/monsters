@@ -23,9 +23,10 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Switch from '@material-ui/core/Switch';
 import Slide from '@material-ui/core/Slide';
+import Hidden from '@material-ui/core/Hidden';
+import Jumbotron from './Jumbotron';
 import { CATEGORIES } from '../../constants/data';
 import { ModeType } from '../../typings/types';
-import image from '../../img/Jumbotron.png';
 
 
 interface PropsHide {
@@ -147,30 +148,17 @@ const Layout = ({ children, mode, changeQuery, setMode }: Props) => {
           </List>
           {/* <Divider /> */}
         </Drawer>
-        <div className={classes.jumbotronImg} style={{ backgroundImage: `url(${image})` }} />
-        <main>
-          
-          <div className={classes.jumbotron}>
-            
-            <div className={classes.jumbotronContent}>
-              <Typography variant="h2">
-                Hello, stranger.
-          </Typography>
-              <Typography variant="h4">
-                Welcome to our world.
-          </Typography>
-              <Button style={{ display: "flex", justifyContent: "center" }} variant="contained" color="primary" >
-                Join
-      </Button>
-            </div>
-          </div>
-          <div
-            className={clsx(classes.content, {
-              [classes.contentShift]: open,
-            })}
-          >
-            {children}
-          </div>
+        <Jumbotron 
+          title="Hello, stranger" 
+          subtitle="Welcome to our world" 
+          action={{name: "Join the other side", path: "/register"}} 
+        />
+        <main className={clsx(classes.content, {
+          [classes.contentShift]: open,
+        })}
+        >
+          <div className={classes.jumbotron} />
+          {children}
         </main>
       </div>
     </ThemeProvider>

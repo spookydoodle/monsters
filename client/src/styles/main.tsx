@@ -208,21 +208,21 @@ const useStyles = makeStyles((theme: Theme) =>
             Images
         */
         jumbotron: {
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            marginLeft: 0,
             minHeight: "100vh",
-            width: `calc(100% - ${drawerWidth}px)`,
-            margin: "0 auto",
-            color: "#fff",
         },
         jumbotronContent: {
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
+            position: "absolute",
+            color: "#fff",
+            width: "100%",
+            height: "100vh",
+            // opacity: 0,
+            // animation: "1s slidefade 1s forwards",
+        },
+        '@keyframes slidefade': {
+            100: {
+                opacity: 1,
+                marginTop: 0,
+            }
         },
         jumbotronImg: {
             position: 'absolute',

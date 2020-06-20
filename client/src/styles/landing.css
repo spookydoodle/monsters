@@ -8,8 +8,7 @@
     justify-content: center;
     text-shadow: 1px 1px 6px rgba(117, 115, 111, 0.2);
     animation: colorAnim 40s ease-in-out infinite;
-    
-    
+    font-family: 'Arial',
 }
 
 @media (max-width: 1000px) {
