@@ -41,15 +41,15 @@ const createTheme = (type: ModeType) => {
         palette: {
             type: type,
             primary: {
-                light: "#FCBA04",
-                main: "#590004",
-                dark: "#250001",
-                // contrastText: "#fff",
+                light: "#9E0059",
+                main: "#540D6E",
+                dark: "#540D6E",
+                // contrastText: "#EAE2B7",
             },
             secondary: {
-                light: "#F3F3F3",
-                main: "#FCBA04",
-                dark: "#590004",
+                light: "#FFD23F",
+                main: "#EE4266",
+                dark: "#EE4266",
                 // contrastText: color4,
             },
             common: {
@@ -84,25 +84,25 @@ const createTheme = (type: ModeType) => {
                 dark: "#388e3c",
                 contrastText: "#rgba(0, 0, 0, 0.87"
             },
-            grey: {
-                50: "#fafafa",
-                100: "#f5f5f5",
-                200: "#eeeeee",
-                300: "#e0e0e0",
-                400: "#bdbdbd",
-                500: "#9e9e9e",
-                600: "#757575",
-                700: "#616161",
-                800: "#424242",
-                900: "#212121",
-                A100: "#d5d5d5",
-                A200: "#aaaaaa",
-                A400: "#303030",
-                A700: "#616161",
-            },
+            // grey: {
+            //     50: "#fafafa",
+            //     100: "#f5f5f5",
+            //     200: "#eeeeee",
+            //     300: "#e0e0e0",
+            //     400: "#bdbdbd",
+            //     500: "#9e9e9e",
+            //     600: "#757575",
+            //     700: "#616161",
+            //     800: "#424242",
+            //     900: "#212121",
+            //     A100: "#d5d5d5",
+            //     A200: "#aaaaaa",
+            //     A400: "#303030",
+            //     A700: "#616161",
+            // },
             text: {
-                primary: type === "light" ? "#590004" : "#B1B1B1",
-                secondary: type === "light" ? "#250001" : "#B1B1B1",
+                primary: type === "light" ? "#540D6E" : "#FFD23F",
+                secondary: type === "light" ? "#540D6E" : "#FFD23F",
                 disabled: "rgba(133, 30, 30, 0.38)",
                 hint: "rgba(0, 0, 0, 0.38)"
             }
@@ -204,7 +204,37 @@ const useStyles = makeStyles((theme: Theme) =>
         //         marginLeft: `${drawerWidth}px`,
         //     },
         // },
-
+        /* 
+            Images
+        */
+        jumbotron: {
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            marginLeft: 0,
+            minHeight: "100vh",
+            width: `calc(100% - ${drawerWidth}px)`,
+            margin: "0 auto",
+            color: "#fff",
+        },
+        jumbotronContent: {
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+        },
+        jumbotronImg: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundSize: 'cover',
+            backgroundPosition: "center",
+            zIndex: -1,
+            backgroundColor: '#000',    // backgroundImage imported as a component in Layout.tsx
+        },
         /* 
             Texts
         */
@@ -252,6 +282,9 @@ const useStyles = makeStyles((theme: Theme) =>
                 easing: theme.transitions.easing.sharp,
                 duration: theme.transitions.duration.leavingScreen,
             }),
+            // borderBottom: "none",
+            // boxShadow: "none !important",
+            // color: "#fff !important",
         },
         appBarShift: {
             width: `calc(100% - ${drawerWidth}px)`,
@@ -260,6 +293,9 @@ const useStyles = makeStyles((theme: Theme) =>
                 easing: theme.transitions.easing.easeOut,
                 duration: theme.transitions.duration.enteringScreen,
             }),
+        },
+        toolbar: { 
+            minHeight: "50px !important",
         },
         menuButton: {
             marginRight: theme.spacing(2),
@@ -278,8 +314,9 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             alignItems: 'center',
             padding: theme.spacing(0, 1),
-            // necessary for content to be below app bar
-            ...theme.mixins.toolbar,
+            // // necessary for content to be below app bar
+            // ...theme.mixins.toolbar,
+            minHeight: "50px !important",
             justifyContent: 'flex-end',
         },
         content: {
