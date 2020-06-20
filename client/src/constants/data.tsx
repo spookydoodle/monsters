@@ -1,4 +1,4 @@
-import {StateType } from '../types/types'
+import {StateType } from '../typings/types'
 import monstersService from '../services/monsters'
 
 // Define here state values to initialize the App with

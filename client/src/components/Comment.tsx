@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Typography from '@material-ui/core/Typography';
 // import { ObjectDeleteButton } from './Buttons';
-import { CommentType } from '../types/types';
+import { CommentType } from '../typings/types'; 
 
 
 interface Props {

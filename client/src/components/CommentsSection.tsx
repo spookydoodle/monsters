@@ -3,7 +3,7 @@ import { Box } from '@material-ui/core';
 import { CommentsList } from './CommentsList';
 // import { AddComment } from './forms/Comment';
 import CollapsePanel from './CollapsePanel';
-import { CommentType } from '../types/types';
+import { CommentType } from '../typings/types'; 
 
 interface Props {
     expanded: boolean,

@@ -20,7 +20,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Switch from '@material-ui/core/Switch';
 import { CATEGORIES } from '../../constants/data';
-import { ModeType } from '../../types/types'
+import { ModeType } from '../../typings/types'
 
 interface Props {
   children: React.ReactChild,

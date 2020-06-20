@@ -1,7 +1,7 @@
 /* 
     The purpose of this file is to integrate all styles in one place and reuse classes in various components
 */
-import { ModeType } from '../types/types'
+import { ModeType } from '../typings/types';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 
@@ -23,6 +23,20 @@ const createTheme = (type: ModeType) => {
 
     let theme = createMuiTheme({
         // For more customization options see https://material-ui.com/customization/default-theme/
+        // mixins: {
+        //     toolbar: {
+        //         // minHeight: "56px", // default
+        //         minHeight: "112px",
+        //         '@media (min-width:0px) and (orientation: landscape)': {
+        //             // minHeight: "48px", // default
+        //             minHeight: "96px",
+        //         },
+        //         '@media (min-width:600px)': {
+        //             // minHeight: "64px",   // default
+        //             minHeight: "128px",
+        //         }
+        //     },
+        // },
         // TODO: Think if modifying default dark mode backgrounds makes sense, if yes create a separate color palette for dark
         palette: {
             type: type,
@@ -94,20 +108,21 @@ const createTheme = (type: ModeType) => {
             }
         },
         typography: {
-            fontFamily: [
-                '-apple-system',
-                'BlinkMacSystemFont',
-                '"Segoe UI"',
-                'Roboto',
-                '"Helvetica Neue"',
-                'Arial',
-                'sans-serif',
-                '"Apple Color Emoji"',
-                '"Segoe UI Emoji"',
-                '"Segoe UI Symbol"',
-            ].join(','),
+            fontFamily: 'Raleway, sans-serif',
+            // [
+            //     '-apple-system',
+            //     'BlinkMacSystemFont',
+            //     '"Segoe UI"',
+            //     'Roboto',
+            //     '"Helvetica Neue"',
+            //     'Arial',
+            //     'sans-serif',
+            //     '"Apple Color Emoji"',
+            //     '"Segoe UI Emoji"',
+            //     '"Segoe UI Symbol"',
+            // ].join(','),
             // Base font size to which variants are relative. Default material-ui is 16px
-            fontSize: 12,   
+            fontSize: 12,
             // Modify variants here if needed
             // h6: {
             //     fontSize: "0.5rem",
@@ -152,7 +167,7 @@ const useStyles = makeStyles((theme: Theme) =>
         spacingRight: {
             marginRight: theme.spacing(2),
         },
-        height200: {
+        cardMedia: {
             height: '200px',
         },
         height250: {

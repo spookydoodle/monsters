@@ -44,13 +44,11 @@ const Monsters = ({ query, data }: Props) => {
                                 title={monster.title}
                                 subtitle={`No${parseInt(index.toString()) + 1}`}
                                 body={monster.title}
-                                mediaTop={<React.Fragment>
-                                    <CardMedia className={classes.height200} image={monster.src}>
+                                mediaTop={<CardMedia className={classes.cardMedia} image={monster.src}>
                                         {/* <IconButton style={{float: "right"}} aria-label="add to favorites">
                                                 <FavoriteBorderOutlinedIcon />
                                             </IconButton> */}
-                                    </CardMedia>
-                                </React.Fragment>}
+                                    </CardMedia>}
                                 menuItems={[{ name: 'Share monster' }]}
                             />
                         </Grid>
