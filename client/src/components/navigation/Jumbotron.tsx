@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
-import Slide from '@material-ui/core/Slide';
+// import Slide from '@material-ui/core/Slide';
 import Grow from '@material-ui/core/Grow';
 import image from '../../img/Jumbotron.png';
 
@@ -22,14 +22,16 @@ const Jumbotron = ({ title, subtitle, action, onClick }: Props) => {
     return (
         <React.Fragment>
             <div className={classes.jumbotronImg} style={{ backgroundImage: `url(${image})` }} />
+
             <Grow timeout={2000} in={true}>
                 <Grid
                     container
                     direction="row"
-                    justify="center"
+                    justify="space-between"
                     alignItems="center"
                     className={classes.jumbotronContent}
                 >
+
                     <Grid
                         container
                         direction="column"
@@ -37,7 +39,7 @@ const Jumbotron = ({ title, subtitle, action, onClick }: Props) => {
                         alignItems="center"
                         item
                         xs={12}
-                        sm={6}
+                        md={6}
                     >
                         <Typography variant="h2">
                             {title}
@@ -45,13 +47,13 @@ const Jumbotron = ({ title, subtitle, action, onClick }: Props) => {
                         <Typography variant="h4">
                             {subtitle}
                         </Typography>
-                        <Button style={{ margin: "15px" }} variant="contained" color="primary" >
+                        <Button style={{ margin: "15px" }} variant="contained" color="primary" href={action.path} >
                             {action.name}
                         </Button>
                     </Grid>
 
-                    <Hidden xsDown>
-                        <Grid item xs={12} sm={6}>
+                    <Hidden smDown>
+                        <Grid item xs={12} md={5}>
 
                         </Grid>
                     </Hidden>

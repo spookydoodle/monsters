@@ -101,8 +101,8 @@ const createTheme = (type: ModeType) => {
             //     A700: "#616161",
             // },
             text: {
-                primary: type === "light" ? "#540D6E" : "#FFD23F",
-                secondary: type === "light" ? "#540D6E" : "#FFD23F",
+                primary: type === "light" ? "#540D6E" : "#fff",
+                secondary: type === "light" ? "#540D6E" : "#fff",
                 disabled: "rgba(133, 30, 30, 0.38)",
                 hint: "rgba(0, 0, 0, 0.38)"
             }
@@ -141,6 +141,7 @@ const createTheme = (type: ModeType) => {
 
 // Misc const used in styles
 const drawerWidth = 240;
+const toolbarHeight = 50;
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -211,18 +212,10 @@ const useStyles = makeStyles((theme: Theme) =>
             minHeight: "100vh",
         },
         jumbotronContent: {
+            marginTop: `${toolbarHeight}px`,
             position: "absolute",
             color: "#fff",
-            width: "100%",
             height: "100vh",
-            // opacity: 0,
-            // animation: "1s slidefade 1s forwards",
-        },
-        '@keyframes slidefade': {
-            100: {
-                opacity: 1,
-                marginTop: 0,
-            }
         },
         jumbotronImg: {
             position: 'absolute',
@@ -234,6 +227,7 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundPosition: "center",
             zIndex: -1,
             backgroundColor: '#000',    // backgroundImage imported as a component in Layout.tsx
+            boxShadow: "0px 2px 4px -1px rgba(0,0, 0.2)"
         },
         /* 
             Texts
@@ -295,7 +289,7 @@ const useStyles = makeStyles((theme: Theme) =>
             }),
         },
         toolbar: { 
-            minHeight: "50px !important",
+            minHeight: `${toolbarHeight}px !important`,
         },
         menuButton: {
             marginRight: theme.spacing(2),
@@ -316,7 +310,7 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: theme.spacing(0, 1),
             // // necessary for content to be below app bar
             // ...theme.mixins.toolbar,
-            minHeight: "50px !important",
+            minHeight: `${toolbarHeight}px !important`,
             justifyContent: 'flex-end',
         },
         content: {

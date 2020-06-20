@@ -15,7 +15,7 @@ class App extends Component<{}, StateType> {
     this.state = INITIAL_STATE;
   }
 
-  setMode = (mode: ModeType) => {
+  setDarkMode = (mode: ModeType) => {
     this.setState({ mode: mode })
   }
 
@@ -58,9 +58,13 @@ class App extends Component<{}, StateType> {
                 be at the very end.
               */}
             <Route path="/monsters">
-              <Layout mode={this.state.mode} changeQuery={this.changeQuery} setMode={this.setMode}>
-                <Monsters query={query} data={data} />
-              </Layout>
+              <Monsters
+                query={query}
+                data={data}
+                mode={this.state.mode}
+                changeQuery={this.changeQuery}
+                setDarkMode={this.setDarkMode}
+              />
             </Route>
             <Route path="/">
               <Landing />
