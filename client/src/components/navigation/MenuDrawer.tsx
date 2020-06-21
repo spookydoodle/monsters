@@ -27,17 +27,6 @@ interface Props {
 const MenuDrawer = ({ theme, mode, setDarkMode, open, handleDrawerOpen, handleDrawerClose, changeQuery }: Props) => {
   const classes = useStyles();
 
-  // const [open, setOpen] = React.useState(false);
-
-  // const handleDrawerOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleDrawerClose = () => {
-  //   setOpen(false);
-  // };
-
-
   return (
     <Drawer
       className={classes.drawer}

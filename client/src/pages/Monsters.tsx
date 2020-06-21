@@ -5,6 +5,7 @@ import { MonsterCard } from '../components/Card'
 import { Container, Grid, CardMedia } from '@material-ui/core';
 import Layout from '../components/navigation/Layout';
 import { ModeType, MonsterType } from '../typings/types';
+// import jumboImage from '../img/Jumbotron.png';
 
 interface Props {
     query: string,
@@ -20,9 +21,13 @@ const Monsters = ({ query, data, mode, setDarkMode, changeQuery }: Props) => {
     // TODO: Handle timeout
     return (
         <Layout
-            title="Hello, stranger"
-            subtitle="Welcome to our world"
-            action={{ name: "Join the other side", path: "/register" }}
+            jumbotron={{
+                // img: jumboImage,
+                title: "Hello, stranger",
+                subtitle: "Welcome to our world",
+                action: { name: "Join the other side", path: "/register" },
+                onClick: undefined,
+            }}
             mode={mode}
             setDarkMode={setDarkMode}
             changeQuery={changeQuery}

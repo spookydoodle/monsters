@@ -6,29 +6,26 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Jumbotron from './Jumbotron';
 import MenuDrawer from './MenuDrawer';
 import NavBar from './NavBar';
-import { ModeType, JumboActionType } from '../../typings/types';
+import { ModeType, JumbotronType } from '../../typings/types';
 
-
+/*
+  This component should serve as a wrapper for all pages. 
+  Jumbotron is optional.
+*/
 interface Props {
   children: React.ReactChild,
-  title: string,
-  subtitle: string,
-  action: JumboActionType,
-  onClick?: any,
+  jumbotron?: JumbotronType,
   mode: ModeType,
-  changeQuery: any,
   setDarkMode: any,
+  changeQuery: any,
 }
 
 const Layout = ({ 
   children, 
-  title,
-  subtitle,
-  action,
-  onClick,
-  mode, 
-  changeQuery, 
-  setDarkMode 
+  jumbotron,
+  mode,  
+  setDarkMode,
+  changeQuery,
 }: Props) => {
   const classes = useStyles();
   const theme = createTheme(mode);
@@ -69,16 +66,12 @@ const Layout = ({
           handleDrawerClose={handleDrawerClose}
         />
 
-        <Jumbotron
-          title={title}
-          subtitle={subtitle}
-          action={action}
-        />
+        {jumbotron ? <Jumbotron {...jumbotron} /> : null }
         <main className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
         >
-          <div className={classes.jumbotron} />
+          <div className={jumbotron ? classes.jumbotron : classes.drawerHeader} />
 
           {children}
 

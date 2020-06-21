@@ -7,16 +7,16 @@ import Hidden from '@material-ui/core/Hidden';
 // import Slide from '@material-ui/core/Slide';
 import Grow from '@material-ui/core/Grow';
 import image from '../../img/Jumbotron.png';
+import { JumbotronType } from '../../typings/types';
 
 
-interface Props {
-    title: string,
-    subtitle: string,
-    action: { name: string, path: string },
-    onClick?: any,
-}
-
-const Jumbotron = ({ title, subtitle, action, onClick }: Props) => {
+const Jumbotron = ({
+    img = image,
+    title = "Hello",
+    subtitle = "Welcome",
+    action = { name: "Enter", path: "/" },
+    onClick
+}: JumbotronType) => {
     const classes = useStyles();
 
     return (
