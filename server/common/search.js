@@ -4,6 +4,7 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const keys = require('../constants/keys')
 
+// Info: https://dev.to/waqasabbasi/building-a-search-engine-api-with-node-express-and-puppeteer-using-google-search-4m21
 // TODO: pull additional keywords by which you can search by. These go to the 'chips' parameter ('chips=q:...g_1:...')
 // the same result as adding the additional keyword in front of the query
 const searchPuppeteer = async query => {

@@ -22,15 +22,17 @@ interface Props {
   handleDrawerOpen: any,
   handleDrawerClose: any,
   changeQuery: any,
+  variant?: "persistent" | undefined,
 }
 
-const MenuDrawer = ({ theme, mode, setDarkMode, open, handleDrawerOpen, handleDrawerClose, changeQuery }: Props) => {
+// TODO: add conditions dependent on the variant (persistent or not) for drawer classes and open/andleDrawerOpen/Close depe methods
+const MenuDrawer = ({ variant="persistent", theme, mode, setDarkMode, open, handleDrawerOpen, handleDrawerClose, changeQuery }: Props) => {
   const classes = useStyles();
 
   return (
     <Drawer
       className={classes.drawer}
-      variant="persistent"
+      variant={variant}
       anchor="left"
       open={open}
       classes={{

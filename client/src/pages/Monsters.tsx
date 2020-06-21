@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from '../styles/main';
 import { LinearBuffer } from '../components/Loading'
 import { MonsterCard } from '../components/Card'
-import { Container, Grid, CardMedia, Typography, Divider, Link, List, ListItem } from '@material-ui/core';
+import { Container, Grid, CardMedia, Typography, Divider, Link, List, ListItem, Hidden } from '@material-ui/core';
 import Layout from '../components/navigation/Layout';
 import { ModeType, MonsterType } from '../typings/types';
 // import jumboImage from '../img/Jumbotron.png';
@@ -34,20 +34,21 @@ const Monsters = ({ query, data, mode, setDarkMode, changeQuery }: Props) => {
             changeQuery={changeQuery}
         >
             {data && data.length > 0 ? (
-                <Grid container spacing={1}>
+                <Grid container spacing={2}>
                     {/* Left area - navigation menu */}
-                    <Grid item xs={2}>
-                        <Divider style={{ marginTop: "2em", marginBottom: "2em" }} />
+                    <Hidden mdDown>
+                        <Grid item xs={2}>
+                            <Divider style={{ marginTop: "2em", marginBottom: "2em" }} />
 
-                        <List>
-                            <ListItem component={Link} href="#intro">Intro</ListItem>
-                            <ListItem component={Link} href="#gallery">Gallery</ListItem>
-                            <ListItem component={Link} href="#outro">Outro</ListItem>
-                        </List>
-                    </Grid>
-
+                            <List>
+                                <ListItem component={Link} href="#intro">Intro</ListItem>
+                                <ListItem component={Link} href="#gallery">Gallery</ListItem>
+                                <ListItem component={Link} href="#outro">Outro</ListItem>
+                            </List>
+                        </Grid>
+                    </Hidden>
                     {/* Middle area - main content */}
-                    <Grid container item xs={8} spacing={2}>
+                    <Grid container item sm={12} md={10} lg={8} spacing={2}>
 
                         <Grid item id="intro" xs={12}>
                             <Divider style={{ marginTop: "2em", marginBottom: "2em" }} />
@@ -88,7 +89,7 @@ const Monsters = ({ query, data, mode, setDarkMode, changeQuery }: Props) => {
                                 style={{ marginTop: "1em" }}
                             >
                                 {data.map((monster: MonsterType, index: Number) =>
-                                    <Grid item xs={12} sm={6} md={4} lg={3} key={`g2-${index}`}>
+                                    <Grid item xs={12} sm={4} md={3} lg={3} key={`g2-${index}`}>
                                         <MonsterCard
                                             key={parseInt(index.toString())}
                                             user={"Alpha"}
@@ -133,15 +134,17 @@ const Monsters = ({ query, data, mode, setDarkMode, changeQuery }: Props) => {
                     </Grid>
 
                     {/* Right area - another navigation menu */}
-                    <Grid item xs={2}>
-                        <Divider style={{ marginTop: "2em", marginBottom: "2em" }} />
+                    <Hidden smDown>
+                        <Grid item xs={2}>
+                            <Divider style={{ marginTop: "2em", marginBottom: "2em" }} />
 
-                        <List>
-                            <ListItem component={Link} href="#intro">Intro</ListItem>
-                            <ListItem component={Link} href="#gallery">Gallery</ListItem>
-                            <ListItem component={Link} href="#outro">Outro</ListItem>
-                        </List>
-                    </Grid>
+                            <List>
+                                <ListItem component={Link} href="#intro">Intro</ListItem>
+                                <ListItem component={Link} href="#gallery">Gallery</ListItem>
+                                <ListItem component={Link} href="#outro">Outro</ListItem>
+                            </List>
+                        </Grid>
+                    </Hidden>
                 </Grid>
             ) : (
                     <LinearBuffer />
