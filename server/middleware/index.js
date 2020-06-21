@@ -24,8 +24,8 @@ middlewareObj.isUser = asyncMiddleware(async (req, res, next) => {
 
     // The object stored under `req.user` is a `User` instance.
     // Fetch the related `User` instance.
-    // TODO - consider storing userId in the `userAuth` model.
-    const loggedInUser = await User.findOne({ userAuth: loggedInUserId });
+    // TODO - consider storing userId in the `user` model.
+    const loggedInUser = await User.findOne({ user: loggedInUserId });
     const viewedUserId = req.params.id;
     if (loggedInUser._id != viewedUserId) {
         // Different user.
@@ -35,23 +35,23 @@ middlewareObj.isUser = asyncMiddleware(async (req, res, next) => {
     return next();
 });
 
-// middlewareObj.checkPostOwnership = function(req, res, next) {
+// middlewareObj.checkPostOwnership = (req, res, next) => {
 //     checkOwnership(req, res, next, Post, req.params.id, 'Post', '/sprints');
 // };
 
-// middlewareObj.checkProjectOwnership = function(req, res, next) {
+// middlewareObj.checkProjectOwnership = (req, res, next) => {
 //     checkOwnership(req, res, next, Project, req.params.id, 'Project', '/sprints');
 // };
 
-// middlewareObj.checkCommentOwnership = function(req, res, next) {
+// middlewareObj.checkCommentOwnership = (req, res, next) => {
 //     checkOwnership(req, res, next, Comment, req.params.id, 'Comment', '/sprints');
 // };
 
-// middlewareObj.checkLikeOwnership = function(req, res, next) {
+// middlewareObj.checkLikeOwnership = (req, res, next) => {
 //     checkOwnership(req, res, next, Like, req.params.id, 'Like', '/sprints');
 // };
 
-// Generic check ownershi
+// Generic check ownership
 const checkOwnership = (req, res, next, Object, id, objectName, redirectPath) => {
     if (req.isAuthenticated()) {
         Object.findById(id, function(err, object) {

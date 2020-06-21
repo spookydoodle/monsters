@@ -22,7 +22,7 @@ module.exports = app => {
         User.register(
             new User({
                 username: req.body.email,
-                publicName: req.body.publicName,
+                publicName: req.body.username,
             }),
             req.body.password
         )
