@@ -29,6 +29,7 @@ const Monsters = ({ query, data, mode, setDarkMode, changeQuery }: Props) => {
                 action: { name: "Join the other side", path: "/register" },
                 onClick: undefined,
             }}
+            // drawer={{ variant: "persistent" }}
             mode={mode}
             setDarkMode={setDarkMode}
             changeQuery={changeQuery}

@@ -6,7 +6,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Jumbotron from './Jumbotron';
 import MenuDrawer from './MenuDrawer';
 import NavBar from './NavBar';
-import { ModeType, JumbotronType } from '../../typings/types';
+import { DrawerType, ModeType, JumbotronType } from '../../typings/types';
+import { AppForm } from '../forms/AppForm';
 
 /*
   This component should serve as a wrapper for all pages. 
@@ -15,6 +16,7 @@ import { ModeType, JumbotronType } from '../../typings/types';
 interface Props {
   children: React.ReactChild,
   jumbotron?: JumbotronType,
+  drawer?: DrawerType, 
   mode: ModeType,
   setDarkMode: any,
   changeQuery: any,
@@ -23,6 +25,7 @@ interface Props {
 const Layout = ({ 
   children, 
   jumbotron,
+  drawer,
   mode,  
   setDarkMode,
   changeQuery,
@@ -41,6 +44,20 @@ const Layout = ({
     setOpen(false);
   };
 
+  const toggleDrawer = (open: boolean) => (
+    event: React.KeyboardEvent | React.MouseEvent,
+  ) => {
+    if (
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return;
+    }
+
+    setOpen(open);
+  };
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -57,19 +74,19 @@ const Layout = ({
         />
 
         <MenuDrawer
+          {...drawer}
           theme={theme}
           mode={mode}
           setDarkMode={setDarkMode}
           open={open}
           changeQuery={changeQuery}
-          handleDrawerOpen={handleDrawerOpen}
-          handleDrawerClose={handleDrawerClose}
+          toggleDrawer={toggleDrawer}
         />
 
         {jumbotron ? <Jumbotron {...jumbotron} /> : null }
-        <main className={clsx(classes.content, {
+        <main className={drawer && drawer.variant === "persistent" ? clsx(classes.content, {
           [classes.contentShift]: open,
-        })}
+        }) : classes.contentPadding}
         >
           <div className={jumbotron ? classes.jumbotron : classes.drawerHeader} />
 

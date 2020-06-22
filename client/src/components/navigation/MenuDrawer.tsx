@@ -10,7 +10,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { CATEGORIES } from '../../constants/data';
-import { ModeType } from '../../typings/types';
+import { DrawerVariantType, ModeType } from '../../typings/types';
 import DarkModeSwitch from './DarkModeSwitch';
 
 
@@ -19,14 +19,13 @@ interface Props {
   mode: ModeType,
   setDarkMode: any,
   open: boolean,
-  handleDrawerOpen: any,
-  handleDrawerClose: any,
+  toggleDrawer: any,
   changeQuery: any,
-  variant?: "persistent" | undefined,
+  variant?: DrawerVariantType,
 }
 
 // TODO: add conditions dependent on the variant (persistent or not) for drawer classes and open/andleDrawerOpen/Close depe methods
-const MenuDrawer = ({ variant="persistent", theme, mode, setDarkMode, open, handleDrawerOpen, handleDrawerClose, changeQuery }: Props) => {
+const MenuDrawer = ({ variant, theme, mode, setDarkMode, open, toggleDrawer, changeQuery }: Props) => {
   const classes = useStyles();
 
   return (
@@ -35,12 +34,13 @@ const MenuDrawer = ({ variant="persistent", theme, mode, setDarkMode, open, hand
       variant={variant}
       anchor="left"
       open={open}
+      onClose={toggleDrawer(false)}
       classes={{
         paper: classes.drawerPaper,
       }}
     >
       <div className={classes.drawerHeader}>
-        <IconButton onClick={handleDrawerClose}>
+        <IconButton onClick={toggleDrawer(false)}>
           {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </IconButton>
       </div>

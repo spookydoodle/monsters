@@ -313,6 +313,10 @@ const useStyles = makeStyles((theme: Theme) =>
             minHeight: `${toolbarHeight}px !important`,
             justifyContent: 'flex-end',
         },
+        contentPadding: {
+            flexGrow: 1,
+            padding: theme.spacing(3),
+        },
         content: {
             flexGrow: 1,
             padding: theme.spacing(3),
