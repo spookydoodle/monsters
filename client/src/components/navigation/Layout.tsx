@@ -7,7 +7,6 @@ import Jumbotron from './Jumbotron';
 import MenuDrawer from './MenuDrawer';
 import NavBar from './NavBar';
 import { DrawerType, ModeType, JumbotronType } from '../../typings/types';
-import { AppForm } from '../forms/AppForm';
 
 /*
   This component should serve as a wrapper for all pages. 

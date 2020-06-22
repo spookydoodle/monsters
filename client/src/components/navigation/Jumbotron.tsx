@@ -6,12 +6,12 @@ import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
 // import Slide from '@material-ui/core/Slide';
 import Grow from '@material-ui/core/Grow';
-import image from '../../img/Jumbotron.png';
+import jumbotronLight from '../../img/JumbotronLight.png';
 import { JumbotronType } from '../../typings/types';
 
 
 const Jumbotron = ({
-    img = image,
+    img = jumbotronLight,
     title = "Hello",
     subtitle = "Welcome",
     action = { name: "Enter", path: "/" },
@@ -21,7 +21,7 @@ const Jumbotron = ({
 
     return (
         <React.Fragment>
-            <div className={classes.jumbotronImg} style={{ backgroundImage: `url(${image})` }} />
+            <div className={classes.jumbotronImg} style={{ backgroundImage: `url(${img})` }} />
 
             <Grow timeout={2000} in={true}>
                 <Grid
@@ -53,7 +53,7 @@ const Jumbotron = ({
                     </Grid>
 
                     <Hidden smDown>
-                        <Grid item xs={12} md={5}>
+                        <Grid item md={5}>
 
                         </Grid>
                     </Hidden>

@@ -5,14 +5,30 @@ import Monsters from './pages/Monsters';
 import './App.css';
 // import ScrollToTop from './utils/ScrollToTop';
 import monstersService from './services/monsters'
-import { INITIAL_STATE, CATEGORIES } from './constants/data'
+import { INITIAL_STATE } from './constants/data'
 import { ModeType, StateType } from './typings/types'
-import Layout from './components/navigation/Layout'
+import authService from './services/authService';
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Logout from './pages/Logout'
+import { UserType } from './typings/types';
 
 class App extends Component<{}, StateType> {
   constructor(props: any) {
     super(props);
     this.state = INITIAL_STATE;
+  }
+
+  resolveWhoAmI = (user: UserType) => {
+    this.setState({ user, whoAmIRequestDone: true })
+  }
+
+  clearUser = () => {
+    this.setState({ user: undefined })
+  }
+
+  setUser = (user: UserType) => {
+    this.setState({ user })
   }
 
   setDarkMode = (mode: ModeType) => {
@@ -40,6 +56,10 @@ class App extends Component<{}, StateType> {
   }
 
   componentDidMount() {
+    authService.whoami().then(({ user }) => {
+      this.resolveWhoAmI(user);
+    });
+
     this.getMonsters()
   }
 
@@ -57,6 +77,26 @@ class App extends Component<{}, StateType> {
                 The order matters - the most generic paths should
                 be at the very end.
               */}
+            <Route path="/login">
+              <Login
+                onLoginSuccess={this.setUser}
+                // notificationsProps={notificationsProps}
+              />
+            </Route>
+            <Route path="/register">
+              <Register
+                user={this.state.user}
+                onSuccess={this.setUser}
+                // notificationsProps={notificationsProps}
+              />
+            </Route>
+            <Route path="/logout">
+              <Logout
+                user={this.state.user}
+                onSuccess={this.clearUser}
+                // notificationsProps={notificationsProps}
+              />
+            </Route>
             <Route path="/monsters">
               <Monsters
                 query={query}

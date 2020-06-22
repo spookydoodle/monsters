@@ -24,8 +24,8 @@ interface Props {
   variant?: DrawerVariantType,
 }
 
-// TODO: add conditions dependent on the variant (persistent or not) for drawer classes and open/andleDrawerOpen/Close depe methods
-const MenuDrawer = ({ variant, theme, mode, setDarkMode, open, toggleDrawer, changeQuery }: Props) => {
+// This component can be either temporary or persistent. By default temporary. use prop 'variant' to change to "persistent"
+const MenuDrawer = ({ variant = "temporary", theme, mode, setDarkMode, open, toggleDrawer, changeQuery }: Props) => {
   const classes = useStyles();
 
   return (

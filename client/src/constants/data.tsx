@@ -3,6 +3,8 @@ import monstersService from '../services/monsters'
 
 // Define here state values to initialize the App with
 const INITIAL_STATE: StateType = {
+    user: undefined,
+    whoAmIRequestDone: false,
     mode: "light",
     query: 'furry+monster',
     data: [],
