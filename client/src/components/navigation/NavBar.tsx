@@ -1,16 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 import { useStyles } from '../../styles/main';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import HideOnScroll from './HideOnScroll';
-import { ModeType } from '../../typings/types';
+import { ModeType, UserType } from '../../typings/types';
 
 
 interface Props {
+    user: UserType,
     name: string,
     mode: ModeType,
     setDarkMode: any,
@@ -20,7 +18,7 @@ interface Props {
 }
 
 
-const NavBar = ({ name, mode, setDarkMode, open, handleDrawerOpen, handleDrawerClose }: Props) => {
+const NavBar = ({ user, name, mode, setDarkMode, open, handleDrawerOpen, handleDrawerClose }: Props) => {
     const classes = useStyles();
 
     return (
@@ -44,6 +42,10 @@ const NavBar = ({ name, mode, setDarkMode, open, handleDrawerOpen, handleDrawerC
                     </IconButton>
                     <Typography variant="h6" noWrap>
                         {name}
+                    </Typography>
+
+                    <Typography style={{ marginLeft: "auto" }} variant="h6" noWrap>
+                        {user ? user.publicName : ''}
                     </Typography>
                 </Toolbar>
             </AppBar>

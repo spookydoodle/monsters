@@ -122,7 +122,7 @@ const createTheme = (type: ModeType) => {
             //     '"Segoe UI Symbol"',
             // ].join(','),
             // Base font size to which variants are relative. Default material-ui is 16px
-            fontSize: 12,
+            fontSize: 14,
             // Modify variants here if needed
             // h6: {
             //     fontSize: "0.5rem",

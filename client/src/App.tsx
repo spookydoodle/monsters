@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Landing from './pages/Landing';
+import Home from './pages/Home';
 import Monsters from './pages/Monsters';
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Logout from './pages/Logout'
 import './App.css';
 // import ScrollToTop from './utils/ScrollToTop';
 import monstersService from './services/monsters'
 import { INITIAL_STATE } from './constants/data'
 import { ModeType, StateType } from './typings/types'
 import authService from './services/authService';
-import Register from './pages/Register'
-import Login from './pages/Login'
-import Logout from './pages/Logout'
 import { UserType } from './typings/types';
 
 class App extends Component<{}, StateType> {
@@ -97,8 +98,27 @@ class App extends Component<{}, StateType> {
                 // notificationsProps={notificationsProps}
               />
             </Route>
+            {/* 
+              This is a protected page requiring authentication.
+              Users who are not logged in will be redirected to Login page
+            */}
             <Route path="/monsters">
               <Monsters
+                user={this.state.user}
+                query={query}
+                data={data}
+                mode={this.state.mode}
+                changeQuery={this.changeQuery}
+                setDarkMode={this.setDarkMode}
+              />
+            </Route>
+            {/* 
+              This is a page available for guests only. Logged users will be redirected to '/monsters'
+              It is meant to display general information about the app
+            */}
+            <Route path="/home">
+              <Home
+                user={this.state.user}
                 query={query}
                 data={data}
                 mode={this.state.mode}

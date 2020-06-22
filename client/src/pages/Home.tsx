@@ -1,5 +1,5 @@
 import React from 'react';
-import { authenticatedPage } from './authenticatedPage';
+import { guestPage } from './authenticatedPage';
 import { withPush } from '../utils/routingDecorators';
 import { useStyles } from '../styles/main';
 import { Container, Grid, CardMedia, Typography, Divider, Link, List, ListItem, Hidden } from '@material-ui/core';
@@ -20,7 +20,7 @@ interface Props {
     push: string,
 }
 
-const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props) => {
+const Home = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props) => {
     const classes = useStyles();
     const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
@@ -28,13 +28,13 @@ const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: P
     return (
         <Layout
             user={user}
-            // jumbotron={{
-            //     img: mode === "dark" ? jumbotronDark : jumbotronLight,
-            //     title: "Hello, stranger",
-            //     subtitle: "Welcome to our world",
-            //     action: { name: "Join the other side", path: "/register" },
-            //     onClick: undefined,
-            // }}
+            jumbotron={{
+                img: mode === "dark" ? jumbotronDark : jumbotronLight,
+                title: "Hello, stranger",
+                subtitle: "Welcome to our world",
+                action: { name: "Join the other side", path: "/register" },
+                onClick: undefined,
+            }}
             // drawer={{ variant: "persistent" }}
             mode={mode}
             setDarkMode={setDarkMode}
@@ -166,4 +166,5 @@ const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: P
     );
 }
 
-export default authenticatedPage(withPush(Monsters));
+// export default guestPage(withPush(Home));
+export default guestPage(withPush(Home));

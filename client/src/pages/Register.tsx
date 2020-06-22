@@ -3,7 +3,7 @@ import Layout from '../components/navigation/Layout';
 import AuthForm from '../components/forms/AuthForm';
 import authService from '../services/authService';
 import usersService from '../services/usersService';
-// import { interceptPage } from '../components/interceptPage';
+import { interceptPage } from './interceptPage';
 // import withShowError from '../components/withShowError';
 import { UserType } from '../typings/types';
 
@@ -35,7 +35,7 @@ const Register = ({ next, onSuccess, user }: Props) => {
                         .then(res => {
                             const { user } = res;
                             onSuccess(user);
-                            // next();
+                            next();
                         })
                         // .catch(showError);
             }}
@@ -44,4 +44,4 @@ const Register = ({ next, onSuccess, user }: Props) => {
 };
 
 // export default interceptPage(withShowError(Register));
-export default Register;
+export default interceptPage(Register);

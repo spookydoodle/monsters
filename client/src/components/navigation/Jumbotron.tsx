@@ -1,13 +1,8 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Hidden from '@material-ui/core/Hidden';
-// import Slide from '@material-ui/core/Slide';
-import Grow from '@material-ui/core/Grow';
-import jumbotronLight from '../../img/JumbotronLight.png';
+import { Box, Grid, Button, Typography, Hidden, Grow, Slide } from '@material-ui/core';
 import { JumbotronType } from '../../typings/types';
+import jumbotronLight from '../../img/JumbotronLight.png';
 
 
 const Jumbotron = ({
@@ -47,9 +42,14 @@ const Jumbotron = ({
                         <Typography variant="h4">
                             {subtitle}
                         </Typography>
-                        <Button style={{ margin: "15px" }} variant="contained" color="primary" href={action.path} >
-                            {action.name}
-                        </Button>
+                        <Box>
+                            <Button style={{ margin: "15px" }} variant="contained" color="primary" href={`${action.path}?next=/monsters`} >
+                                {action.name}
+                            </Button>
+                            <Button style={{ margin: "15px" }} variant="contained" color="primary" href={'/login?next=/monsters'} >
+                                Identify yourself
+                            </Button>
+                        </Box>
                     </Grid>
 
                     <Hidden smDown>

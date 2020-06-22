@@ -26,7 +26,7 @@ const Logout = ({ user, onSuccess }: Props) => {
     });
 
     if (logoutRequestDone) {
-        return <Redirect to={'/'} />;
+        return <Redirect to={'/home'} />;
     } else {
         return (
             // <Layout user={user} >

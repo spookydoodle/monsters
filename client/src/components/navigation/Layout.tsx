@@ -6,13 +6,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Jumbotron from './Jumbotron';
 import MenuDrawer from './MenuDrawer';
 import NavBar from './NavBar';
-import { DrawerType, ModeType, JumbotronType } from '../../typings/types';
+import { DrawerType, ModeType, JumbotronType, UserType } from '../../typings/types';
 
 /*
   This component should serve as a wrapper for all pages. 
   Jumbotron is optional.
 */
 interface Props {
+  user: UserType,
   children: React.ReactChild,
   jumbotron?: JumbotronType,
   drawer?: DrawerType, 
@@ -22,6 +23,7 @@ interface Props {
 }
 
 const Layout = ({ 
+  user,
   children, 
   jumbotron,
   drawer,
@@ -64,6 +66,7 @@ const Layout = ({
         <CssBaseline />
 
         <NavBar
+          user={user}
           name="Monsters Gallery"
           mode={mode}
           setDarkMode={setDarkMode}

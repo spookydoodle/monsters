@@ -3,7 +3,7 @@ import Layout from '../components/navigation/Layout';
 import AuthForm from '../components/forms/AuthForm';
 import authService from '../services/authService';
 import usersService from '../services/usersService';
-// import { interceptPage } from '../components/interceptPage';
+import { interceptPage } from './interceptPage';
 // import withShowError from '../components/withShowError';
 import { UserType } from '../typings/types';
 
@@ -39,7 +39,7 @@ const Login = ({ next, onLoginSuccess }: Props) => {
                     .login(password, email)
                     .then(({ user }) => {
                         onLoginSuccess(user);
-                        // next();
+                        next();
                     })
                     // .catch(showError);
             }}
@@ -48,4 +48,4 @@ const Login = ({ next, onLoginSuccess }: Props) => {
 };
 
 // export default interceptPage(withShowError(Login));
-export default Login;
+export default interceptPage(Login);
