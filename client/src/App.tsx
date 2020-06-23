@@ -84,6 +84,9 @@ class App extends Component<{}, StateType> {
               <Login
                 onLoginSuccess={this.setUser}
               // notificationsProps={notificationsProps}
+                mode={this.state.mode}
+                changeQuery={this.changeQuery}
+                setDarkMode={this.setDarkMode}
               />
             </Route>
             <Route path="/register">
@@ -91,6 +94,9 @@ class App extends Component<{}, StateType> {
                 user={this.state.user}
                 onSuccess={this.setUser}
               // notificationsProps={notificationsProps}
+                mode={this.state.mode}
+                changeQuery={this.changeQuery}
+                setDarkMode={this.setDarkMode}
               />
             </Route>
             <Route path="/logout">
@@ -98,6 +104,9 @@ class App extends Component<{}, StateType> {
                 user={this.state.user}
                 onSuccess={this.clearUser}
               // notificationsProps={notificationsProps}
+                mode={this.state.mode}
+                changeQuery={this.changeQuery}
+                setDarkMode={this.setDarkMode}
               />
             </Route>
             {/* 

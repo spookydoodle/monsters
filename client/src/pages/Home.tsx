@@ -38,7 +38,6 @@ const Home = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props
                 ],
                 onClick: undefined,
             }}
-            // drawer={{ variant: "persistent" }}
             mode={mode}
             setDarkMode={setDarkMode}
             changeQuery={changeQuery}

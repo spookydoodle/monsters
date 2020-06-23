@@ -8,6 +8,7 @@ import MenuDrawer from './MenuDrawer';
 import NavBar from './NavBar';
 import { DrawerType, ModeType, JumbotronType, UserType } from '../../typings/types';
 
+// TODO: remove changeQuery from here
 /*
   This component should serve as a wrapper for all pages. 
   Jumbotron is optional.
@@ -76,6 +77,7 @@ const Layout = ({
         />
 
         <MenuDrawer
+          user={user}
           {...drawer}
           theme={theme}
           mode={mode}

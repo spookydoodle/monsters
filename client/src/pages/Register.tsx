@@ -5,7 +5,7 @@ import authService from '../services/authService';
 import usersService from '../services/usersService';
 import { interceptPage } from '../utils/interceptPage';
 // import withShowError from '../components/withShowError';
-import { UserType } from '../typings/types';
+import { ModeType, UserType } from '../typings/types';
 
 /* 
     Users can log in using either their e-mail (passport 'username') or their publicName
@@ -13,33 +13,43 @@ import { UserType } from '../typings/types';
     by matched user's username (=email) 
  */
 interface Props {
+    user: UserType,
+    mode: ModeType,
+    setDarkMode: any,
+    changeQuery: any,
     next?: any,
     onSuccess: any,
-    user: UserType
 }
 
-const Register = ({ next, onSuccess, user }: Props) => {
+const Register = ({ user, mode, setDarkMode, changeQuery, next, onSuccess }: Props) => {
     // const { addNotification } = notificationsProps;
     return (
-        <AuthForm
-            register={true}
-            initialValues={{
-                username: '',
-                email: '',
-                password: '',
-            }
-            }
-            onSubmit={({ username, password, email }: { username: string, password: string, email: string }) => {
-                authService
+        <Layout
+            user={user}
+            mode={mode}
+            setDarkMode={setDarkMode}
+            changeQuery={changeQuery}
+        >
+            <AuthForm
+                register={true}
+                initialValues={{
+                    username: '',
+                    email: '',
+                    password: '',
+                }
+                }
+                onSubmit={({ username, password, email }: { username: string, password: string, email: string }) => {
+                    authService
                         .register(username, password, email)
                         .then(res => {
                             const { user } = res;
                             onSuccess(user);
                             next();
                         })
-                        // .catch(showError);
-            }}
-        />
+                    // .catch(showError);
+                }}
+            />
+        </Layout>
     );
 };
 

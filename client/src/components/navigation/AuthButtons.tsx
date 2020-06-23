@@ -5,12 +5,13 @@ import { Box, Button, List, ListItem, ListItemText, Typography } from '@material
 import { UserType } from '../../typings/types';
 import { PATHS } from '../../constants/data';
 
-const { landing, home, login, logout, register } = PATHS;
+const { home, login, logout, register } = PATHS;
 
+// Set text on auth buttons dependent on whether a user is logged in or not
 const getText = (user: UserType) => {
     return {
-        logout: !user ? 'Show your face' : 'Exit the planet',
-        login: !user ? 'Join the other side' : `Hey there, ${user.publicName}!`,
+        register: !user ? 'Join the other side' : `Hey there, ${user.publicName}!`,
+        login: !user ? 'Show your face' : 'Exit the planet',
     };
 };
 
@@ -20,22 +21,22 @@ interface Props {
 }
 
 export const AuthButtonsHorizontal = ({ user, style }: Props) => {
-    let loginButton = (
-        <Button color="secondary" href={!user ? '/login' : undefined}>
-            {getText(user).login}
+    let signUpButton = (
+        <Button color="inherit" href={!user ? register : undefined}>
+            {getText(user).register}
         </Button>
     );
 
-    let signUpButton = (
-        <Button variant="outlined" color="secondary" href={!user ? '/register' : '/logout'}>
-            {getText(user).logout}
+    let loginButton = (
+        <Button variant="outlined" color="secondary" href={!user ? login : logout}>
+            {getText(user).login}
         </Button>
     );
 
     return (
         <Box style={style}>
-            {loginButton}
             {signUpButton}
+            {loginButton}
         </Box>
     );
 };
@@ -43,24 +44,24 @@ export const AuthButtonsHorizontal = ({ user, style }: Props) => {
 export const AuthButtonsVertical = ({ user, style }: Props) => {
     const classes = useStyles();
 
+    let signUpButton = (
+        <ListItem button component={Link} to={!user ? register : ''}>
+            {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
+            <ListItemText primary={getText(user).register} />
+        </ListItem>
+    );
+
     let loginButton = (
-        <ListItem component={Link} to={!user ? login : landing}>
+        <ListItem button component={Link} to={!user ? login : logout}>
             {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
             <ListItemText primary={getText(user).login} />
         </ListItem>
     );
 
-    let signUpButton = (
-        <ListItem component={Link} to={!user ? register : logout}>
-            {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-            <ListItemText primary={getText(user).logout} />
-        </ListItem>
-    );
-
     return (
         <List style={style} >
-            {loginButton}
             {signUpButton}
+            {loginButton}
         </List>
     );
-};
+}; 

@@ -5,7 +5,7 @@ import authService from '../services/authService';
 import usersService from '../services/usersService';
 import { interceptPage } from '../utils/interceptPage';
 // import withShowError from '../components/withShowError';
-import { UserType } from '../typings/types';
+import { ModeType, UserType } from '../typings/types';
 
 /* 
     Users can log in using either their e-mail (passport 'username') or their publicName
@@ -13,37 +13,48 @@ import { UserType } from '../typings/types';
     by matched user's username (=email) 
  */
 interface Props {
+    user: UserType,
+    mode: ModeType,
+    setDarkMode: any,
+    changeQuery: any,
     next?: any,
     onLoginSuccess: any,
     // user: UserType,
 }
 
-const Login = ({ next, onLoginSuccess }: Props) => {
+const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess }: Props) => {
     // const { addNotification } = notificationsProps;
     return (
-        <AuthForm
-            register={false}
-            initialValues={{
-                email: '',
-                password: '',
-            }
-            }
-            onSubmit={async ({ password, email }: { password: string, email: string }) => {
-                if (email.indexOf('@') === -1)
-                    await usersService.getAll().then((users: Array<{ publicName: string, password: string, username: string }>) => {
-                        let matchedUsers = users.filter(user => user.publicName === email);
-                        email = matchedUsers.length > 0 ? matchedUsers[0].username : email;
-                    });
+        <Layout
+            user={user}
+            mode={mode}
+            setDarkMode={setDarkMode}
+            changeQuery={changeQuery}
+        >
+            <AuthForm
+                register={false}
+                initialValues={{
+                    email: '',
+                    password: '',
+                }
+                }
+                onSubmit={async ({ password, email }: { password: string, email: string }) => {
+                    if (email.indexOf('@') === -1)
+                        await usersService.getAll().then((users: Array<{ publicName: string, password: string, username: string }>) => {
+                            let matchedUsers = users.filter(user => user.publicName === email);
+                            email = matchedUsers.length > 0 ? matchedUsers[0].username : email;
+                        });
 
-                authService
-                    .login(password, email)
-                    .then(({ user }) => {
-                        onLoginSuccess(user);
-                        next();
-                    })
+                    authService
+                        .login(password, email)
+                        .then(({ user }) => {
+                            onLoginSuccess(user);
+                            next();
+                        })
                     // .catch(showError);
-            }}
-        />
+                }}
+            />
+        </Layout>
     );
 };
 

@@ -16,8 +16,10 @@ const Jumbotron = ({
 
     return (
         <React.Fragment>
+            {/* Background image */}
             <div className={classes.jumbotronImg} style={{ backgroundImage: `url(${img})` }} />
 
+            {/* Main content */}
             <Grow timeout={2000} in={true}>
                 <Grid
                     container

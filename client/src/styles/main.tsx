@@ -187,9 +187,8 @@ const useStyles = makeStyles((theme: Theme) =>
         formPaper: {
             padding: theme.spacing(2),
             color: theme.palette.primary.main,
-            width: '33%',
+            width: '35%',
             minWidth: '400px',
-            marginTop: '3%',
         },
         // content: {
         //     flexGrow: 1,
@@ -228,6 +227,13 @@ const useStyles = makeStyles((theme: Theme) =>
             zIndex: -1,
             backgroundColor: '#000',    // backgroundImage imported as a component in Layout.tsx
             boxShadow: "0px 2px 4px -1px rgba(0,0, 0.2)"
+        },
+        image: {
+            display: "block",
+            // height: "auto", 
+            width: "90%", 
+            borderRadius: "3px",
+            margin: "0 auto",
         },
         /* 
             Texts

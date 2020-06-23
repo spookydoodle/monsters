@@ -28,14 +28,6 @@ const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: P
     return (
         <Layout
             user={user}
-            // jumbotron={{
-            //     img: mode === "dark" ? jumbotronDark : jumbotronLight,
-            //     title: "Hello, stranger",
-            //     subtitle: "Welcome to our world",
-            //     action: { name: "Join the other side", path: "/register" },
-            //     onClick: undefined,
-            // }}
-            // drawer={{ variant: "persistent" }}
             mode={mode}
             setDarkMode={setDarkMode}
             changeQuery={changeQuery}

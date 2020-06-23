@@ -1,8 +1,10 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
 import { Formik, Form } from 'formik';
-import { Grid, Paper, Button } from '@material-ui/core';
+import { Grid, Paper, Button, Typography, Divider, Hidden } from '@material-ui/core';
+import image from '../../img/Register.png'
 
+// TODO: add a mechanism from router to make sure user wants to close the window if the forms are partially filled but not submitted
 interface Props {
     title: string,
     initialValues: object,
@@ -17,18 +19,29 @@ export const AppForm = ({ title, initialValues, onSubmit, children }: Props) => 
     return (
         <Formik initialValues={initialValues} onSubmit={onSubmit}>
             <Form>
-                <Grid container item xs={12} direction="column" alignItems="center" spacing={2}>
-                    <Grid item xs={12}>
-                        <h1 className={classes.center}>{title}</h1>
-                    </Grid>
+                <Grid container item direction="row" justify="center" alignItems="center" spacing={2}>
+                    <Hidden smDown>
+                        <Grid item xs={6}>
+                            <img className={classes.image} src={image} />
+                        </Grid>
+                    </Hidden>
 
-                    {children}
+                    <Grid container item xs={12} md={6} direction="column" justify="space-evenly" alignItems="center">
+                        <Grid item xs={12}>
+                            <Typography variant="h4">{title}</Typography>
+                        </Grid>
 
-                    <Grid className={classes.center} item xs={12}>
-                        <Button color="primary" type="submit">
-                            Submit
+                        <Divider variant="middle" />
+
+                        {children}
+
+                        {onSubmit ? <Grid item xs={6}>
+                            <Button style={{ marginTop: "1.2em", marginBottom: "1.2em" }} variant="contained" color="primary" type="submit">
+                                Submit
                         </Button>
+                        </Grid> : undefined}
                     </Grid>
+
                 </Grid>
             </Form>
         </Formik>
@@ -45,7 +58,7 @@ export const AppFormGrid = (props: Props) => {
             direction="row"
             justify="center"
             alignItems="center"
-            style={{minHeight: "80vh"}}
+            style={{ minHeight: "65vh" }}
         >
             <Paper className={classes.formPaper}>
                 <AppForm {...props} />

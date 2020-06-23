@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
 import Layout from '../components/navigation/Layout';
+import { AppFormGrid } from '../components/forms/AppForm';
 import authService from '../services/authService';
 // import withShowError from '../components/withShowError';
-import { UserType } from '../typings/types';
+import { ModeType, UserType } from '../typings/types';
+
+// TODO: sort this page out 
 
 interface Props {
-    onSuccess: any,
     user: UserType,
+    mode: ModeType,
+    setDarkMode: any,
+    changeQuery: any,
+    onSuccess: any,
 }
 
-const Logout = ({ user, onSuccess }: Props) => {
+const Logout = ({ user, mode, setDarkMode, changeQuery, onSuccess }: Props) => {
     // const { addNotification } = notificationsProps;
 
     const [logoutRequestDone, setLogoutRequestDone] = useState(false);
@@ -29,9 +36,18 @@ const Logout = ({ user, onSuccess }: Props) => {
         return <Redirect to={'/home'} />;
     } else {
         return (
-            // <Layout user={user} >
-                <h1>Logging you out</h1>
-            // </Layout>
+            <Layout
+                user={user}
+                mode={mode}
+                setDarkMode={setDarkMode}
+                changeQuery={changeQuery}
+            >
+                <AppFormGrid title="Bye, bye, monster!" initialValues={{}} onSubmit={undefined}>
+                    {/* <Typography variant="h4">
+                        Bye, bye, monster!
+                    </Typography> */}
+                </AppFormGrid>
+            </Layout>
         );
     }
 };

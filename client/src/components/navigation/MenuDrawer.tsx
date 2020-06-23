@@ -1,20 +1,17 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
 import { Theme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
+import { Drawer, List, ListItem, ListItemText, Divider, IconButton } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import { CATEGORIES } from '../../constants/data';
-import { DrawerVariantType, ModeType } from '../../typings/types';
 import DarkModeSwitch from './DarkModeSwitch';
+import { AuthButtonsVertical } from './AuthButtons';
+import { CATEGORIES } from '../../constants/data';
+import { DrawerVariantType, ModeType, UserType } from '../../typings/types';
 
 
 interface Props {
+  user: UserType,
   theme: Theme,
   mode: ModeType,
   setDarkMode: any,
@@ -25,7 +22,7 @@ interface Props {
 }
 
 // This component can be either temporary or persistent. By default temporary. use prop 'variant' to change to "persistent"
-const MenuDrawer = ({ variant = "temporary", theme, mode, setDarkMode, open, toggleDrawer, changeQuery }: Props) => {
+const MenuDrawer = ({ user, variant = "temporary", theme, mode, setDarkMode, open, toggleDrawer, changeQuery }: Props) => {
   const classes = useStyles();
 
   return (
@@ -56,6 +53,10 @@ const MenuDrawer = ({ variant = "temporary", theme, mode, setDarkMode, open, tog
         ))}
       </List>
       <Divider />
+
+      <AuthButtonsVertical user={user} />
+      <Divider />
+      
       <DarkModeSwitch style={{ marginLeft: "auto" }} mode={mode} setDarkMode={setDarkMode} />
 
     </Drawer>
