@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './App.css';
 import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Monsters from './pages/Monsters';
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Logout from './pages/Logout'
-import './App.css';
-// import ScrollToTop from './utils/ScrollToTop';
+import ScrollToTop from './utils/ScrollToTop';
+import authService from './services/authService';
 import monstersService from './services/monsters'
 import { INITIAL_STATE } from './constants/data'
-import { ModeType, StateType } from './typings/types'
-import authService from './services/authService';
-import { UserType } from './typings/types';
+import { ModeType, StateType, UserType } from './typings/types'
 
 class App extends Component<{}, StateType> {
   constructor(props: any) {
@@ -57,7 +56,7 @@ class App extends Component<{}, StateType> {
   }
 
   componentDidMount() {
-    authService.whoami().then(({ user }) => {
+    authService.whoAmI().then(({ user }) => {
       this.resolveWhoAmI(user);
     });
 
@@ -69,8 +68,7 @@ class App extends Component<{}, StateType> {
 
     return (
       <Router>
-        {/* <ScrollToTop> */}
-        <div className="App">
+        <ScrollToTop>
           <Switch>
             {/*
                 A Switch will iterate through all routes and return
@@ -78,24 +76,28 @@ class App extends Component<{}, StateType> {
                 The order matters - the most generic paths should
                 be at the very end.
               */}
+              
+            <Route exact path="/">
+              <Landing />
+            </Route>
             <Route path="/login">
               <Login
                 onLoginSuccess={this.setUser}
-                // notificationsProps={notificationsProps}
+              // notificationsProps={notificationsProps}
               />
             </Route>
             <Route path="/register">
               <Register
                 user={this.state.user}
                 onSuccess={this.setUser}
-                // notificationsProps={notificationsProps}
+              // notificationsProps={notificationsProps}
               />
             </Route>
             <Route path="/logout">
               <Logout
                 user={this.state.user}
                 onSuccess={this.clearUser}
-                // notificationsProps={notificationsProps}
+              // notificationsProps={notificationsProps}
               />
             </Route>
             {/* 
@@ -126,12 +128,8 @@ class App extends Component<{}, StateType> {
                 setDarkMode={this.setDarkMode}
               />
             </Route>
-            <Route path="/">
-              <Landing />
-            </Route>
           </Switch>
-        </div>
-        {/* </ScrollToTop> */}
+        </ScrollToTop>
       </Router>
     )
   }

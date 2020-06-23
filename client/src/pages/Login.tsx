@@ -3,7 +3,7 @@ import Layout from '../components/navigation/Layout';
 import AuthForm from '../components/forms/AuthForm';
 import authService from '../services/authService';
 import usersService from '../services/usersService';
-import { interceptPage } from './interceptPage';
+import { interceptPage } from '../utils/interceptPage';
 // import withShowError from '../components/withShowError';
 import { UserType } from '../typings/types';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { guestPage } from './authenticatedPage';
+import { guestPage } from '../utils/authenticatedPage';
 import { withPush } from '../utils/routingDecorators';
 import { useStyles } from '../styles/main';
 import { Container, Grid, CardMedia, Typography, Divider, Link, List, ListItem, Hidden } from '@material-ui/core';
@@ -32,7 +32,10 @@ const Home = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props
                 img: mode === "dark" ? jumbotronDark : jumbotronLight,
                 title: "Hello, stranger",
                 subtitle: "Welcome to our world",
-                action: { name: "Join the other side", path: "/register" },
+                actions: [
+                    { name: "Join the other side", path: "/register" },
+                    { name: "Show your true face", path: "/login" },
+                ],
                 onClick: undefined,
             }}
             // drawer={{ variant: "persistent" }}

@@ -21,4 +21,13 @@ const SEARCH_METHODS = {
     "HTML": getGoogleHTML,
 };
 
-export { INITIAL_STATE, CATEGORIES, SEARCH_METHODS }
+const PATHS = {
+    landing: "/",
+    home: "/home",
+    login: "/login",
+    logout: "/logout",
+    register: "/register",
+    main: "/monsters",
+}
+
+export { INITIAL_STATE, PATHS, CATEGORIES, SEARCH_METHODS }

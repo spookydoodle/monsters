@@ -1,11 +1,15 @@
 import React from 'react';
+import { useLocation } from "react-router-dom";
 import clsx from 'clsx';
 import { useStyles } from '../../styles/main';
-import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
+import { Box, AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import HideOnScroll from './HideOnScroll';
+import { AuthButtonsHorizontal } from './AuthButtons';
 import { ModeType, UserType } from '../../typings/types';
+import { PATHS } from '../../constants/data';
 
+const { landing, home, login, logout, register } = PATHS;
 
 interface Props {
     user: UserType,
@@ -20,6 +24,8 @@ interface Props {
 
 const NavBar = ({ user, name, mode, setDarkMode, open, handleDrawerOpen, handleDrawerClose }: Props) => {
     const classes = useStyles();
+    const location = useLocation();
+    const path = location.pathname; 
 
     return (
         <HideOnScroll>
@@ -31,22 +37,21 @@ const NavBar = ({ user, name, mode, setDarkMode, open, handleDrawerOpen, handleD
                 })}
             >
                 <Toolbar className={classes.toolbar}>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        className={clsx(classes.menuButton, open && classes.hide)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap>
-                        {name}
-                    </Typography>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            onClick={handleDrawerOpen}
+                            edge="start"
+                            className={clsx(classes.menuButton, open && classes.hide)}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h6" noWrap>
+                            {name}
+                        </Typography>
 
-                    <Typography style={{ marginLeft: "auto" }} variant="h6" noWrap>
-                        {user ? user.publicName : ''}
-                    </Typography>
+                        {/* Show auth buttons only on other pages than authentication or home (includes those buttons on the jumbotron) */}
+                        {![landing, home, login, logout, register].includes(path) ? <AuthButtonsHorizontal style={{ marginLeft: "auto" }} user={user} /> : undefined}
                 </Toolbar>
             </AppBar>
         </HideOnScroll>

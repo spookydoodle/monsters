@@ -1,4 +1,4 @@
-import { withLoginRequired, withoutLoginRequired } from '../utils/authDecorators';
+import { withLoginRequired, withoutLoginRequired } from './authDecorators';
 import { withRouter } from 'react-router';
 
 // HOC for pages requiring the user to be authenticated.

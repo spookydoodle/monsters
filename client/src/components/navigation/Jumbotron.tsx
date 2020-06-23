@@ -9,7 +9,7 @@ const Jumbotron = ({
     img = jumbotronLight,
     title = "Hello",
     subtitle = "Welcome",
-    action = { name: "Enter", path: "/" },
+    actions = [],
     onClick
 }: JumbotronType) => {
     const classes = useStyles();
@@ -43,12 +43,10 @@ const Jumbotron = ({
                             {subtitle}
                         </Typography>
                         <Box>
-                            <Button style={{ margin: "15px" }} variant="contained" color="primary" href={`${action.path}?next=/monsters`} >
+                            {actions ? actions.map((action, i) => 
+                            <Button key={i} style={{ margin: "15px" }} variant="contained" color="primary" href={`${action.path}?next=/monsters`} >
                                 {action.name}
-                            </Button>
-                            <Button style={{ margin: "15px" }} variant="contained" color="primary" href={'/login?next=/monsters'} >
-                                Identify yourself
-                            </Button>
+                            </Button>) : undefined}
                         </Box>
                     </Grid>
 

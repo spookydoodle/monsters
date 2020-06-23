@@ -1,5 +1,5 @@
 import React from 'react';
-import { authenticatedPage } from './authenticatedPage';
+import { authenticatedPage } from '../utils/authenticatedPage';
 import { withPush } from '../utils/routingDecorators';
 import { useStyles } from '../styles/main';
 import { Container, Grid, CardMedia, Typography, Divider, Link, List, ListItem, Hidden } from '@material-ui/core';
