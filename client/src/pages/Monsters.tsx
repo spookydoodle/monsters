@@ -2,7 +2,7 @@ import React from 'react';
 import { authenticatedPage } from '../utils/authenticatedPage';
 import { withPush } from '../utils/routingDecorators';
 import { useStyles } from '../styles/main';
-import { Container, Grid, CardMedia, Typography, Divider, Link, List, ListItem, Hidden } from '@material-ui/core';
+import { Container, Grid, CardMedia, Typography, Divider, Link, List, ListItem, ListItemText, Hidden } from '@material-ui/core';
 import { LinearBuffer } from '../components/Loading'
 import { MonsterCard } from '../components/Card'
 import Layout from '../components/navigation/Layout';
@@ -39,15 +39,16 @@ const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: P
                         <Hidden mdDown>
                             <Grid item xs={2}>
                                 <Divider style={{ marginTop: "2em", marginBottom: "2em" }} />
-
                                 <List>
-                                    <ListItem component={Link} href="#intro">Intro</ListItem>
-                                    <ListItem component={Link} href="#gallery">Gallery</ListItem>
-                                    <ListItem component={Link} href="#outro">Outro</ListItem>
-
-                                    <ListItem component={Link} href="/login">Login</ListItem>
-                                    <ListItem component={Link} href="/logout">Logout</ListItem>
-                                    <ListItem component={Link} href="/register">Register</ListItem>
+                                    {[
+                                        {name: "Intro", path: "#intro"},
+                                        {name: "Gallery", path: "#gallery"},
+                                        {name: "Outtro", path: "#outro"}
+                                    ].map((item, i) => 
+                                        <ListItem key={i} className={classes.pageNavList} button component={Link} href={item.path}>
+                                            <ListItemText primary={item.name} />
+                                        </ListItem>
+                                    )}
                                 </List>
                             </Grid>
                         </Hidden>
@@ -141,11 +142,16 @@ const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: P
                         <Hidden smDown>
                             <Grid item xs={2}>
                                 <Divider style={{ marginTop: "2em", marginBottom: "2em" }} />
-
                                 <List>
-                                    <ListItem component={Link} href="#intro">Intro</ListItem>
-                                    <ListItem component={Link} href="#gallery">Gallery</ListItem>
-                                    <ListItem component={Link} href="#outro">Outro</ListItem>
+                                    {[
+                                        {name: "Intro", path: "#intro"},
+                                        {name: "Gallery", path: "#gallery"},
+                                        {name: "Outtro", path: "#outro"}
+                                    ].map((item, i) => 
+                                        <ListItem key={i} className={classes.pageNavList} button component={Link} href={item.path}>
+                                            <ListItemText primary={item.name} />
+                                        </ListItem>
+                                    )}
                                 </List>
                             </Grid>
                         </Hidden>

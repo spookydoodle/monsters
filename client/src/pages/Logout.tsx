@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import { Typography } from '@material-ui/core';
+import { Typography, Fade } from '@material-ui/core';
 import Layout from '../components/navigation/Layout';
 import { AppFormGrid } from '../components/forms/AppForm';
 import authService from '../services/authService';
@@ -24,11 +24,13 @@ const Logout = ({ user, mode, setDarkMode, changeQuery, onSuccess }: Props) => {
 
     useEffect(() => {
         if (!logoutRequestDone) {
-            authService
+            setTimeout(() => {
+                authService
                 .logout()
                 .then(() => onSuccess())
                 // .catch(showError)
                 .finally(() => setLogoutRequestDone(true));
+            }, 3000);
         }
     });
 
@@ -42,10 +44,12 @@ const Logout = ({ user, mode, setDarkMode, changeQuery, onSuccess }: Props) => {
                 setDarkMode={setDarkMode}
                 changeQuery={changeQuery}
             >
-                <AppFormGrid title="Bye, bye, monster!" initialValues={{}} onSubmit={undefined}>
-                    {/* <Typography variant="h4">
-                        Bye, bye, monster!
-                    </Typography> */}
+                <AppFormGrid title="" initialValues={{}} onSubmit={undefined}>
+                    <Fade timeout={1000} in={true}>
+                        <Typography variant="h4">
+                            Bye, bye, monster!
+                        </Typography>
+                    </Fade>
                 </AppFormGrid>
             </Layout>
         );

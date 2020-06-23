@@ -9,7 +9,7 @@ interface Props {
     title: string,
     initialValues: object,
     onSubmit: any,
-    children: Array<React.ReactChild | undefined>,
+    children: React.ReactChild | Array<React.ReactChild | undefined>,
 }
 
 // Raw form to use in components with paper
@@ -19,24 +19,22 @@ export const AppForm = ({ title, initialValues, onSubmit, children }: Props) => 
     return (
         <Formik initialValues={initialValues} onSubmit={onSubmit}>
             <Form>
-                <Grid container item direction="row" justify="center" alignItems="center" spacing={2}>
+                <Grid container item direction="row" justify="space-between" alignItems="center" spacing={2}>
                     <Hidden smDown>
                         <Grid item xs={6}>
                             <img className={classes.image} src={image} />
                         </Grid>
                     </Hidden>
 
-                    <Grid container item xs={12} md={6} direction="column" justify="space-evenly" alignItems="center">
+                    <Grid container item xs={12} md={6} direction="column" justify="space-between" alignItems="center">
                         <Grid item xs={12}>
-                            <Typography variant="h4">{title}</Typography>
+                            <Typography variant="h4" gutterBottom>{title}</Typography>
                         </Grid>
-
-                        <Divider variant="middle" />
 
                         {children}
 
                         {onSubmit ? <Grid item xs={6}>
-                            <Button style={{ marginTop: "1.2em", marginBottom: "1.2em" }} variant="contained" color="primary" type="submit">
+                            <Button style={{ marginTop: "30px" }} variant="contained" color="primary" type="submit">
                                 Submit
                         </Button>
                         </Grid> : undefined}

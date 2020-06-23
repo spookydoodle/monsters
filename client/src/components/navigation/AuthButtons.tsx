@@ -10,7 +10,7 @@ const { home, login, logout, register } = PATHS;
 // Set text on auth buttons dependent on whether a user is logged in or not
 const getText = (user: UserType) => {
     return {
-        register: !user ? 'Join the other side' : `Hey there, ${user.publicName}!`,
+        register: !user ? 'Join the other side' : `Hey there, ${user.publicName}`,
         login: !user ? 'Show your face' : 'Exit the planet',
     };
 };
@@ -45,7 +45,7 @@ export const AuthButtonsVertical = ({ user, style }: Props) => {
     const classes = useStyles();
 
     let signUpButton = (
-        <ListItem button component={Link} to={!user ? register : ''}>
+        <ListItem button component={!user ? Link : Typography} to={!user ? register : ''}>
             {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
             <ListItemText primary={getText(user).register} />
         </ListItem>

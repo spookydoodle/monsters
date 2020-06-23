@@ -235,6 +235,14 @@ const useStyles = makeStyles((theme: Theme) =>
             borderRadius: "3px",
             margin: "0 auto",
         },
+        
+        /* 
+            Lists
+        */
+        pageNavList: {
+            paddingTop: "0px !important",
+            paddingBottom: "0px !important",
+        },
         /* 
             Texts
         */

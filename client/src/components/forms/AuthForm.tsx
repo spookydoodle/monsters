@@ -9,6 +9,7 @@ interface Props {
     onSubmit: any,
 }
 
+// TODO: Add checkbox for 'stay logged in' and use cookies for keeping auth
 const AuthForm = ({ register, initialValues, onSubmit }: Props) => {
     return (
         <AppFormGrid title={register ? 'Register' : 'Login'} initialValues={initialValues} onSubmit={onSubmit}>
@@ -17,7 +18,7 @@ const AuthForm = ({ register, initialValues, onSubmit }: Props) => {
                 as={TextField} 
                 name="email" 
                 id="auth-email" 
-                label="E-mail" 
+                label={`${!register ? 'Username / ' : ''}E-mail`}
                 xs={12} 
             />
 
