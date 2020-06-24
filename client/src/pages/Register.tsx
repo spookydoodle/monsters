@@ -39,6 +39,8 @@ const Register = ({ user, mode, setDarkMode, changeQuery, next, onSuccess }: Pro
                 }
                 }
                 onSubmit={({ username, password, email }: { username: string, password: string, email: string }) => {
+                    // TODO: handle submitDisabled in onSubmit
+
                     authService
                         .register(username, password, email)
                         .then(res => {

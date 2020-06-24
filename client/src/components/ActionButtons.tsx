@@ -7,9 +7,11 @@ import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutline
 import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
 import SaveAltIcon from '@material-ui/icons/SaveAlt';
 // import ShareIcon from '@material-ui/icons/ShareIcon';
+import { ModeType, UserType } from '../typings/types';
 
 interface Props {
-    user: string,
+    user: UserType,
+    mode: ModeType,
     comments: Array<object>,
     likes: Array<object>,
     handleExpandClick: any,
@@ -18,6 +20,7 @@ interface Props {
 
 export const ActionButtons = ({
     user,
+    mode,
     comments,
     likes,
     handleExpandClick,
@@ -27,7 +30,7 @@ export const ActionButtons = ({
         <React.Fragment>
             <IconButton style={{marginLeft: "auto"}} aria-label="add to favorites">
                 {/* <Typography variant="caption">{likes.length}</Typography> */}
-                <FavoriteBorderOutlinedIcon color="primary" />
+                <FavoriteBorderOutlinedIcon color={mode === "light" ? "primary" : undefined} />
             </IconButton>
             {/* <IconButton aria-label="share">
                 <SaveAltIcon />

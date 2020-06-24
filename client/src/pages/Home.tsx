@@ -107,7 +107,8 @@ const Home = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props
                                         <Grid item xs={12} sm={4} md={3} lg={3} key={`g2-${index}`}>
                                             <MonsterCard
                                                 key={parseInt(index.toString())}
-                                                user={"Alpha"}
+                                                user={user}
+                                                mode={mode}
                                                 object={{ _id: "1234" }}
                                                 model="Monster"
                                                 comments={[]}

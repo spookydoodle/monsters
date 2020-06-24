@@ -6,9 +6,11 @@ import { ActionButtons } from './ActionButtons';
 import { CardMenu } from './Menu';
 import { CommentsSection } from './CommentsSection';
 import { CommentType } from '../typings/types';
+import { ModeType, UserType } from '../typings/types';
 
 interface Props {
-    user: string,
+    user: UserType,
+    mode: ModeType,
     object: { _id: string },
     model: string,
     comments: Array<CommentType>,
@@ -26,6 +28,7 @@ interface Props {
 // Pass a component to mediaTop or mediaBottom depending on which location it is needed in
 export const MonsterCard = ({
     user,
+    mode,
     object,
     model,
     comments,
@@ -94,6 +97,7 @@ export const MonsterCard = ({
             <CardActions style={{ marginTop: "auto" }} disableSpacing>
                 <ActionButtons 
                     user={user} 
+                    mode={mode}
                     comments={comments} 
                     likes={likes} 
                     handleExpandClick={handleExpandClick} 
