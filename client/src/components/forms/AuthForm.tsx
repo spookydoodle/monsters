@@ -91,6 +91,8 @@ const AuthForm = ({ register, initialValues, onSubmit }: Props) => {
                 xs={12}
             />
 
+            
+
         </AppFormGrid>
     );
 };

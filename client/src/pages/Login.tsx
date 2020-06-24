@@ -31,29 +31,31 @@ const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess }: P
             setDarkMode={setDarkMode}
             changeQuery={changeQuery}
         >
-            <AuthForm
-                register={false}
-                initialValues={{
-                    email: '',
-                    password: '',
-                }
-                }
-                onSubmit={async ({ password, email }: { password: string, email: string }) => {
-                    if (email.indexOf('@') === -1)
-                        await usersService.getAll().then((users: Array<{ publicName: string, password: string, username: string }>) => {
-                            let matchedUsers = users.filter(user => user.publicName === email);
-                            email = matchedUsers.length > 0 ? matchedUsers[0].username : email;
-                        });
+            <React.Fragment>
+                <AuthForm
+                    register={false}
+                    initialValues={{
+                        email: '',
+                        password: '',
+                    }
+                    }
+                    onSubmit={async ({ password, email }: { password: string, email: string }) => {
+                        if (email.indexOf('@') === -1)
+                            await usersService.getAll().then((users: Array<{ publicName: string, password: string, username: string }>) => {
+                                let matchedUsers = users.filter(user => user.publicName === email);
+                                email = matchedUsers.length > 0 ? matchedUsers[0].username : email;
+                            });
 
-                    authService
-                        .login(password, email)
-                        .then(({ user }) => {
-                            onLoginSuccess(user);
-                            next();
-                        })
-                    // .catch(showError);
-                }}
-            />
+                        authService
+                            .login(password, email)
+                            .then(({ user }) => {
+                                onLoginSuccess(user);
+                                next();
+                            })
+                        // .catch(showError);
+                    }}
+                />
+            </React.Fragment>
         </Layout>
     );
 };

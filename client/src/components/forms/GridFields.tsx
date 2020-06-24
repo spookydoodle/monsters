@@ -2,14 +2,12 @@ import React from 'react';
 import { useStyles } from '../../styles/main';
 import { Field } from 'formik';
 import Grid, { GridSize } from '@material-ui/core/Grid';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
+import { InputLabel, MenuItem, FormControl, Typography } from '@material-ui/core';
 import { InputType } from '../../logic/types';
 
-interface FieldItem { 
-    _id: string, 
-    title: string 
+interface FieldItem {
+    _id: string,
+    title: string
 }
 
 interface Props {
@@ -18,6 +16,8 @@ interface Props {
     md?: GridSize,
     lg?: GridSize,
     xl?: GridSize,
+    error?: string | undefined,
+    touched?: boolean,
     name: string,
     id: string,
     label: string,
@@ -28,14 +28,20 @@ interface Props {
 }
 
 
-export const GridField = ({ xs, sm, md, lg, xl, ...fieldProps }: Props) => {
+export const GridField = ({ xs, sm, md, lg, xl, error, touched, ...fieldProps }: Props) => {
     const classes = useStyles();
 
     return (
-        // TODO: use Grid justify and alignItems 'center' properties instead of classes.flexCenter
-        <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-            <Field {...fieldProps} />
-        </Grid>
+        <React.Fragment>
+            <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
+                <Field {...fieldProps} />
+            </Grid>
+            {touched && error ?
+                <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
+                    <Typography color="error" variant="caption">{error}</Typography>
+                </Grid>
+                : undefined}
+        </React.Fragment>
     );
 };
 
@@ -45,10 +51,10 @@ export const GridFieldSelect = ({ id, label, items, xs, sm, md, lg, xl, ...field
 
     const menuItems = items
         ? items.map((item: FieldItem) => (
-              <MenuItem key={item._id} value={item._id}>
-                  {item.title}
-              </MenuItem>
-          ))
+            <MenuItem key={item._id} value={item._id}>
+                {item.title}
+            </MenuItem>
+        ))
         : null;
 
     return (
