@@ -30,7 +30,9 @@ export const AppForm = ({ title, initialValues, onSubmit, validate, validationSc
 
     const getValue = (obj: object, name: string) => {
         for (const [key, value] of Object.entries(obj || {})) {
-            return key === name ? value : undefined
+            if(key === name) {
+                return value;
+            }
         }
     }
 
@@ -53,7 +55,7 @@ export const AppForm = ({ title, initialValues, onSubmit, validate, validationSc
                             </Grid>
                         </Hidden>
 
-                        <Grid container item xs={12} md={6} direction="column" justify="space-between" alignItems="center">
+                        <Grid container item xs={12} md={6} direction="column" justify="space-between" >
                             <Grid item xs={12}>
                                 <Typography variant="h4" gutterBottom>{title}</Typography>
                             </Grid>

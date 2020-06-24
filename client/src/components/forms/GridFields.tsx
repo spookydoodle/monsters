@@ -34,11 +34,11 @@ export const GridField = ({ xs, sm, md, lg, xl, error, touched, ...fieldProps }:
     return (
         <React.Fragment>
             <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-                <Field {...fieldProps} />
+                <Field style={{width: "100%"}} {...fieldProps} />
             </Grid>
             {touched && error ?
                 <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-                    <Typography color="error" variant="caption">{error}</Typography>
+                    <Typography  style={{marginLeft: "auto"}} color="error" variant="caption">{error}</Typography>
                 </Grid>
                 : undefined}
         </React.Fragment>
