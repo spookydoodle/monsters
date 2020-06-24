@@ -5,7 +5,7 @@ import authService from '../services/authService';
 import usersService from '../services/usersService';
 import { interceptPage } from '../utils/interceptPage';
 // import withShowError from '../components/withShowError';
-import { ModeType, UserType } from '../typings/types';
+import { ModeType, UserType } from '../logic/types';
 
 /* 
     Users can log in using either their e-mail (passport 'username') or their publicName

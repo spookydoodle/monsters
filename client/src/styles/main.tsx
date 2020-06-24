@@ -1,7 +1,7 @@
 /* 
     The purpose of this file is to integrate all styles in one place and reuse classes in various components
 */
-import { ModeType } from '../typings/types';
+import { ModeType } from '../logic/types';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 

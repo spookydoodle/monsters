@@ -7,7 +7,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DarkModeSwitch from './DarkModeSwitch';
 import { AuthButtonsVertical } from './AuthButtons';
 import { CATEGORIES } from '../../constants/data';
-import { DrawerVariantType, ModeType, UserType } from '../../typings/types';
+import { DrawerVariantType, ModeType, UserType } from '../../logic/types';
 
 
 interface Props {

@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from '../../styles/main';
 import { Link } from 'react-router-dom';
 import { Box, Button, List, ListItem, ListItemText, Typography } from '@material-ui/core';
-import { UserType } from '../../typings/types';
+import { UserType } from '../../logic/types';
 import { PATHS } from '../../constants/data';
 
 const { home, login, logout, register } = PATHS;

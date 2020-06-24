@@ -6,7 +6,7 @@ import { Box, AppBar, Toolbar, Typography, IconButton } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
 import HideOnScroll from './HideOnScroll';
 import { AuthButtonsHorizontal } from './AuthButtons';
-import { ModeType, UserType } from '../../typings/types';
+import { ModeType, UserType } from '../../logic/types';
 import { PATHS } from '../../constants/data';
 
 const { landing, home, login, logout, register } = PATHS;

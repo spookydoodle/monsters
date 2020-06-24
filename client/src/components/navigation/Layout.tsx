@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Jumbotron from './Jumbotron';
 import MenuDrawer from './MenuDrawer';
 import NavBar from './NavBar';
-import { DrawerType, ModeType, JumbotronType, UserType } from '../../typings/types';
+import { DrawerType, ModeType, JumbotronType, UserType } from '../../logic/types';
 
 // TODO: remove changeQuery from here
 /*

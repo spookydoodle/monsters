@@ -5,7 +5,7 @@ import Grid, { GridSize } from '@material-ui/core/Grid';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import { InputType } from '../../typings/types';
+import { InputType } from '../../logic/types';
 
 interface FieldItem { 
     _id: string, 

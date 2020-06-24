@@ -7,7 +7,7 @@ import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutline
 import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
 import SaveAltIcon from '@material-ui/icons/SaveAlt';
 // import ShareIcon from '@material-ui/icons/ShareIcon';
-import { ModeType, UserType } from '../typings/types';
+import { ModeType, UserType } from '../logic/types';
 
 interface Props {
     user: UserType,

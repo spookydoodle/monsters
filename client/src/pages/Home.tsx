@@ -6,14 +6,14 @@ import { Container, Grid, CardMedia, Typography, Divider, Link, List, ListItem, 
 import { LinearBuffer } from '../components/Loading'
 import { MonsterCard } from '../components/Card'
 import Layout from '../components/navigation/Layout';
-import { ModeType, MonsterType, UserType } from '../typings/types';
+import { DataItemType, ModeType, MonsterType, UserType } from '../logic/types';
 import jumbotronDark from '../img/JumbotronDark.png';
 import jumbotronLight from '../img/JumbotronLight.png';
 
 interface Props {
     user: UserType,
     query: string,
-    data: Array<{ title: string, src: string }>
+    data: Array<DataItemType>
     mode: ModeType,
     setDarkMode: any,
     changeQuery: any,

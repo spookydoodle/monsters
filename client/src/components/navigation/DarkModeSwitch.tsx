@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useStyles } from '../../styles/main';
 import Typography from '@material-ui/core/Typography';
 import Switch from '@material-ui/core/Switch';
-import { ModeType } from '../../typings/types';
+import { ModeType } from '../../logic/types';
 
 
 interface Props {

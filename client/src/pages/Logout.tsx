@@ -5,7 +5,7 @@ import Layout from '../components/navigation/Layout';
 import { AppFormGrid } from '../components/forms/AppForm';
 import authService from '../services/authService';
 // import withShowError from '../components/withShowError';
-import { ModeType, UserType } from '../typings/types';
+import { ModeType, UserType } from '../logic/types';
 
 // TODO: sort this page out 
 

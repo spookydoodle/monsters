@@ -5,8 +5,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { ActionButtons } from './ActionButtons';
 import { CardMenu } from './Menu';
 import { CommentsSection } from './CommentsSection';
-import { CommentType } from '../typings/types';
-import { ModeType, UserType } from '../typings/types';
+import { CommentType } from '../logic/types';
+import { ModeType, UserType } from '../logic/types'; 
 
 interface Props {
     user: UserType,

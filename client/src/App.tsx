@@ -11,7 +11,7 @@ import ScrollToTop from './utils/ScrollToTop';
 import authService from './services/authService';
 import monstersService from './services/monsters'
 import { INITIAL_STATE } from './constants/data'
-import { ModeType, StateType, UserType } from './typings/types'
+import { ModeType, StateType, UserType } from './logic/types'
 
 class App extends Component<{}, StateType> {
   constructor(props: any) {
