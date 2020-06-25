@@ -25,7 +25,7 @@ interface Props {
 const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess, showError }: Props) => {
     const [error, setError] = useState('');
 
-    const setErrorMessage = (err: {message: string, request: any}) => {
+    const setErrorMessage = (err: { message: string, request: any }) => {
         console.log(Object.values(err))
         setError(err.request.response)
     }
@@ -37,32 +37,30 @@ const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess, sho
             setDarkMode={setDarkMode}
             changeQuery={changeQuery}
         >
-            <React.Fragment>
-                <AuthForm
-                    mode={mode}
-                    error={error}
-                    register={false}
-                    initialValues={{
-                        email: '',
-                        password: '',
-                    }}
-                    onSubmit={async ({ password, email }: { password: string, email: string }) => {
-                        if (email.indexOf('@') === -1)
-                            await usersService.getAll().then((users: Array<{ publicName: string, password: string, username: string }>) => {
-                                let matchedUsers = users.filter(user => user.publicName === email);
-                                email = matchedUsers.length > 0 ? matchedUsers[0].username : email;
-                            });
+            <AuthForm
+                mode={mode}
+                error={error}
+                register={false}
+                initialValues={{
+                    email: '',
+                    password: '',
+                }}
+                onSubmit={async ({ password, email }: { password: string, email: string }) => {
+                    if (email.indexOf('@') === -1)
+                        await usersService.getAll().then((users: Array<{ publicName: string, password: string, username: string }>) => {
+                            let matchedUsers = users.filter(user => user.publicName === email);
+                            email = matchedUsers.length > 0 ? matchedUsers[0].username : email;
+                        });
 
-                        authService
-                            .login(password, email)
-                            .then(({ user }) => {
-                                onLoginSuccess(user);
-                                next();
-                            })
-                            .catch(setErrorMessage);
-                    }}
-                />
-            </React.Fragment>
+                    authService
+                        .login(password, email)
+                        .then(({ user }) => {
+                            onLoginSuccess(user);
+                            next();
+                        })
+                        .catch(setErrorMessage);
+                }}
+            />
         </Layout>
     );
 };

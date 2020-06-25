@@ -10,13 +10,12 @@ import { ModeType } from '../../logic/types';
 // TODO: add a mechanism from router to make sure user wants to close the window if the forms are partially filled but not submitted
 interface Props {
     mode: ModeType,
-    title: string,
     initialValues: object,
     onSubmit?: any,
     validate?: any,
     validationSchema?: any,
-    error?: string,
     children: any,
+    child?: any,
 }
 
 /* 
@@ -25,7 +24,7 @@ interface Props {
 */
 // TODO: handle providing both validate and validationSchema / provide validate as a function
 // TODO: Display error messages
-export const AppForm = ({ mode, title, initialValues, onSubmit, validate, error, validationSchema, children }: Props) => {
+export const AppForm = ({ mode, initialValues, onSubmit, validationSchema, children }: Props) => {
     const classes = useStyles();
 
     // Disable submit button if errors appear, enable if all input values meet validation criteria
@@ -39,7 +38,6 @@ export const AppForm = ({ mode, title, initialValues, onSubmit, validate, error,
         }
     }
 
-    // TODO rearrange grid
     return (
         <Formik
             initialValues={initialValues}
@@ -48,9 +46,9 @@ export const AppForm = ({ mode, title, initialValues, onSubmit, validate, error,
             validationSchema={validationSchema}
         >
             {({ errors, touched }) => {
-                // setDisabled(validationSchema && (Object.values(touched).length === 0 || Object.values(errors).some(val => val !== "")))
                 return <Form>
                     <Grid item>
+                        {/* [].flat applied as 'children' might be an array of components (Login, Register) or  */}
                         {[children].flat().map((child: any, i: number) =>
                             child ? React.cloneElement(child, {
                                 key: i,
@@ -75,10 +73,15 @@ export const AppForm = ({ mode, title, initialValues, onSubmit, validate, error,
     );
 };
 
+interface GridFormProps {
+    children: React.ReactChild | Array<React.ReactChild | undefined> | undefined,
+    title?: string,
+    error?: string,
+}
+
 // Centered form wrapped in a grid on paper
-export const AppFormGrid = (props: Props) => {
+export const AppFormGrid = ({ children, title, error }: GridFormProps) => {
     const classes = useStyles();
-    const { title, error } = props;
 
     return (
         <Paper className={classes.formPaper}>
@@ -93,24 +96,24 @@ export const AppFormGrid = (props: Props) => {
                 <Grid
                     container
                     direction="column"
-                    justify="space-around"
+                    justify="space-evenly"
                     item
                     xs={12}
                     md={6}
                 >
-                    <Grid item>
+                    {title ? <Grid item>
                         <Typography align="center" variant="h4" gutterBottom>
                             {title}
                         </Typography>
-                    </Grid>
+                    </Grid> : undefined}
 
                     {error ? <Grid item>
-                        <Alert variant="filled" severity="error">
+                        <Alert style={{ margin: "1em auto" }} variant="filled" severity="error">
                             {error}
                         </Alert>
                     </Grid> : undefined}
-
-                    <AppForm {...props} />
+                    
+                    {children}
                 </Grid>
             </Grid>
         </Paper>

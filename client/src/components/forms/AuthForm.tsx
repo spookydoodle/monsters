@@ -1,7 +1,7 @@
 import React from 'react';
 import EmailValidator from 'email-validator';
 import * as Yup from 'yup';
-import { AppFormGrid } from './AppForm';
+import { AppFormGrid, AppForm } from './AppForm';
 import { GridField } from './GridFields';
 import { ModeType } from '../../logic/types';
 
@@ -28,40 +28,42 @@ const AuthForm = ({ mode, register, initialValues, onSubmit, error }: Props) => 
 
     return (
         <AppFormGrid
-            mode={mode}
             title={register ? 'Register' : 'Login'}
-            initialValues={initialValues}
-            onSubmit={onSubmit}
-            validationSchema={register ? validationSchema : undefined}
             error={error}
         >
-            <GridField
+            <AppForm
                 mode={mode}
-                required
-                name="email"
-                id="auth-email"
-                label={`${!register ? 'Username / ' : ''}E-mail`}
-            />
-
-            {register ? (
+                initialValues={initialValues}
+                onSubmit={onSubmit}
+                validationSchema={register ? validationSchema : undefined}
+            >
                 <GridField
                     mode={mode}
                     required
-                    name="username"
-                    id="auth-username"
-                    label="Username"
+                    name="email"
+                    id="auth-email"
+                    label={`${!register ? 'Username / ' : ''}E-mail`}
                 />
-            ) : undefined}
 
-            <GridField
-                mode={mode}
-                required
-                type="password"
-                name="password"
-                id="auth-password"
-                label="Password"
-            />
+                {register ? (
+                    <GridField
+                        mode={mode}
+                        required
+                        name="username"
+                        id="auth-username"
+                        label="Username"
+                    />
+                ) : undefined}
 
+                <GridField
+                    mode={mode}
+                    required
+                    type="password"
+                    name="password"
+                    id="auth-password"
+                    label="Password"
+                />
+            </AppForm>
         </AppFormGrid>
     );
 };

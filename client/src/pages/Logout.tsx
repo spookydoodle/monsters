@@ -42,7 +42,7 @@ const Logout = ({ user, mode, setDarkMode, changeQuery, onSuccess }: Props) => {
                 setDarkMode={setDarkMode}
                 changeQuery={changeQuery}
             >
-                <AppFormGrid mode={mode} title="" initialValues={{}}>
+                <AppFormGrid>
                     <Fade timeout={1000} in={true}>
                         <Typography variant="h4">
                             Bye, bye, monster!

@@ -22,7 +22,7 @@ interface Props {
 
 export const AuthButtonsHorizontal = ({ user, style }: Props) => {
     let signUpButton = (
-        <Button color="inherit" href={!user ? register : undefined}>
+        <Button style={{margin: "0 15px"}} color="inherit" href={!user ? register : undefined}>
             {getText(user).register}
         </Button>
     );
