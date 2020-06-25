@@ -1,11 +1,11 @@
 import React from 'react';
-import { useStyles } from '../styles/main';
+// import { useStyles } from '../styles/main';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+// import Typography from '@material-ui/core/Typography';
+// import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
-import SaveAltIcon from '@material-ui/icons/SaveAlt';
+// import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
+// import SaveAltIcon from '@material-ui/icons/SaveAlt';
 // import ShareIcon from '@material-ui/icons/ShareIcon';
 import { ModeType, UserType } from '../logic/types';
 

@@ -25,7 +25,7 @@ interface Props {
 const NavBar = ({ user, name, mode, setDarkMode, open, handleDrawerOpen, handleDrawerClose }: Props) => {
     const classes = useStyles();
     const location = useLocation();
-    const path = location.pathname; 
+    const path = location.pathname;
 
     return (
         <HideOnScroll>
@@ -37,21 +37,21 @@ const NavBar = ({ user, name, mode, setDarkMode, open, handleDrawerOpen, handleD
                 })}
             >
                 <Toolbar className={classes.toolbar}>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={handleDrawerOpen}
-                            edge="start"
-                            className={clsx(classes.menuButton, open && classes.hide)}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" noWrap>
-                            {name}
-                        </Typography>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={handleDrawerOpen}
+                        edge="start"
+                        className={clsx(classes.menuButton, open && classes.hide)}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" noWrap>
+                        {name}
+                    </Typography>
 
-                        {/* Show auth buttons only on other pages than authentication or home (includes those buttons on the jumbotron) */}
-                        {![landing, home, login, logout, register].includes(path) ? <AuthButtonsHorizontal style={{ marginLeft: "auto" }} user={user} /> : undefined}
+                    {/* Show auth buttons only on other pages than authentication or home (includes those buttons on the jumbotron) */}
+                    {![landing, home, login, logout, register].includes(path) ? <AuthButtonsHorizontal style={{ marginLeft: "auto" }} user={user} /> : undefined}
                 </Toolbar>
             </AppBar>
         </HideOnScroll>

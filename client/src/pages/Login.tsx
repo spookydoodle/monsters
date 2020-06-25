@@ -25,9 +25,9 @@ interface Props {
 const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess, showError }: Props) => {
     const [error, setError] = useState('');
 
-    const setErrorMessage = (err: {message: string}) => {
-        console.log(err.toString())
-        setError(err.message)
+    const setErrorMessage = (err: {message: string, request: any}) => {
+        console.log(Object.values(err))
+        setError(err.request.response)
     }
 
     return (
@@ -39,13 +39,13 @@ const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess, sho
         >
             <React.Fragment>
                 <AuthForm
+                    mode={mode}
                     error={error}
                     register={false}
                     initialValues={{
                         email: '',
                         password: '',
-                    }
-                    }
+                    }}
                     onSubmit={async ({ password, email }: { password: string, email: string }) => {
                         if (email.indexOf('@') === -1)
                             await usersService.getAll().then((users: Array<{ publicName: string, password: string, username: string }>) => {

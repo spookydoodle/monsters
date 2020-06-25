@@ -1,10 +1,18 @@
 import React from 'react';
 import { useStyles } from '../styles/main';
-import { Card, CardMedia, CardMediaTypeMap, CardHeader, CardContent, CardActions, IconButton, Typography } from '@material-ui/core';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { 
+    Card, 
+    // CardMedia, 
+    // CardMediaTypeMap, 
+    // CardHeader, 
+    CardContent, 
+    CardActions, 
+    // IconButton, 
+    Typography } from '@material-ui/core';
+// import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { ActionButtons } from './ActionButtons';
-import { CardMenu } from './Menu';
-import { CommentsSection } from './CommentsSection';
+// import { CardMenu } from './Menu';
+// import { CommentsSection } from './CommentsSection';
 import { CommentType } from '../logic/types';
 import { ModeType, UserType } from '../logic/types'; 
 
@@ -29,17 +37,17 @@ interface Props {
 export const MonsterCard = ({
     user,
     mode,
-    object,
-    model,
+    // object,
+    // model,
     comments,
     likes,
-    users,
+    // users,
     title,
-    subtitle,
+    // subtitle,
     body,
     mediaTop,
     mediaMiddle,
-    menuItems,
+    // menuItems,
     // updateStateData,
 }: Props) => {
     const classes = useStyles();
@@ -49,15 +57,15 @@ export const MonsterCard = ({
         setExpanded(!expanded);
     };
 
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    // const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
-    const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
+    // const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    //     setAnchorEl(event.currentTarget);
+    // };
 
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-    };
+    // const handleMenuClose = () => {
+    //     setAnchorEl(null);
+    // };
 
     return (
         <Card className={classes.card} >

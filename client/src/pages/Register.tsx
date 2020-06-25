@@ -23,9 +23,8 @@ interface Props {
 const Register = ({ user, mode, setDarkMode, changeQuery, next, onSuccess }: Props) => {
     const [error, setError] = useState('');
 
-    const setErrorMessage = (err: {message: string}) => {
-        console.log(err)
-        setError(err.message)
+    const setErrorMessage = (err: {message: string, request: any}) => {
+        setError(JSON.parse(err.request.response).err.message)
     }
 
     return (
@@ -36,16 +35,14 @@ const Register = ({ user, mode, setDarkMode, changeQuery, next, onSuccess }: Pro
             changeQuery={changeQuery}
         >
             <AuthForm
+                mode={mode}
                 register={true}
                 initialValues={{
                     username: '',
                     email: '',
                     password: '',
-                }
-                }
+                }}
                 onSubmit={({ username, password, email }: { username: string, password: string, email: string }) => {
-                    // TODO: handle submitDisabled in onSubmit
-
                     authService
                         .register(username, password, email)
                         .then(res => {

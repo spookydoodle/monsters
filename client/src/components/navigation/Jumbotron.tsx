@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
-import { Box, Grid, Button, Typography, Hidden, Grow, Slide } from '@material-ui/core';
+import { Box, Grid, Button, Typography, Hidden, Grow } from '@material-ui/core';
 import { JumbotronType } from '../../logic/types';
 import jumbotronLight from '../../img/JumbotronLight.png';
 

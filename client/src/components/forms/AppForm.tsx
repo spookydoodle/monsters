@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { useStyles } from '../../styles/main';
 import { Formik, Form } from 'formik';
-import { Grid, Paper, Button, Typography, Divider, Hidden } from '@material-ui/core';
+import { Grid, Paper, Button, Typography, Hidden } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import image from '../../img/Register.png'
-import { GridField } from './GridFields';
-import withValidationError from '../../utils/withValidationError';
+import { ModeType } from '../../logic/types';
 
 // const EmailValidator = _;
 // TODO: add a mechanism from router to make sure user wants to close the window if the forms are partially filled but not submitted
 interface Props {
+    mode: ModeType,
     title: string,
     initialValues: object,
-    onSubmit: any,
+    onSubmit?: any,
     validate?: any,
     validationSchema?: any,
     error?: string,
@@ -25,7 +25,7 @@ interface Props {
 */
 // TODO: handle providing both validate and validationSchema / provide validate as a function
 // TODO: Display error messages
-export const AppForm = ({ title, initialValues, onSubmit, validate, error, validationSchema, children }: Props) => {
+export const AppForm = ({ mode, title, initialValues, onSubmit, validate, error, validationSchema, children }: Props) => {
     const classes = useStyles();
 
     // Disable submit button if errors appear, enable if all input values meet validation criteria
@@ -49,58 +49,25 @@ export const AppForm = ({ title, initialValues, onSubmit, validate, error, valid
         >
             {({ errors, touched }) => {
                 // setDisabled(validationSchema && (Object.values(touched).length === 0 || Object.values(errors).some(val => val !== "")))
-                // console.log("Errors: ", errors)
-                // console.log("Touched: ", touched)
                 return <Form>
-                    <Grid
-                        container
-                        item
-                        spacing={2}
-                    >
-                        <Hidden smDown>
-                            <Grid item xs={6}>
-                                <img className={classes.image} src={image} />
-                            </Grid>
-                        </Hidden>
+                    <Grid item>
+                        {[children].flat().map((child: any, i: number) =>
+                            child ? React.cloneElement(child, {
+                                key: i,
+                                error: getValue(errors, child.props.name),
+                                touched: getValue(touched, child.props.name),
+                            }) : undefined
+                        )}
 
-                        <Grid
-                            container
-                            item
-                            xs={12}
-                            md={6}
-                            style={{ paddingRight: "20px" }}
+                        <Button
+                            disabled={submitDisabled}
+                            style={{ marginTop: "35px", width: "100%" }}
+                            variant={mode === "dark" ? "outlined" : "contained"}
+                            color={mode === "dark" ? undefined : "primary"}
+                            type="submit"
                         >
-                            <Grid item xs={12}>
-                                <Typography align="center" variant="h4" gutterBottom>{title}</Typography>
-                            </Grid>
-
-                            {error ? <Alert severity="error">{error}</Alert> : undefined}
-
-                            {/* {children} */}
-                            {children.map((child: any, i: number) =>
-                                child ?
-                                    // withValidationError(child, errors, touched)
-                                    React.cloneElement(child, {
-                                        key: i,
-                                        error: getValue(errors, child.props.name),
-                                        touched: getValue(touched, child.props.name),
-                                    })
-                                    : undefined
-                            )}
-
-                            {onSubmit ?
-                                <Grid item xs={12}>
-                                    <Button
-                                        // disabled={submitDisabled}
-                                        style={{ marginTop: "30px", width: "100%" }}
-                                        variant="contained" color="primary"
-                                        type="submit"
-                                    >
-                                        Submit
-                                    </Button>
-                                </Grid> : undefined}
-                        </Grid>
-
+                            Submit
+                            </Button>
                     </Grid>
                 </Form>
             }}
@@ -111,19 +78,41 @@ export const AppForm = ({ title, initialValues, onSubmit, validate, error, valid
 // Centered form wrapped in a grid on paper
 export const AppFormGrid = (props: Props) => {
     const classes = useStyles();
+    const { title, error } = props;
 
     return (
-        <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            style={{ minHeight: "65vh" }}
-            spacing={1}
-        >
-            <Paper className={classes.formPaper}>
-                <AppForm {...props} />
-            </Paper>
-        </Grid>
+        <Paper className={classes.formPaper}>
+            <Grid container direction="row" spacing={2}>
+
+                <Hidden smDown>
+                    <Grid item md={6}>
+                        <img className={classes.image} src={image} />
+                    </Grid>
+                </Hidden>
+
+                <Grid
+                    container
+                    direction="column"
+                    justify="space-around"
+                    item
+                    xs={12}
+                    md={6}
+                >
+                    <Grid item>
+                        <Typography align="center" variant="h4" gutterBottom>
+                            {title}
+                        </Typography>
+                    </Grid>
+
+                    {error ? <Grid item>
+                        <Alert variant="filled" severity="error">
+                            {error}
+                        </Alert>
+                    </Grid> : undefined}
+
+                    <AppForm {...props} />
+                </Grid>
+            </Grid>
+        </Paper>
     );
 };

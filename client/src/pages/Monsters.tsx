@@ -7,8 +7,8 @@ import { LinearBuffer } from '../components/Loading'
 import { MonsterCard } from '../components/Card'
 import Layout from '../components/navigation/Layout';
 import { ModeType, MonsterType, UserType } from '../logic/types';
-import jumbotronDark from '../img/JumbotronDark.png';
-import jumbotronLight from '../img/JumbotronLight.png';
+// import jumbotronDark from '../img/JumbotronDark.png';
+// import jumbotronLight from '../img/JumbotronLight.png';
 
 interface Props {
     user: UserType,
@@ -22,7 +22,7 @@ interface Props {
 
 const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props) => {
     const classes = useStyles();
-    const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
+    // const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
     // TODO: Handle timeout
     return (

@@ -36,7 +36,11 @@ class App extends Component<{}, StateType> {
   }
 
   getMonsters = () => {
-    const { getGoogleAPI, getGoogleHTML, getGoogleScrape } = monstersService;
+    const { 
+      // getGoogleAPI, 
+      getGoogleHTML, 
+      // getGoogleScrape 
+    } = monstersService;
     const { query } = this.state;
     // TODO: Check for received errors and run another method if the previous one failed
     getGoogleHTML(query)

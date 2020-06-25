@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from '../styles/main';
-import { Container, Typography, LinearProgress, CircularProgress } from '@material-ui/core';
+import { Typography, LinearProgress, CircularProgress } from '@material-ui/core';
 
 export const Loading = () => {
     const classes = useStyles();
@@ -25,7 +25,7 @@ export const Empty = () => {
 
 
 export const LinearBuffer = () => {
-    const classes = useStyles();
+    // const classes = useStyles();
     const [progress, setProgress] = React.useState(0);
     const [buffer, setBuffer] = React.useState(10);
   

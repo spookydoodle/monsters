@@ -1,9 +1,10 @@
 import React from 'react';
-import { useStyles } from '../../styles/main';
+import { createStyles, fade, Theme, ThemeProvider, withStyles, makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import { Field } from 'formik';
+import TextField from '@material-ui/core/TextField';
 import Grid, { GridSize } from '@material-ui/core/Grid';
 import { InputLabel, MenuItem, FormControl, Typography } from '@material-ui/core';
-import { InputType } from '../../logic/types';
+import { InputType, ModeType } from '../../logic/types';
 
 interface FieldItem {
     _id: string,
@@ -16,6 +17,7 @@ interface Props {
     md?: GridSize,
     lg?: GridSize,
     xl?: GridSize,
+    mode?: ModeType,
     error?: string | undefined,
     touched?: boolean,
     name: string,
@@ -27,16 +29,38 @@ interface Props {
     items?: Array<FieldItem>,
 }
 
+const DarkTextField = withStyles({
+    root: {
+      '& label.Mui-focused': {
+        color: 'rgba(255, 255, 255, 0.87)',
+      },
+      '& .MuiInput-underline:after': {
+        borderBottomColor: 'rgba(255, 255, 255, 0.87)',
+      },
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: 'rgba(255, 255, 255, 0.87)',
+        },
+        '&:hover fieldset': {
+          borderColor: 'rgba(255, 255, 255, 0.87)',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: 'rgba(255, 255, 255, 0.87)',
+        },
+      },
+    },
+  })(TextField);
 
-export const GridField = ({ xs, sm, md, lg, xl, error, touched, ...fieldProps }: Props) => {
-    const classes = useStyles();
+export const GridField = ({ xs, sm, md, lg, xl, error, touched, mode, ...fieldProps }: Props) => {
+    // const classes = useStyles();
 
     return (
-        <Grid xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
+        <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
             <Field
+                as={mode === "dark" ? DarkTextField : TextField}
                 fullWidth
-                // margin="dense"
-                error={touched && error}
+                margin="dense"
+                error={touched && error !== undefined}
                 helperText={touched && error ? error : undefined}
                 {...fieldProps}
             />
@@ -45,7 +69,7 @@ export const GridField = ({ xs, sm, md, lg, xl, error, touched, ...fieldProps }:
 };
 
 export const GridFieldSelect = ({ id, label, items, xs, sm, md, lg, xl, ...fieldProps }: Props) => {
-    const classes = useStyles();
+    // const classes = useStyles();
     const labelId = `${id}-label`;
 
     const menuItems = items

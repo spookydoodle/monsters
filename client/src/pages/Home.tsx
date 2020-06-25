@@ -22,7 +22,7 @@ interface Props {
 
 const Home = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props) => {
     const classes = useStyles();
-    const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
+    // const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
     // TODO: Handle timeout
     return (

@@ -41,28 +41,28 @@ const createTheme = (type: ModeType) => {
         palette: {
             type: type,
             primary: {
-                light: "#9E0059",
-                main: "#540D6E",
-                dark: "#540D6E",
+                light: "#B75D69",
+                main: "#372549",
+                dark: "#1A1423",
                 // contrastText: "#EAE2B7",
             },
             secondary: {
-                light: "#FFD23F",
-                main: "#EE4266",
-                dark: "#EE4266",
+                light: "#FF9B54",
+                main: "#CE4257",
+                dark: "#720026",
                 // contrastText: color4,
             },
             common: {
                 black: "#000",
                 white: "#fff"
             },
-            // background: {
-            //     paper: "#fff",
-            //     default: "#fafafa"
-            // },
+            background: {
+                paper: type === "light" ? "#fff" : "#372549",
+                default: type === "light" ? "#fafafa" : "#1A1423",
+            },
             error: {
                 light: "#e57373",
-                main: "#f44336",
+                main: "#CE4257",
                 dark: "#d32f2f",
                 contrastText: "#fff"
             },
@@ -188,9 +188,8 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: theme.spacing(2),
             color: theme.palette.primary.main,
             width: '50%',
-            minWidth: '600px',
-            // minHeight: "65vh",
-            // margin
+            minWidth: '400px',
+            margin: "0 auto"
         },
         // content: {
         //     flexGrow: 1,
