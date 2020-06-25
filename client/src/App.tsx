@@ -56,6 +56,7 @@ class App extends Component<{}, StateType> {
   }
 
   changeQuery = (name: string) => () => {
+    console.log(name)
     this.setState({ query: `${name}+furry+monster` }, () => this.getMonsters())
   }
 

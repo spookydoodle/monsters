@@ -15,6 +15,7 @@ const getValue = (obj: object, name: string) => {
     }
 }
 
+// Injects 'error' and 'touched' prop to a single child component
 export const withValidation = (child: React.ReactElement, errors: object, touched: object, i: number) =>
     React.cloneElement(child, {
         key: i,
@@ -22,8 +23,8 @@ export const withValidation = (child: React.ReactElement, errors: object, touche
         touched: getValue(touched, child.props.name),
     })
 
-
+// Injects 'error' and 'touched' prop to a group of component
 export const withValidationList = (children: Array<React.ReactElement>, errors: object, touched: object) =>
-    [children].flat().map((child: any, i: number) =>
+    [children].flat().map((child, i) =>
         child ? withValidation(child, errors, touched, i) : undefined
     )
