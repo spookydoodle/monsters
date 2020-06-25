@@ -1,5 +1,7 @@
 import qs from 'qs';
 import { withRouter } from 'react-router';
+import { PATHS } from '../constants/data';
+const { home } = PATHS;
 
 // Maps a react-router's `history` object to a simple `push` function.
 const historyToPush: any = (wrappedComponent: any) => (props: any) => {
@@ -15,7 +17,7 @@ export const withPush: any = (wrappedComponent: void) => withRouter(historyToPus
 // Should be applied to a component decorated with `withPush`.
 export const withNext: any = (wrappedComponent: any) => (props: any) => {
     const { location, push } = props;
-    const nextPath = qs.parse(location.search, { ignoreQueryPrefix: true }).next || '/home';
+    const nextPath = qs.parse(location.search, { ignoreQueryPrefix: true }).next || home;
     const next = () => push(nextPath);
     return wrappedComponent({ ...props, next });
 };

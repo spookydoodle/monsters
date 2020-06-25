@@ -5,6 +5,8 @@ import Layout from '../components/navigation/Layout';
 import { AppFormLayout } from '../components/forms/AppForm';
 import authService from '../services/authService';
 import { ModeType, UserType } from '../logic/types';
+import { PATHS } from '../constants/data';
+const { home } = PATHS;
 
 // TODO: sort this page out 
 
@@ -33,7 +35,7 @@ const Logout = ({ user, mode, setDarkMode, changeQuery, onSuccess }: Props) => {
     });
 
     if (logoutRequestDone) {
-        return <Redirect to={'/home'} />;
+        return <Redirect to={home} />;
     } else {
         return (
             <Layout

@@ -4,6 +4,8 @@ import '../styles/landing.css';
 // import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import { PATHS } from '../constants/data';
+const { home } = PATHS;
 
 const Landing = (props: any) => (
     <React.Fragment>
@@ -14,7 +16,7 @@ const Landing = (props: any) => (
                     noun | UK <VolumeUpIcon />
                     /ˈmɒn.stər/ | US <VolumeUpIcon /> /ˈmɑːn.stɚ/
                 </Typography>
-                <Link to={'/home'} className="btn-slideshow">
+                <Link to={home} className="btn-slideshow">
                 ENTER IF YOU DARE
                 </Link>
             </div>

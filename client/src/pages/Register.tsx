@@ -24,7 +24,7 @@ const Register = ({ user, mode, setDarkMode, changeQuery, next, onSuccess }: Pro
     const [error, setError] = useState('');
 
     const setErrorMessage = (err: {message: string, request: any}) => {
-        setError(JSON.parse(err.request.response).err.message)
+        setError(err.request.response)
     }
 
     return (

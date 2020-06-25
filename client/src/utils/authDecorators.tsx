@@ -1,10 +1,13 @@
 import { Redirect } from 'react-router-dom';
 import React from 'react';
+import { PATHS } from '../constants/data';
+const { login, main } = PATHS;
 
 // Renders the component if the user is logged in.
 // Redirects to the login page otherwise.
 export const withLoginRequired = (wrappedComponent: any) => (props: any) => {
     
+
     const {
         user,
         location: { pathname },
@@ -13,7 +16,7 @@ export const withLoginRequired = (wrappedComponent: any) => (props: any) => {
     if (user) {
         return wrappedComponent(props);
     } else {
-        return <Redirect to={{ pathname: '/login', search: `?next=${pathname}` }} />;
+        return <Redirect to={{ pathname: login, search: `?next=${pathname}` }} />;
     }
 };
 
@@ -27,6 +30,6 @@ export const withoutLoginRequired = (wrappedComponent: any) => (props: any) => {
     if (!user) {
         return wrappedComponent(props);
     } else {
-        return <Redirect to={{ pathname: '/monsters' }} />;
+        return <Redirect to={{ pathname: main }} />;
     }
 };

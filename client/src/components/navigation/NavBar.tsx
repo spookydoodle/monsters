@@ -8,7 +8,6 @@ import HideOnScroll from './HideOnScroll';
 import { AuthButtonsHorizontal } from './AuthButtons';
 import { ModeType, UserType } from '../../logic/types';
 import { PATHS } from '../../constants/data';
-
 const { landing, home, login, logout, register } = PATHS;
 
 interface Props {

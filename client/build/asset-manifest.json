@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/monsters/static/css/main.ace42ed4.chunk.css",
-    "main.js": "/monsters/static/js/main.8c4f9e73.chunk.js",
-    "main.js.map": "/monsters/static/js/main.8c4f9e73.chunk.js.map",
-    "runtime-main.js": "/monsters/static/js/runtime-main.6c4a148e.js",
-    "runtime-main.js.map": "/monsters/static/js/runtime-main.6c4a148e.js.map",
-    "static/js/2.faa01a82.chunk.js": "/monsters/static/js/2.faa01a82.chunk.js",
-    "static/js/2.faa01a82.chunk.js.map": "/monsters/static/js/2.faa01a82.chunk.js.map",
+    "main.css": "/monsters/static/css/main.6a3f9d67.chunk.css",
+    "main.js": "/monsters/static/js/main.7774cc97.chunk.js",
+    "main.js.map": "/monsters/static/js/main.7774cc97.chunk.js.map",
+    "runtime-main.js": "/monsters/static/js/runtime-main.f48c3991.js",
+    "runtime-main.js.map": "/monsters/static/js/runtime-main.f48c3991.js.map",
+    "static/js/2.c5fea7e0.chunk.js": "/monsters/static/js/2.c5fea7e0.chunk.js",
+    "static/js/2.c5fea7e0.chunk.js.map": "/monsters/static/js/2.c5fea7e0.chunk.js.map",
     "index.html": "/monsters/index.html",
-    "precache-manifest.ccd535ec00e5af5e42be9f63d93a2329.js": "/monsters/precache-manifest.ccd535ec00e5af5e42be9f63d93a2329.js",
+    "precache-manifest.2284f43688b83e07a3899fcf83d2ca71.js": "/monsters/precache-manifest.2284f43688b83e07a3899fcf83d2ca71.js",
     "service-worker.js": "/monsters/service-worker.js",
-    "static/css/main.ace42ed4.chunk.css.map": "/monsters/static/css/main.ace42ed4.chunk.css.map",
-    "static/js/2.faa01a82.chunk.js.LICENSE.txt": "/monsters/static/js/2.faa01a82.chunk.js.LICENSE.txt",
-    "static/media/landing.css": "/monsters/static/media/Landing_5.594422e3.png"
+    "static/css/main.6a3f9d67.chunk.css.map": "/monsters/static/css/main.6a3f9d67.chunk.css.map",
+    "static/js/2.c5fea7e0.chunk.js.LICENSE.txt": "/monsters/static/js/2.c5fea7e0.chunk.js.LICENSE.txt",
+    "static/media/JumbotronDark.png": "/monsters/static/media/JumbotronDark.026a1340.png",
+    "static/media/JumbotronLight.png": "/monsters/static/media/JumbotronLight.ce5987b4.png",
+    "static/media/landing.css": "/monsters/static/media/Landing_5.594422e3.png",
+    "static/media/Register.png": "/monsters/static/media/Register.f064e9ed.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.6c4a148e.js",
-    "static/js/2.faa01a82.chunk.js",
-    "static/css/main.ace42ed4.chunk.css",
-    "static/js/main.8c4f9e73.chunk.js"
+    "static/js/runtime-main.f48c3991.js",
+    "static/js/2.c5fea7e0.chunk.js",
+    "static/css/main.6a3f9d67.chunk.css",
+    "static/js/main.7774cc97.chunk.js"
   ]
 }

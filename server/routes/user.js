@@ -28,7 +28,7 @@ module.exports = app => {
         )
             .then(user => {
                 // Authenticate the user after registration.
-                req.login(user, err => console.log({ err }));
+                req.login(user);
 
                 // Send the created user object to the client.
                 return res.status(201).send({
@@ -36,16 +36,30 @@ module.exports = app => {
                     user,
                 });
             })
-            .catch(err => res.status(500).send({ err }))
+            .catch(err => {
+                res.status(500).send(Object.keys(err).includes("message") ? err.message : err)
+            })
     );
 
     // POST - Log in
-    app.post('/api/auth/login', passport.authenticate('local'), (req, res) => {
-        let user = req.user;
-        return res.status(200).send({
-            error: false,
-            user,
-        });
+    // Error messages are received in different formats in different scenarios, which was causing errors in client.
+    // For example when connection cannot be established or when user credentials are wrong
+    // Therefore needed to create a custom method
+    app.post('/api/auth/login', (req, res) => {
+        passport.authenticate('local', (err, user) => {
+            if (err) {
+                res.status(500).send(err)
+            }
+            else if (!user) {
+                res.status(401).send("Wrong username or password")
+            }
+            else {
+                res.status(200).send({
+                    error: false,
+                    user,
+                })
+            }
+        })(req, res)
     });
 
     // Log Out
@@ -74,7 +88,7 @@ module.exports = app => {
             ...req.body,
             edited: Date.now(),
         };
-        
+
         User.findByIdAndUpdate(id, user)
             .then(user => {
                 res.status(200).send({ error: false, user });

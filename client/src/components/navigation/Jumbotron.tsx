@@ -3,6 +3,8 @@ import { useStyles } from '../../styles/main';
 import { Box, Grid, Button, Typography, Hidden, Grow } from '@material-ui/core';
 import { JumbotronType } from '../../logic/types';
 import jumbotronLight from '../../img/JumbotronLight.png';
+import { PATHS } from '../../constants/data';
+const { main } = PATHS;
 
 
 const Jumbotron = ({
@@ -46,7 +48,7 @@ const Jumbotron = ({
                         </Typography>
                         <Box>
                             {actions ? actions.map((action, i) => 
-                            <Button key={i} style={{ margin: "15px" }} variant="contained" color="primary" href={`${action.path}?next=/monsters`} >
+                            <Button key={i} style={{ margin: "15px" }} variant="contained" color="primary" href={`${action.path}?next=${main}`} >
                                 {action.name}
                             </Button>) : undefined}
                         </Box>

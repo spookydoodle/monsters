@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Landing from './pages/Landing';
 import Home from './pages/Home';
@@ -10,8 +10,9 @@ import Logout from './pages/Logout'
 import ScrollToTop from './utils/ScrollToTop';
 import authService from './services/authService';
 import monstersService from './services/monsters'
-import { INITIAL_STATE } from './constants/data'
+import { INITIAL_STATE, PATHS} from './constants/data'
 import { ModeType, StateType, UserType } from './logic/types'
+import { getData } from './services/dummyData';
 
 class App extends Component<{}, StateType> {
   constructor(props: any) {
@@ -36,15 +37,16 @@ class App extends Component<{}, StateType> {
   }
 
   getMonsters = () => {
-    const { 
+    const {
       // getGoogleAPI, 
-      getGoogleHTML, 
+      getGoogleHTML,
       // getGoogleScrape 
     } = monstersService;
     const { query } = this.state;
     // TODO: Check for received errors and run another method if the previous one failed
     getGoogleHTML(query)
       .then(res => this.setState({ data: res }))
+      .catch(err => this.setState({ data: getData(query) || [] }))
   }
 
   addItems = (list: Array<({ title: string, src: string })>) => () => {
@@ -56,7 +58,6 @@ class App extends Component<{}, StateType> {
   }
 
   changeQuery = (name: string) => () => {
-    console.log(name)
     this.setState({ query: `${name}+furry+monster` }, () => this.getMonsters())
   }
 
@@ -70,6 +71,7 @@ class App extends Component<{}, StateType> {
 
   render() {
     const { mode, query, data } = this.state;
+    const { root, landing, home, main, login, logout, register } = PATHS;
 
     return (
       <Router>
@@ -81,34 +83,36 @@ class App extends Component<{}, StateType> {
                 The order matters - the most generic paths should
                 be at the very end.
               */}
-              
-            <Route exact path="/">
+            <Route exact path={root}>
+              <Redirect to={landing} />
+            </Route>
+            <Route exact path={landing}>
               <Landing />
             </Route>
-            <Route path="/login">
+            <Route path={login}>
               <Login
                 onLoginSuccess={this.setUser}
-              // notificationsProps={notificationsProps}
+                // notificationsProps={notificationsProps}
                 mode={this.state.mode}
                 changeQuery={this.changeQuery}
                 setDarkMode={this.setDarkMode}
               />
             </Route>
-            <Route path="/register">
+            <Route path={register}>
               <Register
                 user={this.state.user}
                 onSuccess={this.setUser}
-              // notificationsProps={notificationsProps}
+                // notificationsProps={notificationsProps}
                 mode={this.state.mode}
                 changeQuery={this.changeQuery}
                 setDarkMode={this.setDarkMode}
               />
             </Route>
-            <Route path="/logout">
+            <Route path={logout}>
               <Logout
                 user={this.state.user}
                 onSuccess={this.clearUser}
-              // notificationsProps={notificationsProps}
+                // notificationsProps={notificationsProps}
                 mode={this.state.mode}
                 changeQuery={this.changeQuery}
                 setDarkMode={this.setDarkMode}
@@ -118,7 +122,7 @@ class App extends Component<{}, StateType> {
               This is a protected page requiring authentication.
               Users who are not logged in will be redirected to Login page
             */}
-            <Route path="/monsters">
+            <Route path={main}>
               <Monsters
                 user={this.state.user}
                 query={query}
@@ -129,10 +133,10 @@ class App extends Component<{}, StateType> {
               />
             </Route>
             {/* 
-              This is a page available for guests only. Logged users will be redirected to '/monsters'
+              This is a page available for guests only. Logged users will be redirected to the main page (see PATHS.main in constants/data)
               It is meant to display general information about the app
             */}
-            <Route path="/home">
+            <Route path={home}>
               <Home
                 user={this.state.user}
                 query={query}

@@ -25,8 +25,7 @@ interface Props {
 const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess, showError }: Props) => {
     const [error, setError] = useState('');
 
-    const setErrorMessage = (err: { message: string, request: any }) => {
-        console.log(Object.values(err))
+    const setErrorMessage = (err: any) => {
         setError(err.request.response)
     }
 
@@ -47,10 +46,12 @@ const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess, sho
                 }}
                 onSubmit={async ({ password, email }: { password: string, email: string }) => {
                     if (email.indexOf('@') === -1)
-                        await usersService.getAll().then((users: Array<{ publicName: string, password: string, username: string }>) => {
-                            let matchedUsers = users.filter(user => user.publicName === email);
-                            email = matchedUsers.length > 0 ? matchedUsers[0].username : email;
-                        });
+                        await usersService.getAll()
+                            .then((users: Array<{ publicName: string, password: string, username: string }>) => {
+                                let matchedUsers = users.filter(user => user.publicName === email);
+                                email = matchedUsers.length > 0 ? matchedUsers[0].username : email;
+                            })
+                            .catch(setErrorMessage)
 
                     authService
                         .login(password, email)
