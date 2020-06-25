@@ -3,6 +3,7 @@ import { useStyles } from '../../styles/main';
 import { Formik, Form } from 'formik';
 import { Grid, Paper, Button, Typography, Hidden } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
+import { withValidationList } from '../../utils/withValidation';
 import image from '../../img/Register.png'
 import { ModeType } from '../../logic/types';
 
@@ -23,20 +24,11 @@ interface Props {
     Provide either validate or validationSchema
 */
 // TODO: handle providing both validate and validationSchema / provide validate as a function
-// TODO: Display error messages
 export const AppForm = ({ mode, initialValues, onSubmit, validationSchema, children }: Props) => {
     const classes = useStyles();
 
     // Disable submit button if errors appear, enable if all input values meet validation criteria
     const [submitDisabled, setDisabled] = useState(false);
-
-    const getValue = (obj: object, name: string) => {
-        for (const [key, value] of Object.entries(obj || {})) {
-            if (key === name) {
-                return value;
-            }
-        }
-    }
 
     return (
         <Formik
@@ -48,14 +40,12 @@ export const AppForm = ({ mode, initialValues, onSubmit, validationSchema, child
             {({ errors, touched }) => {
                 return <Form>
                     <Grid item>
-                        {/* [].flat applied as 'children' might be an array of components (Login, Register) or  */}
-                        {[children].flat().map((child: any, i: number) =>
-                            child ? React.cloneElement(child, {
-                                key: i,
-                                error: getValue(errors, child.props.name),
-                                touched: getValue(touched, child.props.name),
-                            }) : undefined
-                        )}
+                        {/* 
+                            [].flat applied as 'children' might be an array of components (Login, Register) or a single component (Logout) 
+                            Extra check if child is not undefined as the Login form includes 'undefined' in place of other fields from "Register" page.
+                            TODO: Consider changing this behavior in the auth form for "login"
+                        */}
+                        {withValidationList(children, errors, touched)}
 
                         <Button
                             disabled={submitDisabled}
@@ -65,7 +55,7 @@ export const AppForm = ({ mode, initialValues, onSubmit, validationSchema, child
                             type="submit"
                         >
                             Submit
-                            </Button>
+                        </Button>
                     </Grid>
                 </Form>
             }}
@@ -80,7 +70,7 @@ interface GridFormProps {
 }
 
 // Centered form wrapped in a grid on paper
-export const AppFormGrid = ({ children, title, error }: GridFormProps) => {
+export const AppFormLayout = ({ children, title, error }: GridFormProps) => {
     const classes = useStyles();
 
     return (

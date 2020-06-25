@@ -1,7 +1,7 @@
 import React from 'react';
 import EmailValidator from 'email-validator';
 import * as Yup from 'yup';
-import { AppFormGrid, AppForm } from './AppForm';
+import { AppFormLayout, AppForm } from './AppForm';
 import { GridField } from './GridFields';
 import { ModeType } from '../../logic/types';
 
@@ -27,7 +27,7 @@ const AuthForm = ({ mode, register, initialValues, onSubmit, error }: Props) => 
     })
 
     return (
-        <AppFormGrid
+        <AppFormLayout
             title={register ? 'Register' : 'Login'}
             error={error}
         >
@@ -64,7 +64,7 @@ const AuthForm = ({ mode, register, initialValues, onSubmit, error }: Props) => 
                     label="Password"
                 />
             </AppForm>
-        </AppFormGrid>
+        </AppFormLayout>
     );
 };
 

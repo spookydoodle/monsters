@@ -43,7 +43,7 @@ const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: P
                                     {[
                                         {name: "Intro", path: "#intro"},
                                         {name: "Gallery", path: "#gallery"},
-                                        {name: "Outtro", path: "#outro"}
+                                        {name: "Outro", path: "#outro"}
                                     ].map((item, i) => 
                                         <ListItem key={i} className={classes.pageNavList} button component={Link} href={item.path}>
                                             <ListItemText primary={item.name} />
@@ -147,7 +147,7 @@ const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: P
                                     {[
                                         {name: "Intro", path: "#intro"},
                                         {name: "Gallery", path: "#gallery"},
-                                        {name: "Outtro", path: "#outro"}
+                                        {name: "Outro", path: "#outro"}
                                     ].map((item, i) => 
                                         <ListItem key={i} className={classes.pageNavList} button component={Link} href={item.path}>
                                             <ListItemText primary={item.name} />
