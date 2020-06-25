@@ -187,8 +187,10 @@ const useStyles = makeStyles((theme: Theme) =>
         formPaper: {
             padding: theme.spacing(2),
             color: theme.palette.primary.main,
-            width: '35%',
-            minWidth: '400px',
+            width: '50%',
+            minWidth: '600px',
+            // minHeight: "65vh",
+            // margin
         },
         // content: {
         //     flexGrow: 1,

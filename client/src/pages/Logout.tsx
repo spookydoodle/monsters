@@ -4,7 +4,6 @@ import { Typography, Fade } from '@material-ui/core';
 import Layout from '../components/navigation/Layout';
 import { AppFormGrid } from '../components/forms/AppForm';
 import authService from '../services/authService';
-// import withShowError from '../components/withShowError';
 import { ModeType, UserType } from '../logic/types';
 
 // TODO: sort this page out 
@@ -18,7 +17,6 @@ interface Props {
 }
 
 const Logout = ({ user, mode, setDarkMode, changeQuery, onSuccess }: Props) => {
-    // const { addNotification } = notificationsProps;
 
     const [logoutRequestDone, setLogoutRequestDone] = useState(false);
 

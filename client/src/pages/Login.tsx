@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/navigation/Layout';
 import AuthForm from '../components/forms/AuthForm';
 import authService from '../services/authService';
 import usersService from '../services/usersService';
 import { interceptPage } from '../utils/interceptPage';
-// import withShowError from '../components/withShowError';
 import { ModeType, UserType } from '../logic/types';
 
 /* 
@@ -19,11 +18,18 @@ interface Props {
     changeQuery: any,
     next?: any,
     onLoginSuccess: any,
+    showError: any,
     // user: UserType,
 }
 
-const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess }: Props) => {
-    // const { addNotification } = notificationsProps;
+const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess, showError }: Props) => {
+    const [error, setError] = useState('');
+
+    const setErrorMessage = (err: {message: string}) => {
+        console.log(err.toString())
+        setError(err.message)
+    }
+
     return (
         <Layout
             user={user}
@@ -33,6 +39,7 @@ const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess }: P
         >
             <React.Fragment>
                 <AuthForm
+                    error={error}
                     register={false}
                     initialValues={{
                         email: '',
@@ -52,7 +59,7 @@ const Login = ({ user, mode, setDarkMode, changeQuery, next, onLoginSuccess }: P
                                 onLoginSuccess(user);
                                 next();
                             })
-                        // .catch(showError);
+                            .catch(setErrorMessage);
                     }}
                 />
             </React.Fragment>

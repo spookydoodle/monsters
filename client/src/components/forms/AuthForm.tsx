@@ -9,11 +9,11 @@ interface Props {
     register: boolean,
     initialValues: object,
     onSubmit: any,
+    error?: string,
 }
 
 // TODO: Add checkbox for 'stay logged in' and use cookies for keeping auth
-const AuthForm = ({ register, initialValues, onSubmit }: Props) => {
-
+const AuthForm = ({ register, initialValues, onSubmit, error }: Props) => {
     const noErrorObj = { email: "", password: "", username: "" };
 
     const validate = (values: any) => {
@@ -60,6 +60,7 @@ const AuthForm = ({ register, initialValues, onSubmit }: Props) => {
             onSubmit={onSubmit}
             // validate={validate}
             validationSchema={register ? validationSchema : undefined}
+            error={error}
         >
             <GridField
                 required
@@ -67,7 +68,7 @@ const AuthForm = ({ register, initialValues, onSubmit }: Props) => {
                 name="email"
                 id="auth-email"
                 label={`${!register ? 'Username / ' : ''}E-mail`}
-                xs={12}
+                // xs={12}
             />
 
             {register ? (
@@ -77,7 +78,7 @@ const AuthForm = ({ register, initialValues, onSubmit }: Props) => {
                     name="username"
                     id="auth-username"
                     label="Username"
-                    xs={12}
+                    // xs={12}
                 />
             ) : undefined}
 
@@ -88,7 +89,7 @@ const AuthForm = ({ register, initialValues, onSubmit }: Props) => {
                 name="password"
                 id="auth-password"
                 label="Password"
-                xs={12}
+                // xs={12}
             />
 
             

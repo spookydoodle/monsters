@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/navigation/Layout';
 import AuthForm from '../components/forms/AuthForm';
 import authService from '../services/authService';
 import usersService from '../services/usersService';
 import { interceptPage } from '../utils/interceptPage';
-// import withShowError from '../components/withShowError';
 import { ModeType, UserType } from '../logic/types';
 
 /* 
@@ -22,7 +21,13 @@ interface Props {
 }
 
 const Register = ({ user, mode, setDarkMode, changeQuery, next, onSuccess }: Props) => {
-    // const { addNotification } = notificationsProps;
+    const [error, setError] = useState('');
+
+    const setErrorMessage = (err: {message: string}) => {
+        console.log(err)
+        setError(err.message)
+    }
+
     return (
         <Layout
             user={user}
@@ -48,8 +53,9 @@ const Register = ({ user, mode, setDarkMode, changeQuery, next, onSuccess }: Pro
                             onSuccess(user);
                             next();
                         })
-                    // .catch(showError);
+                    .catch(setErrorMessage);
                 }}
+                error={error}
             />
         </Layout>
     );

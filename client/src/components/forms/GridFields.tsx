@@ -32,16 +32,15 @@ export const GridField = ({ xs, sm, md, lg, xl, error, touched, ...fieldProps }:
     const classes = useStyles();
 
     return (
-        <React.Fragment>
-            <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-                <Field style={{width: "100%"}} {...fieldProps} />
-            </Grid>
-            {touched && error ?
-                <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-                    <Typography  style={{marginLeft: "auto"}} color="error" variant="caption">{error}</Typography>
-                </Grid>
-                : undefined}
-        </React.Fragment>
+        <Grid xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
+            <Field
+                fullWidth
+                // margin="dense"
+                error={touched && error}
+                helperText={touched && error ? error : undefined}
+                {...fieldProps}
+            />
+        </Grid>
     );
 };
 

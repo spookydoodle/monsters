@@ -56,6 +56,11 @@ interface MonsterType {
     src: string,
 }
 
+interface ValidationErrorType { 
+    error: string, 
+    touched: boolean 
+}
+
 export type {
     DataItemType,
     UserType,
@@ -67,5 +72,6 @@ export type {
     JumboActionType,
     JumbotronType,
     CommentType,
-    MonsterType
+    MonsterType,
+    ValidationErrorType
 }

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useStyles } from '../../styles/main';
 import { Formik, Form } from 'formik';
 import { Grid, Paper, Button, Typography, Divider, Hidden } from '@material-ui/core';
+import { Alert } from '@material-ui/lab';
 import image from '../../img/Register.png'
 import { GridField } from './GridFields';
+import withValidationError from '../../utils/withValidationError';
 
 // const EmailValidator = _;
 // TODO: add a mechanism from router to make sure user wants to close the window if the forms are partially filled but not submitted
@@ -13,6 +15,7 @@ interface Props {
     onSubmit: any,
     validate?: any,
     validationSchema?: any,
+    error?: string,
     children: any,
 }
 
@@ -22,7 +25,7 @@ interface Props {
 */
 // TODO: handle providing both validate and validationSchema / provide validate as a function
 // TODO: Display error messages
-export const AppForm = ({ title, initialValues, onSubmit, validate, validationSchema, children }: Props) => {
+export const AppForm = ({ title, initialValues, onSubmit, validate, error, validationSchema, children }: Props) => {
     const classes = useStyles();
 
     // Disable submit button if errors appear, enable if all input values meet validation criteria
@@ -30,12 +33,13 @@ export const AppForm = ({ title, initialValues, onSubmit, validate, validationSc
 
     const getValue = (obj: object, name: string) => {
         for (const [key, value] of Object.entries(obj || {})) {
-            if(key === name) {
+            if (key === name) {
                 return value;
             }
         }
     }
 
+    // TODO rearrange grid
     return (
         <Formik
             initialValues={initialValues}
@@ -44,36 +48,56 @@ export const AppForm = ({ title, initialValues, onSubmit, validate, validationSc
             validationSchema={validationSchema}
         >
             {({ errors, touched }) => {
-                setDisabled(validationSchema && (Object.values(touched).length === 0 || Object.values(errors).some(val => val !== "")))
-                console.log("Errors: ", errors)
-                console.log("Touched: ", touched)
+                // setDisabled(validationSchema && (Object.values(touched).length === 0 || Object.values(errors).some(val => val !== "")))
+                // console.log("Errors: ", errors)
+                // console.log("Touched: ", touched)
                 return <Form>
-                    <Grid container item direction="row" justify="space-between" alignItems="center" spacing={2}>
+                    <Grid
+                        container
+                        item
+                        spacing={2}
+                    >
                         <Hidden smDown>
                             <Grid item xs={6}>
                                 <img className={classes.image} src={image} />
                             </Grid>
                         </Hidden>
 
-                        <Grid container item xs={12} md={6} direction="column" justify="space-between" >
+                        <Grid
+                            container
+                            item
+                            xs={12}
+                            md={6}
+                            style={{ paddingRight: "20px" }}
+                        >
                             <Grid item xs={12}>
-                                <Typography variant="h4" gutterBottom>{title}</Typography>
+                                <Typography align="center" variant="h4" gutterBottom>{title}</Typography>
                             </Grid>
-                            
+
+                            {error ? <Alert severity="error">{error}</Alert> : undefined}
+
                             {/* {children} */}
-                            {children.map((child: any, i: number) => 
-                                child ? React.cloneElement(child, {
-                                        key: i, 
-                                        error: getValue(errors, child.props.name), 
+                            {children.map((child: any, i: number) =>
+                                child ?
+                                    // withValidationError(child, errors, touched)
+                                    React.cloneElement(child, {
+                                        key: i,
+                                        error: getValue(errors, child.props.name),
                                         touched: getValue(touched, child.props.name),
-                                    }) : undefined
+                                    })
+                                    : undefined
                             )}
 
                             {onSubmit ?
-                                <Grid item xs={6}>
-                                    <Button disabled={submitDisabled} style={{ marginTop: "30px" }} variant="contained" color="primary" type="submit">
+                                <Grid item xs={12}>
+                                    <Button
+                                        // disabled={submitDisabled}
+                                        style={{ marginTop: "30px", width: "100%" }}
+                                        variant="contained" color="primary"
+                                        type="submit"
+                                    >
                                         Submit
-                                </Button>
+                                    </Button>
                                 </Grid> : undefined}
                         </Grid>
 
@@ -95,6 +119,7 @@ export const AppFormGrid = (props: Props) => {
             justify="center"
             alignItems="center"
             style={{ minHeight: "65vh" }}
+            spacing={1}
         >
             <Paper className={classes.formPaper}>
                 <AppForm {...props} />
