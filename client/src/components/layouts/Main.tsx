@@ -17,18 +17,18 @@ interface Props {
   user: UserType,
   children: React.ReactChild,
   jumbotron?: JumbotronType,
-  drawer?: DrawerType, 
+  drawer?: DrawerType,
   mode: ModeType,
   setDarkMode: any,
   changeQuery: any,
 }
 
-const Layout = ({ 
+const Layout = ({
   user,
-  children, 
+  children,
   jumbotron,
   drawer,
-  mode,  
+  mode,
   setDarkMode,
   changeQuery,
 }: Props) => {
@@ -63,41 +63,40 @@ const Layout = ({
 
   return (
     <ThemeProvider theme={theme}>
-      <div className={classes.navRoot}>
-        <CssBaseline />
+      <CssBaseline />
 
-        <NavBar
-          user={user}
-          name="Monsters Gallery"
-          mode={mode}
-          setDarkMode={setDarkMode}
-          open={open}
-          handleDrawerOpen={handleDrawerOpen}
-          handleDrawerClose={handleDrawerClose}
-        />
+      <NavBar
+        user={user}
+        name="Monsters Gallery"
+        mode={mode}
+        setDarkMode={setDarkMode}
+        open={open}
+        handleDrawerOpen={handleDrawerOpen}
+        handleDrawerClose={handleDrawerClose}
+      />
 
-        <MenuDrawer
-          user={user}
-          {...drawer}
-          theme={theme}
-          mode={mode}
-          setDarkMode={setDarkMode}
-          open={open}
-          changeQuery={changeQuery}
-          toggleDrawer={toggleDrawer}
-        />
+      <MenuDrawer
+        user={user}
+        {...drawer}
+        theme={theme}
+        mode={mode}
+        setDarkMode={setDarkMode}
+        open={open}
+        changeQuery={changeQuery}
+        toggleDrawer={toggleDrawer}
+      />
 
-        {jumbotron ? <Jumbotron {...jumbotron} /> : null }
-        <main className={drawer && drawer.variant === "persistent" ? clsx(classes.content, {
-          [classes.contentShift]: open,
-        }) : classes.contentPadding}
-        >
-          <div className={jumbotron ? classes.jumbotron : classes.drawerHeader} />
+      {jumbotron ? <Jumbotron {...jumbotron} /> : null}
 
-          {children}
+      <main className={drawer && drawer.variant === "persistent" ? clsx(classes.content, {
+        [classes.contentShift]: open,
+      }) : classes.contentPadding}
+      >
+        <div className={jumbotron ? classes.jumbotron : classes.drawerHeader} />
 
-        </main>
-      </div>
+        {children}
+
+      </main>
     </ThemeProvider>
   );
 }

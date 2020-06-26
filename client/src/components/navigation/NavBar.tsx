@@ -2,10 +2,10 @@ import React from 'react';
 import { useLocation } from "react-router-dom";
 import clsx from 'clsx';
 import { useStyles } from '../../styles/main';
-import { AppBar, Toolbar, Typography, IconButton, Link } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, IconButton, Link, Hidden } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import HideOnScroll from '../../utils/HideOnScroll';
-import { AuthButtonsHorizontal } from '../AuthButtons';
+import { AuthButtonsHorizontal } from './AuthButtons';
 import { ModeType, UserType } from '../../logic/types';
 import { PATHS } from '../../constants/data';
 const { landing, home, login, logout, register } = PATHS;
@@ -52,7 +52,10 @@ const NavBar = ({ user, name, mode, setDarkMode, open, handleDrawerOpen, handleD
                     </Link>
 
                     {/* Show auth buttons only on other pages than authentication or home (includes those buttons on the jumbotron) */}
-                    {![landing, home, login, logout, register].includes(path) ? <AuthButtonsHorizontal style={{ marginLeft: "auto" }} user={user} /> : undefined}
+                    {![landing, home, login, logout, register].includes(path) ?
+                        <Hidden smDown>
+                            <AuthButtonsHorizontal style={{ marginLeft: "auto" }} user={user} />
+                        </Hidden> : undefined}
                 </Toolbar>
             </AppBar>
         </HideOnScroll>

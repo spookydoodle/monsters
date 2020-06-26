@@ -13,8 +13,8 @@ const ContentsList = ({ items }: Props) => {
     return (
         <List>
             {items.map((item, i) =>
-                <ListItem key={i} className={classes.pageNavList} button component={Link} href={item.path}>
-                    <ListItemText primary={`${item.name.substring(0, 15)}...`} />
+                <ListItem key={`item-${i}`} className={classes.pageNavList} button component={Link} href={item.path}>
+                    <ListItemText key={`item-text-${i}`} primary={`${item.name.substring(0, 15)}...`} />
                 </ListItem>
             )}
         </List>
