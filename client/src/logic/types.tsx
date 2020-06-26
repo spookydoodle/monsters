@@ -28,7 +28,7 @@ interface DataItemType {
     src: string 
 }
 
-interface JumboActionType {
+interface ActionType {
     name: string,
     path: string
 }
@@ -36,7 +36,7 @@ interface JumbotronType {
     img?: string,
     title: string,
     subtitle: string,
-    actions?: Array<JumboActionType>,
+    actions?: Array<ActionType>,
     onClick?: any,
 }
 
@@ -61,6 +61,33 @@ interface ValidationErrorType {
     touched: boolean 
 }
 
+interface PostLayoutType {
+    id: string,
+    title: string,
+    subtitle: string,
+    body?: string,
+    content?: React.ReactElement,
+    additional?: any,
+}
+
+interface PostType {
+    title: string,
+    subtitle: string,
+    body?: string,
+    content?: any,
+}
+
+interface FeedLayoutType {
+    posts: Array<{
+        id: string,
+        title: string,
+        subtitle: string,
+        body?: string,
+        content?: React.ReactElement,
+        additional?: any,
+    }>,
+}
+
 export type {
     DataItemType,
     UserType,
@@ -69,9 +96,12 @@ export type {
     InputType,
     DrawerType,
     StateType,
-    JumboActionType,
+    ActionType,
     JumbotronType,
     CommentType,
     MonsterType,
-    ValidationErrorType
+    ValidationErrorType,
+    PostLayoutType,
+    PostType,
+    FeedLayoutType,
 }

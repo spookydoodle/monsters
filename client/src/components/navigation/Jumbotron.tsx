@@ -26,36 +26,37 @@ const Jumbotron = ({
                 <Grid
                     container
                     direction="row"
-                    justify="space-between"
+                    justify="center"
                     alignItems="center"
                     className={classes.jumbotronContent}
                 >
-
                     <Grid
-                        container
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
                         item
                         xs={12}
                         md={6}
+                        container
+                        alignItems="center"
+                        direction="column"
                     >
                         <Typography variant="h2">
                             {title}
                         </Typography>
-                        <Typography variant="h4">
+                        <Typography variant="h4" gutterBottom>
                             {subtitle}
                         </Typography>
-                        <Box>
-                            {actions ? actions.map((action, i) => 
-                            <Button key={i} style={{ margin: "15px" }} variant="contained" color="primary" href={`${action.path}?next=${main}`} >
-                                {action.name}
-                            </Button>) : undefined}
-                        </Box>
+
+                        <Grid item container justify="center">
+                            {actions ? actions.map((action, i) =>
+                                <Grid item>
+                                    <Button key={i} style={{ margin: "0.5em" }} variant="contained" color="primary" href={`${action.path}?next=${main}`} >
+                                        {action.name}
+                                    </Button>
+                                </Grid>) : undefined}
+                        </Grid>
                     </Grid>
 
                     <Hidden smDown>
-                        <Grid item md={5}>
+                        <Grid item md={6}>
 
                         </Grid>
                     </Hidden>

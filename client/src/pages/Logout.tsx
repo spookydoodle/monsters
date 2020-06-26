@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Typography, Fade } from '@material-ui/core';
-import Layout from '../components/navigation/Layout';
+import Layout from '../components/layouts/Main';
 import { AppFormLayout } from '../components/forms/AppForm';
 import authService from '../services/authService';
 import { ModeType, UserType } from '../logic/types';
