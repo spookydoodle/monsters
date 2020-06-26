@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "757da6be5d475bbf14f909535d856d2b",
+    "revision": "c90e2fea2122604364947bfde3899491",
     "url": "/monsters/index.html"
   },
   {
-    "revision": "4432ec8d5f53e8498ecc",
+    "revision": "5b34ebb7d6643b8ff73c",
     "url": "/monsters/static/css/main.6a3f9d67.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/monsters/static/js/2.69894066.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4432ec8d5f53e8498ecc",
-    "url": "/monsters/static/js/main.f32d673f.chunk.js"
+    "revision": "5b34ebb7d6643b8ff73c",
+    "url": "/monsters/static/js/main.e3769818.chunk.js"
   },
   {
     "revision": "3dab8aa598718cb8e8b3",
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/monsters/static/media/JumbotronDark.026a1340.png"
   },
   {
-    "revision": "ce5987b4820a11b884d6474ee104fe76",
-    "url": "/monsters/static/media/JumbotronLight.ce5987b4.png"
+    "revision": "49496ca5d835f8c7a55f97d3544ed0e5",
+    "url": "/monsters/static/media/JumbotronLight.49496ca5.png"
   },
   {
     "revision": "3686de9116982afdc403fba951b3838d",

@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/monsters/static/css/main.6a3f9d67.chunk.css",
-    "main.js": "/monsters/static/js/main.f32d673f.chunk.js",
-    "main.js.map": "/monsters/static/js/main.f32d673f.chunk.js.map",
+    "main.js": "/monsters/static/js/main.e3769818.chunk.js",
+    "main.js.map": "/monsters/static/js/main.e3769818.chunk.js.map",
     "runtime-main.js": "/monsters/static/js/runtime-main.f48c3991.js",
     "runtime-main.js.map": "/monsters/static/js/runtime-main.f48c3991.js.map",
     "static/js/2.69894066.chunk.js": "/monsters/static/js/2.69894066.chunk.js",
     "static/js/2.69894066.chunk.js.map": "/monsters/static/js/2.69894066.chunk.js.map",
     "index.html": "/monsters/index.html",
-    "precache-manifest.2cd1c027104cd87cfca2cba80d8a093d.js": "/monsters/precache-manifest.2cd1c027104cd87cfca2cba80d8a093d.js",
+    "precache-manifest.32c024ef286b9d7a3172439271813a88.js": "/monsters/precache-manifest.32c024ef286b9d7a3172439271813a88.js",
     "service-worker.js": "/monsters/service-worker.js",
     "static/css/main.6a3f9d67.chunk.css.map": "/monsters/static/css/main.6a3f9d67.chunk.css.map",
     "static/js/2.69894066.chunk.js.LICENSE.txt": "/monsters/static/js/2.69894066.chunk.js.LICENSE.txt",
     "static/media/JumbotronDark.png": "/monsters/static/media/JumbotronDark.026a1340.png",
-    "static/media/JumbotronLight.png": "/monsters/static/media/JumbotronLight.ce5987b4.png",
+    "static/media/JumbotronLight.png": "/monsters/static/media/JumbotronLight.49496ca5.png",
     "static/media/landing.css": "/monsters/static/media/Landing_5.594422e3.png",
     "static/media/Register.png": "/monsters/static/media/Register.f064e9ed.png"
   },
@@ -21,6 +21,6 @@
     "static/js/runtime-main.f48c3991.js",
     "static/js/2.69894066.chunk.js",
     "static/css/main.6a3f9d67.chunk.css",
-    "static/js/main.f32d673f.chunk.js"
+    "static/js/main.e3769818.chunk.js"
   ]
 }
