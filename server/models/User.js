@@ -11,6 +11,8 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: true,
     },
+    // Authorization
+    auth: String,
 
     // Other
     publicName: String, // Custom name displayed to other users.
@@ -22,8 +24,12 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: undefined,
     },
-    // TODO: think how to store this attribute. Values: admin, standard user etc
-    auth: String,
+
+    // App settings
+    darkMode: {
+        type: Boolean,
+        default: false,
+    }
 });
 
 // Add methods from passport-local-mongoose (authenticate, register etc)

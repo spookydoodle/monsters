@@ -6,8 +6,6 @@ const { login, main } = PATHS;
 // Renders the component if the user is logged in.
 // Redirects to the login page otherwise.
 export const withLoginRequired = (wrappedComponent: any) => (props: any) => {
-    
-
     const {
         user,
         location: { pathname },
