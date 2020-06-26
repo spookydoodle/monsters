@@ -13,6 +13,7 @@ type UserType = {
     _id: string,
     email: string,
     publicName: string,
+    darkMode: boolean | undefined,
 } | undefined
 
 interface StateType {

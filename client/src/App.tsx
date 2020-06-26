@@ -14,6 +14,11 @@ import { INITIAL_STATE, PATHS} from './constants/data'
 import { ModeType, StateType, UserType } from './logic/types'
 import { getData } from './constants/dummyGallery';
 
+/*
+  App routes are handled by react router. Make sure the app uses the 'Link' component from react-router-dom for all in-app paths.
+  DO NOT USE THE ONE FROM MATERIAL-UI for in-app links!
+  The one from router handles correctly all redirects from protected or guest pages. The one from material-ui logs the user out.
+*/
 class App extends Component<{}, StateType> {
   constructor(props: any) {
     super(props);

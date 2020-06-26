@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Switch from '@material-ui/core/Switch';
 import { ModeType } from '../logic/types';
 
-
+// TODO: Add update user if user logged in and switches the dark mode on/off
 interface Props {
     mode: ModeType,
     setDarkMode: any,
