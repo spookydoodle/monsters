@@ -24,7 +24,7 @@ interface Props {
 const Home = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props) => {
     const classes = useStyles();
     const { login, register } = PATHS;
-
+    
     return (
         <Layout
             user={user}

@@ -2,7 +2,8 @@ import React from 'react';
 import { useLocation } from "react-router-dom";
 import clsx from 'clsx';
 import { useStyles } from '../../styles/main';
-import { AppBar, Toolbar, Typography, IconButton, Link, Hidden } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, IconButton, Hidden } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import HideOnScroll from '../../utils/HideOnScroll';
 import { AuthButtonsHorizontal } from './AuthButtons';
@@ -45,7 +46,7 @@ const NavBar = ({ user, name, mode, setDarkMode, open, handleDrawerOpen, handleD
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Link color="inherit" underline="none" href={home}>
+                    <Link to={home} style={{ textDecoration: "none", color: "inherit" }}>
                         <Typography variant="h6" noWrap>
                             {name}
                         </Typography>
