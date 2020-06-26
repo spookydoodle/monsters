@@ -1,4 +1,4 @@
-export const dummyData = {
+export const dummyGallery = {
     "furry+monster": [
         {
             "title": "Furry - Monster - YouTube",
@@ -663,7 +663,7 @@ export const getData = (query: string) => {
     query = "furry+monster";
   }
 
-  for (let [key, value] of Object.entries(dummyData)) {
+  for (let [key, value] of Object.entries(dummyGallery)) {
     if (key === query.toLowerCase()) {
       return value;
     }

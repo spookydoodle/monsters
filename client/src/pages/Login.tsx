@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Layout from '../components/navigation/Layout';
+import Layout from '../components/layouts/Main';
 import AuthForm from '../components/forms/AuthForm';
 import authService from '../services/authService';
 import usersService from '../services/usersService';

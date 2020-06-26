@@ -3,9 +3,9 @@ import clsx from 'clsx';
 import { useStyles, createTheme } from '../../styles/main';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Jumbotron from './Jumbotron';
-import MenuDrawer from './MenuDrawer';
-import NavBar from './NavBar';
+import Jumbotron from '../navigation/Jumbotron';
+import MenuDrawer from '../navigation/MenuDrawer';
+import NavBar from '../navigation/NavBar';
 import { DrawerType, ModeType, JumbotronType, UserType } from '../../logic/types';
 
 // TODO: remove changeQuery from here

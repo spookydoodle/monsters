@@ -12,7 +12,7 @@ import authService from './services/authService';
 import monstersService from './services/monsters'
 import { INITIAL_STATE, PATHS} from './constants/data'
 import { ModeType, StateType, UserType } from './logic/types'
-import { getData } from './services/dummyData';
+import { getData } from './constants/dummyGallery';
 
 class App extends Component<{}, StateType> {
   constructor(props: any) {
