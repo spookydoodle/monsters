@@ -55,7 +55,7 @@ const Gallery = ({ user, data, mode, changeQuery }: Props) => {
                     style={{ marginTop: "1em" }}
                 >
                     {data.map((monster: MonsterType, index: Number) =>
-                        <Grid item xs={12} sm={4} md={3} lg={3} key={`g2-${index}`}>
+                        <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={`g2-${index}`}>
                             <MonsterCard
                                 key={parseInt(index.toString())}
                                 user={user}

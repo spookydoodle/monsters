@@ -48,9 +48,9 @@ const Home = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props
                     title: "Blablabla this page is nonsense, just for show",
                     subtitle: "kxkaro, 21/06/2020 15:25",
                     body: `Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.
-                    <br/><br/>
+                    
                     Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to.
-                    <br/><br/>
+                    
                     Trysail Sail ho Corsair red ensign hulk smartly boom jib rum gangway. Case shot Shiver me timbers gangplank crack Jennys tea cup ballast Blimey lee snow crow's nest rutters. Fluke jib scourge of the seven seas boatswain schooner gaff booty Jack Tar transom spirits.`,                    
                 },
                 {
@@ -66,9 +66,9 @@ const Home = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props
                     title: "Hope you enjoyed it, bye!",
                     subtitle: "kxkaro, 21/06/2020 12:25",
                     body: `Pieces of Eight bowsprit Sink me Gold Road sheet keelhaul grog blossom chandler fore crack Jennys tea cup. Crimp hang the jib gibbet parley grog blossom loot rutters jib scuppers spike. Black jack scallywag bucko Jack Ketch run a shot across the bow fore port pillage squiffy blow the man down.
-                    <br/><br/>
+                    
                     Chantey bilge water bilge me main sheet red ensign Jolly Roger take a caulk jib topmast. Doubloon Sink me bilge rat deadlights fire in the hole gangplank hardtack dance the hempen jig keel scuppers. Loot ye jolly boat mizzen yawl black jack square-rigged yardarm bounty Jack Ketch.
-                    <br/><br/>
+                    
                     Interloper scourge of the seven seas scuttle take a caulk Pieces of Eight plunder aft pirate snow avast. Hang the jib pillage rigging jury mast fluke hornswaggle Buccaneer nipperkin cutlass tackle. Lookout Jolly Roger ahoy parrel salmagundi Nelsons folly nipper holystone lugger wherry.`,
                 }
             ]} />

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
 import { Theme } from '@material-ui/core/styles';
-import { Drawer, List, ListItem, ListItemText, Divider, IconButton } from '@material-ui/core';
+import { Drawer, List, ListItem, ListItemText, Divider, IconButton, Hidden } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DarkModeSwitch from '../DarkModeSwitch';
-import { AuthButtonsVertical } from '../AuthButtons';
+import { AuthButtonsVertical } from './AuthButtons';
 import { CATEGORIES } from '../../constants/data';
 import { DrawerVariantType, ModeType, UserType } from '../../logic/types';
 
@@ -52,11 +52,12 @@ const MenuDrawer = ({ user, variant = "temporary", theme, mode, setDarkMode, ope
           </ListItem>
         ))}
       </List>
-      <Divider />
+      <Hidden mdUp>
+        <Divider />
+        <AuthButtonsVertical user={user} />
+      </Hidden>
 
-      <AuthButtonsVertical user={user} />
       <Divider />
-      
       <DarkModeSwitch style={{ marginLeft: "auto" }} mode={mode} setDarkMode={setDarkMode} />
 
     </Drawer>
