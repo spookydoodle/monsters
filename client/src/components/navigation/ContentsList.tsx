@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
-import { Link, List, ListItem, ListItemText } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { List, ListItem, ListItemText } from '@material-ui/core';
 import { ActionType } from '../../logic/types';
 
 interface Props {
@@ -13,9 +14,11 @@ const ContentsList = ({ items }: Props) => {
     return (
         <List>
             {items.map((item, i) =>
-                <ListItem key={`item-${i}`} className={classes.pageNavList} button component={Link} href={item.path}>
-                    <ListItemText key={`item-text-${i}`} primary={`${item.name.substring(0, 15)}...`} />
-                </ListItem>
+                <Link to={item.path} style={{ textDecoration: "none", color: "inherit" }}>
+                    <ListItem key={`item-${i}`} className={classes.pageNavList} button>
+                        <ListItemText key={`item-text-${i}`} primary={`${item.name.substring(0, 15)}...`} />
+                    </ListItem>
+                </Link>
             )}
         </List>
     );
