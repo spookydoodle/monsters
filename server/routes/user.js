@@ -28,7 +28,7 @@ module.exports = app => {
         )
             .then(user => {
                 // Authenticate the user after registration.
-                req.login(user);
+                req.login(user, err => console.log({ err }));
 
                 // Send the created user object to the client.
                 return res.status(201).send({

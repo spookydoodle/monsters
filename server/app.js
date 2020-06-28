@@ -5,7 +5,8 @@ const express = require('express'),
     LocalStrategy = require('passport-local').Strategy,
     methodOverride = require('method-override'),
     User = require('./models/User');
-const port = 4000;
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Some some random thingies
 app.use(express.static(__dirname + '/public'));

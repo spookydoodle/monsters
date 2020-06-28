@@ -4,7 +4,7 @@ const keys = require('../constants/keys')
 
 const app = app => {
 
-    // Catches requests made to localhost:4000/
+    // Catches requests made to api:4000/
     app.get('/', (req, res) => res.send('Hello Monster!'));
 
     // Web scraping with puppeteer library

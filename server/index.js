@@ -2,11 +2,14 @@
 const express = require('express'),
     app = require('./app'),
     mongoose = require('mongoose'),
-    PORT = process.env.PORT || 4000;
+    PORT = process.env.SERVERPORT || 4000;
 
 // Connect to Mongo DB
+// For docker image use mongo:27017, for dev localhost:27017. 
+// The same in client package.json use proxy api:4000 for docker image and localhost:4000 for dev
+// const databaseUrl = process.env.DATABASEURL || 'mongodb://mongo:27017/monsters';  
 const databaseUrl = process.env.DATABASEURL || 'mongodb://localhost:27017/monsters';
-console.log(`Connecting to database:  ${databaseUrl}`);
+// console.log(`Connecting to database:  ${databaseUrl}`);
 
 mongoose.connect(databaseUrl, {
     useNewUrlParser: true,
