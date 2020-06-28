@@ -14,15 +14,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
-// Production setup
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('reactApp/build'));
+// // Production setup
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static('/../client/build'));
 
-    const path = require('path');
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'reactApp', 'build', 'index.html'));
-    });
-}
+//     const path = require('path');
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
+//     });
+// }
 
 // Passport config - authentication
 app.use(
