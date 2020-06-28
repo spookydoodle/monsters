@@ -114,3 +114,6 @@ dist
 # Keys and credentials
 keys.js
 server/constants/keys.js
+
+# google cloud platform config file
+app.yaml
