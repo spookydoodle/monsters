@@ -14,7 +14,7 @@ const ContentsList = ({ items }: Props) => {
     return (
         <List>
             {items.map((item, i) =>
-                <Link to={item.path} style={{ textDecoration: "none", color: "inherit" }}>
+                <Link to={item.path}>
                     <ListItem key={`item-${i}`} className={classes.pageNavList} button>
                         <ListItemText key={`item-text-${i}`} primary={`${item.name.substring(0, 15)}...`} />
                     </ListItem>

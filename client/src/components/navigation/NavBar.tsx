@@ -46,7 +46,7 @@ const NavBar = ({ user, name, mode, setDarkMode, open, handleDrawerOpen, handleD
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Link to={home} style={{ textDecoration: "none", color: "inherit" }}>
+                    <Link to={home}>
                         <Typography variant="h6" noWrap>
                             {name}
                         </Typography>
