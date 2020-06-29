@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7a9887a0500d2dc87be096d12d3d8f90",
+    "revision": "38f7f4c0d304e7b4ba689657d52439e9",
     "url": "/monsters/index.html"
   },
   {
-    "revision": "3dae5133394f50ee1247",
+    "revision": "17be935935bba4b21a7f",
     "url": "/monsters/static/css/main.6a3f9d67.chunk.css"
   },
   {
-    "revision": "afc72b374f29ba735dd8",
-    "url": "/monsters/static/js/2.26f7e2ae.chunk.js"
+    "revision": "aed111198d306ff4a843",
+    "url": "/monsters/static/js/2.0f403c03.chunk.js"
   },
   {
     "revision": "e2896a34bc173bbd7b6d83453e91d5e1",
-    "url": "/monsters/static/js/2.26f7e2ae.chunk.js.LICENSE.txt"
+    "url": "/monsters/static/js/2.0f403c03.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3dae5133394f50ee1247",
-    "url": "/monsters/static/js/main.0d3222fc.chunk.js"
+    "revision": "17be935935bba4b21a7f",
+    "url": "/monsters/static/js/main.bdaf403a.chunk.js"
   },
   {
-    "revision": "3dab8aa598718cb8e8b3",
-    "url": "/monsters/static/js/runtime-main.f48c3991.js"
+    "revision": "6889ea9853f0026c6e56",
+    "url": "/monsters/static/js/runtime-main.babeb8b9.js"
   },
   {
     "revision": "026a1340abfe46f6ce57a3533faa7ab8",
