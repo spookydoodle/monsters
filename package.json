@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "install-all": "yarn install && yarn --cwd client install && yarn --cwd server install",
-        "test": "run-s test_server test_client",
+        "test": "run-s test_client test_server",
         "test_client": "yarn --cwd client test --watch-all=false",
         "test_server": "yarn --cwd server test --watch-all=false",
         "client": "npm run start --prefix client",

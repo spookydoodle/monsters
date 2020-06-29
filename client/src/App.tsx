@@ -77,7 +77,8 @@ class App extends Component<{}, StateType> {
   render() {
     const { mode, query, data } = this.state;
     const { root, landing, home, main, login, logout, register } = PATHS;
-
+    
+    // TODO: consider using , { Suspense, lazy } - https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
     return (
       <Router basename={process.env.PUBLIC_URL}>
         <ScrollToTop>
