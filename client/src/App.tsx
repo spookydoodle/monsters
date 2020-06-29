@@ -79,7 +79,7 @@ class App extends Component<{}, StateType> {
     const { root, landing, home, main, login, logout, register } = PATHS;
 
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <ScrollToTop>
           <Switch>
             {/*
@@ -88,9 +88,9 @@ class App extends Component<{}, StateType> {
                 The order matters - the most generic paths should
                 be at the very end.
               */}
-            <Route exact path={root}>
+            {/* <Route exact path={root}>
               <Redirect to={landing} />
-            </Route>
+            </Route> */}
             <Route exact path={landing}>
               <Landing />
             </Route>

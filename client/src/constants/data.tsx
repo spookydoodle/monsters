@@ -23,12 +23,12 @@ const SEARCH_METHODS = {
 
 const PATHS = {
     root: "/",
-    landing: "/monsters",
-    home: "/monsters/home",
-    login: "/monsters/login",
-    logout: "/monsters/logout",
-    register: "/monsters/register",
-    main: "/monsters/feed",
+    landing: "/",
+    home: "/home",
+    login: "/login",
+    logout: "/logout",
+    register: "/register",
+    main: "/feed",
 }
 
 export { INITIAL_STATE, PATHS, CATEGORIES, SEARCH_METHODS }

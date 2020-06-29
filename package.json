@@ -1,5 +1,5 @@
 {
-    "name": "react-express-mongo",
+    "name": "monsters-app",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -9,16 +9,18 @@
         "test_client": "yarn --cwd client test --watch-all=false",
         "test_server": "yarn --cwd server test --watch-all=false",
         "client": "npm run start --prefix client",
+        "server_dev": "npm run dev --prefix server",
         "server": "npm run start --prefix server",
-        "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+        "dev": "concurrently --kill-others-on-fail \"npm run server_dev\" \"npm run client\"",
         "start": "npm run dev"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "dependencies": {},
+    "dependencies": {
+        "concurrently": "^5.1.0"
+    },
     "devDependencies": {
-        "concurrently": "^5.1.0",
         "jest-extended": "^0.11.5",
         "jest-matcher-utils": "^26.0.1",
         "prettier": "^2.0.4",
