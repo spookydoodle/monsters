@@ -4,17 +4,14 @@ const keys = require('../constants/keys')
 
 const app = app => {
 
-    // Catches requests made to api:4000/
-    app.get('/', (req, res) => res.send('Hello Monster!'));
-
     // Web scraping with puppeteer library
-    get(app, '/puppeteer/search', searchPuppeteer)
+    get(app, '/api/puppeteer/search', searchPuppeteer)
 
     // Get results from the official google API. Free version includes only 10 results.
-    get(app, '/google-api/search', searchGoogleAPI)
+    get(app, '/api/google-api/search', searchGoogleAPI)
 
     // Get data from raw HTML / web scraping
-    get(app, '/html/search', searchHTML)
+    get(app, '/api/html/search', searchHTML)
 
 
 }

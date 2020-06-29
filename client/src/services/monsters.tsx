@@ -16,17 +16,17 @@ import axios from 'axios';
 export default {
     // Using puppeteer
     getGoogleScrape: async (query: string) => {
-        let res = await axios.get(`/puppeteer/search?q=${query}`);
+        let res = await axios.get(`/api/puppeteer/search?q=${query}`);
         return res.data || [];
     },
     // Using custom google search api (only 10 in free version)
     getGoogleAPI: async (query: string) => {
-        let res = await axios.get(`/google-api/search?q=${query}`);
+        let res = await axios.get(`/api/google-api/search?q=${query}`);
         return res.data || [];
     },
     // Using html selectors
     getGoogleHTML: async (query: string) => {
-        let res = await axios.get(`/html/search?q=${query}`);
+        let res = await axios.get(`/api/html/search?q=${query}`);
         return res.data || [];
     }
 };
