@@ -7,7 +7,7 @@ import { ActionType } from '../../logic/types';
 interface Props {
     items: Array<ActionType>
 }
-
+// TODO: investigate why Link from router does not handle hashes #
 const ContentsList = ({ items }: Props) => {
     const classes = useStyles();
 
