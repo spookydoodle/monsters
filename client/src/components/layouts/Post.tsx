@@ -23,16 +23,15 @@ const PostLayout = ({ id, additional, ...props }: PostLayoutType) => {
             <Hidden smDown>
                 <Grid item xs={2}>
                     <Divider style={{ marginTop: "2em", marginBottom: "2em" }} />
-                    
-                    {additional ? (
+
+                    {additional &&
                         <React.Fragment>
                             <Typography variant="h4" style={{ marginBottom: "0.45em" }}>
                                 Cool stuff:
                             </Typography>
 
                             {additional}
-                        </React.Fragment>
-                    ) : undefined}
+                        </React.Fragment>}
 
                 </Grid>
             </Hidden>

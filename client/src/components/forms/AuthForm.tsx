@@ -35,7 +35,7 @@ const AuthForm = ({ mode, register, initialValues, onSubmit, error }: Props) => 
                 mode={mode}
                 initialValues={initialValues}
                 onSubmit={onSubmit}
-                validationSchema={register ? validationSchema : undefined}
+                validationSchema={register && validationSchema}
             >
                 <GridField
                     mode={mode}
@@ -45,15 +45,13 @@ const AuthForm = ({ mode, register, initialValues, onSubmit, error }: Props) => 
                     label={`${!register ? 'Username / ' : ''}E-mail`}
                 />
 
-                {register ? (
-                    <GridField
-                        mode={mode}
-                        required
-                        name="username"
-                        id="auth-username"
-                        label="Username"
-                    />
-                ) : undefined}
+                {register && <GridField
+                    mode={mode}
+                    required
+                    name="username"
+                    id="auth-username"
+                    label="Username"
+                />}
 
                 <GridField
                     mode={mode}

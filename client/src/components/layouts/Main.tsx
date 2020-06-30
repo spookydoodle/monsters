@@ -86,7 +86,7 @@ const Layout = ({
         toggleDrawer={toggleDrawer}
       />
 
-      {jumbotron ? <Jumbotron {...jumbotron} /> : null}
+      {jumbotron && <Jumbotron {...jumbotron} />}
 
       <main className={drawer && drawer.variant === "persistent" ? clsx(classes.content, {
         [classes.contentShift]: open,

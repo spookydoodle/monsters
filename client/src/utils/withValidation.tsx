@@ -26,5 +26,5 @@ export const withValidation = (child: React.ReactElement, errors: object, touche
 // Injects 'error' and 'touched' prop to a group of component
 export const withValidationList = (children: Array<React.ReactElement>, errors: object, touched: object) =>
     [children].flat().map((child, i) =>
-        child ? withValidation(child, errors, touched, i) : undefined
+        child && withValidation(child, errors, touched, i)
     )
