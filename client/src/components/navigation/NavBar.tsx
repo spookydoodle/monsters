@@ -7,9 +7,11 @@ import { AppBar, Toolbar, Typography, IconButton, Hidden } from '@material-ui/co
 import MenuIcon from '@material-ui/icons/Menu';
 import HideOnScroll from '../../utils/HideOnScroll';
 import { AuthButtonsHorizontal } from './AuthButtons';
+import Clock from '../Clock'
 import { ModeType, UserType } from '../../logic/types';
 import { PATHS } from '../../constants/data';
 const { landing, home, login, logout, register } = PATHS;
+
 
 interface Props {
     user: UserType,
@@ -51,7 +53,7 @@ const NavBar = ({ user, name, mode, setDarkMode, open, handleDrawerOpen, handleD
                             {name}
                         </Typography>
                     </Link>
-                    
+                    <Clock variant="date" />
                     {/* Show auth buttons only on other pages than authentication or home (includes those buttons on the jumbotron) */}
                     {![landing, home, login, logout, register].includes(path) ?
                         <Hidden smDown>
