@@ -44,7 +44,7 @@ const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: P
                     title: "See our collection of monsters",
                     subtitle: "kxkaro, 21/06/2020 14:25",
                     body: `Data collected from the whole world wide web.`,
-                    content: <Gallery user={user} changeQuery={changeQuery} data={data} mode={mode} />,
+                    // content: <Gallery user={user} changeQuery={changeQuery} data={data} mode={mode} />,
                     additional: <ContentsList items={[{ name: "Dungeons", path: "#" }, { name: "Dragons", path: "#" }]} />
                 },
                 {

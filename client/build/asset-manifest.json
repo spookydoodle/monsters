@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.79bd16c2.chunk.css",
-    "main.js": "/static/js/main.c12e7395.chunk.js",
-    "main.js.map": "/static/js/main.c12e7395.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.7178e58c.js",
-    "runtime-main.js.map": "/static/js/runtime-main.7178e58c.js.map",
-    "static/js/2.a0868799.chunk.js": "/static/js/2.a0868799.chunk.js",
-    "static/js/2.a0868799.chunk.js.map": "/static/js/2.a0868799.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.fa467a01e328c6da959fec6f5839f467.js": "/precache-manifest.fa467a01e328c6da959fec6f5839f467.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.79bd16c2.chunk.css.map": "/static/css/main.79bd16c2.chunk.css.map",
-    "static/js/2.a0868799.chunk.js.LICENSE.txt": "/static/js/2.a0868799.chunk.js.LICENSE.txt",
-    "static/media/JumbotronDark.png": "/static/media/JumbotronDark.026a1340.png",
-    "static/media/JumbotronLight.png": "/static/media/JumbotronLight.49496ca5.png",
-    "static/media/landing.css": "/static/media/Landing_5.594422e3.png",
-    "static/media/Register.png": "/static/media/Register.f064e9ed.png"
+    "main.css": "./static/css/main.aacef7ae.chunk.css",
+    "main.js": "./static/js/main.d2ede1e7.chunk.js",
+    "main.js.map": "./static/js/main.d2ede1e7.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.68c885fc.js",
+    "runtime-main.js.map": "./static/js/runtime-main.68c885fc.js.map",
+    "static/js/2.b440f1ba.chunk.js": "./static/js/2.b440f1ba.chunk.js",
+    "static/js/2.b440f1ba.chunk.js.map": "./static/js/2.b440f1ba.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.814464468c61f5f043f798d058dd6d2a.js": "./precache-manifest.814464468c61f5f043f798d058dd6d2a.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.aacef7ae.chunk.css.map": "./static/css/main.aacef7ae.chunk.css.map",
+    "static/js/2.b440f1ba.chunk.js.LICENSE.txt": "./static/js/2.b440f1ba.chunk.js.LICENSE.txt",
+    "static/media/JumbotronDark.png": "./static/media/JumbotronDark.026a1340.png",
+    "static/media/JumbotronLight.png": "./static/media/JumbotronLight.49496ca5.png",
+    "static/media/landing.css": "./static/media/Landing_5.594422e3.png",
+    "static/media/Register.png": "./static/media/Register.f064e9ed.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.7178e58c.js",
-    "static/js/2.a0868799.chunk.js",
-    "static/css/main.79bd16c2.chunk.css",
-    "static/js/main.c12e7395.chunk.js"
+    "static/js/runtime-main.68c885fc.js",
+    "static/js/2.b440f1ba.chunk.js",
+    "static/css/main.aacef7ae.chunk.css",
+    "static/js/main.d2ede1e7.chunk.js"
   ]
 }
