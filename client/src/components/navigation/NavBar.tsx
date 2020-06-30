@@ -51,7 +51,7 @@ const NavBar = ({ user, name, mode, setDarkMode, open, handleDrawerOpen, handleD
                             {name}
                         </Typography>
                     </Link>
-
+                    
                     {/* Show auth buttons only on other pages than authentication or home (includes those buttons on the jumbotron) */}
                     {![landing, home, login, logout, register].includes(path) ?
                         <Hidden smDown>

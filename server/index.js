@@ -8,7 +8,7 @@ const express = require('express'),
 // For docker image use mongo:27017, for dev localhost:27017. 
 // The same in client package.json use proxy api:4000 for docker image and localhost:4000 for dev
 // const databaseUrl = process.env.DATABAS_EURL || 'mongodb://mongo:27017/monsters';  
-const databaseUrl = process.env.DATABASE_URL || 'mongodb://localhost:27017/monsters';
+const databaseUrl = process.env.DATABASE_URL || 'mongodb://mongo:27017/monsters';
 console.log(`Connecting to database.`);
 
 mongoose.connect(databaseUrl, {
