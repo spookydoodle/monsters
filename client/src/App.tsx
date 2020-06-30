@@ -9,9 +9,9 @@ import Login from './pages/Login'
 import Logout from './pages/Logout'
 import ScrollToTop from './utils/ScrollToTop';
 import authService from './services/authService';
-import monstersService from './services/monsters'
-import { INITIAL_STATE, PATHS} from './constants/data'
-import { ModeType, StateType, UserType } from './logic/types'
+import monstersService from './services/monsters';
+import { INITIAL_STATE, PATHS} from './constants/data';
+import { ModeType, StateType, UserType } from './logic/types';
 import { getData } from './constants/dummyGallery';
 
 /*
@@ -44,12 +44,12 @@ class App extends Component<{}, StateType> {
   getMonsters = () => {
     const {
       // getGoogleAPI, 
-      // getGoogleHTML,
-      getGoogleScrape 
+      getGoogleHTML,
+      // getGoogleScrape 
     } = monstersService;
     const { query } = this.state;
     // TODO: Check for received errors and run another method if the previous one failed
-    getGoogleScrape(query)
+    getGoogleHTML(query)
       .then(res => this.setState({ data: res }))
       .catch(err => this.setState({ data: getData(query) || [] }))
   }

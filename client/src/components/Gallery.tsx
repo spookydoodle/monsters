@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { useStyles } from '../styles/main';
 import { Grid, CardMedia, Tabs, Tab } from '@material-ui/core';
 import { LinearBuffer } from '../components/Loading'
