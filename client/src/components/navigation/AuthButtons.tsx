@@ -21,15 +21,19 @@ interface Props {
 
 export const AuthButtonsHorizontal = ({ user, style }: Props) => {
     let signUpButton = (
-        <Button style={{margin: "0 15px"}} color="inherit" href={!user ? register : undefined}>
-            {getText(user).register}
-        </Button>
+        <Link to={!user ? register : '/'}>
+            <Button style={{ margin: "0 15px" }} color="inherit">
+                {getText(user).register}
+            </Button>
+        </Link>
     );
 
     let loginButton = (
-        <Button variant="outlined" color="secondary" href={!user ? login : logout}>
-            {getText(user).login}
-        </Button>
+        <Link to={!user ? login : logout}>
+            <Button variant="outlined" color="secondary">
+                {getText(user).login}
+            </Button>
+        </Link>
     );
 
     return (
