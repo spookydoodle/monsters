@@ -6,14 +6,16 @@ type ClockState = {
 }
 
 interface Props {
-    variant?: "time" | "date",
+    variant: "time" | "date" | "datetime",
 }
 
 class Clock extends Component<Props, ClockState> {
     timerID: any;
     constructor(props: Props) {
         super(props);
-        this.state = { date: new Date() };
+        this.state = { 
+            date: new Date() 
+        };
     }
 
     componentDidMount() {
@@ -33,14 +35,24 @@ class Clock extends Component<Props, ClockState> {
         });
     }
 
+    getValue() {
+        const { date } = this.state;
+        const selected = this.props.variant;
+        const variants = {
+            "date": date.toLocaleDateString(),
+            "time": date.toLocaleTimeString(),
+            "datetime": date.toLocaleString(),
+        }
+
+        return variants[selected]
+    }
+
     render() {
         const { variant } = this.props;
 
         return (
             <Typography variant="caption">
-                {variant === "date" ? this.state.date.toLocaleDateString()
-                    : variant === "time" ? this.state.date.toLocaleTimeString()
-                        : this.state.date.toLocaleString()}.
+                {this.getValue()}
             </Typography>
         );
     }
