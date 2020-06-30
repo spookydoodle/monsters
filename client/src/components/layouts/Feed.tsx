@@ -1,14 +1,14 @@
-import React, { Suspense } from 'react';
-import { Container, Grid, Divider, Hidden, Typography } from '@material-ui/core';
-import PostLayout from './Post';
-import ContentsList from '../navigation/ContentsList';
-import { FeedLayoutType } from '../../logic/types';
-
 /* 
     This component is used on home and main pages and is meant to display the list of contents on the left,
     posts (texts and/or media content) in the middle, and additional related content on the right next to each post (e.g. links)
     'id' prop must be provided correctly for the table of contents to work (it uses #foo url elements)
 */
+
+import React from 'react';
+import { Container, Grid, Divider, Hidden, Typography } from '@material-ui/core';
+import PostLayout from './Post';
+import ContentsList from '../navigation/ContentsList';
+import { FeedLayoutType } from '../../logic/types';
 
 const FeedLayout = ({ posts }: FeedLayoutType) => {
     const contentsList = posts.map(post => ({ name: post.title, path: `#${post.id}` }))
