@@ -31,8 +31,8 @@ const FeedLayout = ({ posts }: FeedLayoutType) => {
 
                 {/* Main area by post */}
                 <Grid container item xs={12} lg={10} spacing={2}>
-                    {posts ? posts.map((post, i) =>
-                        <PostLayout key={i} {...post} />) : undefined}
+                    {posts && posts.map((post, i) =>
+                        <PostLayout key={i} {...post} />)}
                 </Grid>
 
             </Grid>

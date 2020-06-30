@@ -69,7 +69,7 @@ export const MonsterCard = ({
 
     return (
         <Card className={classes.card} >
-            {mediaTop ? mediaTop : null}
+            {mediaTop && mediaTop}
             {/* <CardHeader
                 avatar={null}
                 // action={

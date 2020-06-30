@@ -46,12 +46,12 @@ const Jumbotron = ({
                         </Typography>
 
                         <Grid item container justify="center">
-                            {actions ? actions.map((action, i) =>
+                            {actions && actions.map((action, i) =>
                                 <Grid item key={`item-${i}`}>
                                     <Button key={`button-${i}`} style={{ margin: "0.5em" }} variant="contained" color="primary" href={`${action.path}?next=${main}`} >
                                         {action.name}
                                     </Button>
-                                </Grid>) : undefined}
+                                </Grid>)}
                         </Grid>
                     </Grid>
 

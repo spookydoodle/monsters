@@ -91,18 +91,18 @@ export const AppFormLayout = ({ children, title, error }: GridFormProps) => {
                     xs={12}
                     md={6}
                 >
-                    {title ? <Grid item>
+                    {title && <Grid item>
                         <Typography align="center" variant="h4" gutterBottom>
                             {title}
                         </Typography>
-                    </Grid> : undefined}
+                    </Grid>}
 
-                    {error ? <Grid item>
+                    {error && <Grid item>
                         <Alert style={{ margin: "1em auto" }} variant="filled" severity="error">
                             {error}
                         </Alert>
-                    </Grid> : undefined}
-                    
+                    </Grid>}
+
                     {children}
                 </Grid>
             </Grid>

@@ -42,7 +42,7 @@ export const AuthButtonsHorizontal = ({ user, style }: Props) => {
 
 export const AuthButtonsVertical = ({ user, style }: Props) => {
     const classes = useStyles();
-
+    // TODO: resolve error 'div cannot be child of p'
     let signUpButton = (
         <ListItem button component={!user ? Link : Typography} to={!user ? register : ''}>
             {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
