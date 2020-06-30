@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
+import { Link } from 'react-router-dom';
 import { Box, Grid, Button, Typography, Hidden, Grow } from '@material-ui/core';
 import { JumbotronType } from '../../logic/types';
 import jumbotronLight from '../../img/JumbotronLight.png';
@@ -48,9 +49,11 @@ const Jumbotron = ({
                         <Grid item container justify="center">
                             {actions && actions.map((action, i) =>
                                 <Grid item key={`item-${i}`}>
-                                    <Button key={`button-${i}`} style={{ margin: "0.5em" }} variant="contained" color="primary" href={`${action.path}?next=${main}`} >
-                                        {action.name}
-                                    </Button>
+                                    <Link to={`${action.path}?next=${main}`}>
+                                        <Button key={`button-${i}`} style={{ margin: "0.5em" }} variant="contained" color="primary" >
+                                            {action.name}
+                                        </Button>
+                                    </Link>
                                 </Grid>)}
                         </Grid>
                     </Grid>
