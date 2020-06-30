@@ -12,7 +12,7 @@
         "server_dev": "npm run dev --prefix server",
         "server": "npm run start --prefix server",
         "dev": "concurrently --kill-others-on-fail \"npm run server_dev\" \"npm run client\"",
-        "start": "npm run dev"
+        "start": "npm run server"
     },
     "keywords": [],
     "author": "",
