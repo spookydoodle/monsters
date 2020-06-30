@@ -2,7 +2,6 @@
   "name": "monsters-client",
   "version": "0.1.0",
   "description": "A gallery of monsters.",
-  "homepage": "./",
   "main": "index.tsx",
   "private": true,
   "dependencies": {
