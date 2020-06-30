@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useStyles } from '../styles/main';
 import { Typography } from '@material-ui/core';
 import { PostType } from '../logic/types';
-
+import { LinearBuffer } from './Loading';
 
 const Post = ({ title, subtitle, body, content }: PostType) => {
     const classes = useStyles();
@@ -20,9 +20,7 @@ const Post = ({ title, subtitle, body, content }: PostType) => {
             <Typography variant="body1" gutterBottom>
                 {body}
             </Typography>
-
-            {content}
-
+                {content}
         </React.Fragment>
     );
 }

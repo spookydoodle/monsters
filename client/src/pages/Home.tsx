@@ -10,6 +10,7 @@ import { DataItemType, ModeType, UserType } from '../logic/types';
 import { PATHS } from '../constants/data';
 import jumbotronDark from '../img/JumbotronDark.png';
 import jumbotronLight from '../img/JumbotronLight.png';
+// const Gallery = React.lazy(() => import('../components/Gallery'));
 
 interface Props {
     user: UserType,

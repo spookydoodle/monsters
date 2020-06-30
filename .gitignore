@@ -117,3 +117,6 @@ server/constants/keys.js
 
 # google cloud platform config file
 app.yaml
+
+# Misc
+notes.js

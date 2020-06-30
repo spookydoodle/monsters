@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Divider, Hidden, Typography } from '@material-ui/core';
 import Post from '../Post';
 import { PostLayoutType } from '../../logic/types';
-
 /* 
     This component is used on home and main pages and is meant to display on post composed of the main content
     (text and/or media content) on the left taking most of the width, and additional related content on the right (e.g. links)

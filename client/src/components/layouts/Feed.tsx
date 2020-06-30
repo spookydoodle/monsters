@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Container, Grid, Divider, Hidden, Typography } from '@material-ui/core';
 import PostLayout from './Post';
 import ContentsList from '../navigation/ContentsList';
