@@ -55,7 +55,7 @@ export const LinearBuffer = () => {
     }, []);
   
     return (
-      <div style={{ width: "100%", paddingTop: "45vh"}}>
+      <div style={{ width: "100%", paddingTop: "2.5em"}}>
         <LinearProgress 
             variant="buffer" 
             value={progress} 

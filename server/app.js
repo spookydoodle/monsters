@@ -24,6 +24,14 @@ app.use(methodOverride('_method'));
 //     });
 // }
 
+// // Enable proxy on the client server
+// // https://enable-cors.org/server_expressjs.html
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "http://api:4000"); // update to match the domain you will make the request from
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
+
 // Passport config - authentication
 app.use(
     require('express-session')({
