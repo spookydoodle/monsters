@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import { List, ListItem, ListItemText } from '@material-ui/core';
 import { ActionType } from '../../logic/types';
 
@@ -14,7 +14,7 @@ const ContentsList = ({ items }: Props) => {
     return (
         <List>
             {items.map((item, i) =>
-                <Link key={`link-item-${i}`} to={item.path}>
+                <Link key={`link-item-${i}`} to={item.path} smooth={true}>
                     <ListItem key={`item-${i}`} className={classes.pageNavList} button>
                         <ListItemText key={`item-text-${i}`} primary={`${item.name.substring(0, 15)}...`} />
                     </ListItem>
