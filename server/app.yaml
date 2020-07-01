@@ -1,6 +1,13 @@
-runtime: nodejs10
-
-service: api
+runtime: python27
+api_version: 1
+threadsafe: true
+handlers:
+    - url: /(.*\.(gif|png|jpg|css|js)(|\.map))$
+      static_files: client/build/\1
+      upload: client/build/(.*)(|\.map)
+    - url: /(.*)
+      static_files: client/build/index.html
+      upload: client/build/index.html
 
 includes:
   - env_vars.yaml

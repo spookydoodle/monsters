@@ -4,10 +4,6 @@ const keys = require('../constants/keys')
 
 const app = app => {
 
-    app.get('/', (req, res) => {
-        res.status(200).send("Welcome")
-    })
-
     // Web scraping with puppeteer library
     get(app, '/api/puppeteer/search', searchPuppeteer)
 
