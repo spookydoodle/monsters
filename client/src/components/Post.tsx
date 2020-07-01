@@ -20,6 +20,7 @@ const Post = ({ title, subtitle, body, content }: PostType) => {
             <Typography variant="body1" gutterBottom>
                 {body}
             </Typography>
+            
                 {content}
         </React.Fragment>
     );

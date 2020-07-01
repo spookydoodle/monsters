@@ -9,20 +9,11 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Some some random thingies
-app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
-// // Production setup
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static('../client/build'));
-
-//     const path = require('path');
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
-//     });
-// }
 
 // // Enable proxy on the client server
 // // https://enable-cors.org/server_expressjs.html
@@ -65,5 +56,16 @@ passport.deserializeUser(User.deserializeUser());
 require('./routes/search')(app);
 require('./routes/user')(app);
 
+// Production setup
+// Serve static files from the React app
+// Catch any other routes than the ones above - must be after all api routes
+// if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('../client/build'));
+
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
+    });
+// }
 
 module.exports = app;
