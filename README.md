@@ -1,5 +1,5 @@
 # Demo
-See [here](https://kxkaro.github.io/monsters/) to be amazed. Some things are working, some will drop a nice 404... github pages can't handle it all.
+See [here](https://monsters-282316.nw.r.appspot.com/home#gallery) to be amazed. Work in progress.
 
 And see [demo pics here](#demo-pics)
 
