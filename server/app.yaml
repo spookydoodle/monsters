@@ -1,13 +1,10 @@
-runtime: python27
-api_version: 1
-threadsafe: true
-handlers:
-    - url: /(.*\.(gif|png|jpg|css|js)(|\.map))$
-      static_files: client/build/\1
-      upload: client/build/(.*)(|\.map)
-    - url: /(.*)
-      static_files: client/build/index.html
-      upload: client/build/index.html
-
+runtime: nodejs10
 includes:
   - env_vars.yaml
+
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10

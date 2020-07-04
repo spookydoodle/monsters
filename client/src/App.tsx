@@ -51,7 +51,7 @@ class App extends Component<{}, StateType> {
     // TODO: Check for received errors and run another method if the previous one failed
     getGoogleHTML(query)
       .then(res => this.setState({ data: res }))
-      .catch(err => this.setState({ data: getData(query) || [] }))
+      // .catch(err => this.setState({ data: getData(query) || [] }))
   }
 
   addItems = (list: Array<({ title: string, src: string })>) => () => {

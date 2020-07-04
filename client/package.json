@@ -2,7 +2,8 @@
   "name": "monsters-client",
   "version": "0.1.0",
   "description": "A gallery of monsters.",
-  "homepage": "./",
+  "homepage": ".",
+  "proxy": "http://localhost:8080",
   "main": "index.tsx",
   "private": true,
   "dependencies": {
