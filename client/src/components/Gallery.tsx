@@ -26,7 +26,7 @@ const Gallery = ({ user, data, mode, changeQuery }: Props) => {
 
     // TODO: Handle timeout
     return (
-        data && data.length > 0 ? (
+        data && Array.isArray(data) && data.length > 0 ? (
             <React.Fragment>
                 <Tabs
                     style={{ marginTop: "1.5em" }}

@@ -9,7 +9,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Some some random thingies
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
@@ -60,12 +60,12 @@ require('./routes/user')(app);
 // Serve static files from the React app
 // Catch any other routes than the ones above - must be after all api routes
 // if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('../client/build'));
+    app.use(express.static('./build'));
 
     const path = require('path');
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
-    });
+    app.get("*", function (req, res) {
+        res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+    })
 // }
 
 module.exports = app;

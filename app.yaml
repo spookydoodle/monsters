@@ -1,20 +1,10 @@
-runtime: nodejs
-env: flex
+runtime: nodejs10
+includes:
+  - env_vars.yaml
 
 manual_scaling:
   instances: 1
-
 resources:
-  cpu: .5
+  cpu: 1
   memory_gb: 0.5
   disk_size_gb: 10
-
-handlers:
-  - url: /
-    static_files: client/build/index.html
-    upload: client/build/index.html
-  - url: /
-    static_dir: client/build
-
-includes:
-  - env_vars.yaml
