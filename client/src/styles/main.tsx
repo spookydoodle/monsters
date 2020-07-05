@@ -374,9 +374,10 @@ const useStyles = makeStyles((theme: Theme) =>
             - https://cubic-bezier.com/
         */
         header: {
-            // display: "flex",
-            // alignItems: "center",
-            // justifyContent: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
             fontSize: "1.1em",
             backgroundColor: "#333",
             height: "100vh",
@@ -458,6 +459,40 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         headerButton: {
             animationDelay: "1.1s",
+        },
+        headerDownArrow: {
+            position: "absolute",
+            bottom: "4vh",
+            left: "0",
+            right: "0",
+            margin: "0 auto", 
+            zIndex: 10,
+            animation: `$fade-slide-up .5s 1s ease-out forwards, $pulse 2s 3s ease-out infinite`,
+            opacity: 0,
+        },
+        '@keyframes fade-slide-up': {
+            '0%': { 
+                opacity: 0,
+                transform: "translateY(4rem)",
+            },
+            '100%': { 
+                opacity: 1,
+                transform: "none",
+            },
+        },
+        '@keyframes pulse': {
+            '0%': { 
+                opacity: 1,
+                transform: "none",
+            },
+            '50%': { 
+                opacity: .8,
+                transform: "scale(.8)",
+            },
+            '100%': { 
+                opacity: 1,
+                transform: "none",
+            },
         },
     })
 );

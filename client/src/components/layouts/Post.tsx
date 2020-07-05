@@ -11,7 +11,7 @@ import { PostLayoutType } from '../../logic/types';
 const PostLayout = ({ id, additional, ...props }: PostLayoutType) => {
 
     return (
-        <React.Fragment>
+        <>
             {/* Middle area - main content by post */}
             <Grid item id={id} xs={12} md={10}>
                 <Divider style={{ marginTop: "2em", marginBottom: "2em" }} />
@@ -24,17 +24,17 @@ const PostLayout = ({ id, additional, ...props }: PostLayoutType) => {
                     <Divider style={{ marginTop: "2em", marginBottom: "2em" }} />
 
                     {additional &&
-                        <React.Fragment>
+                        <>
                             <Typography variant="h4" style={{ marginBottom: "0.45em" }}>
                                 Cool stuff:
                             </Typography>
 
                             {additional}
-                        </React.Fragment>}
+                        </>}
 
                 </Grid>
             </Hidden>
-        </React.Fragment>
+        </>
     )
 }
 

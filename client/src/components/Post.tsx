@@ -8,7 +8,7 @@ const Post = ({ title, subtitle, body, content }: PostType) => {
     const classes = useStyles();
 
     return (
-        <React.Fragment>
+        <>
             <Typography variant="h4">
                 {title}
             </Typography>
@@ -22,7 +22,7 @@ const Post = ({ title, subtitle, body, content }: PostType) => {
             </Typography>
             
                 {content}
-        </React.Fragment>
+        </>
     );
 }
 
