@@ -365,6 +365,7 @@ const useStyles = makeStyles((theme: Theme) =>
             - pseudo elements go inside a class and are named "$:<name>" ("$::before" , "$::hover")
             - content style need to be 'double quoted' to work, so content: "''" or content: "'before'"
             - keyframes can be defined by a name in double quotes, e.g. "@keyframes anim: { "0%": {...}, "100%": {...}, }"
+            - animation names must be prefixed with $, so: animation: "$anim 2s ease-in"
             - animation timing function property (ease in etc) can use theme provider theme.transitions.easing.easeOut
             - images need to be imported (import image from '../img/image.png)' and referred to as relative path in background properties
                 e.g. background: `url(${image})`. Otherwise they won't be displayed (do not use background: url('../img/image.png)).
@@ -384,9 +385,10 @@ const useStyles = makeStyles((theme: Theme) =>
             perspective: "100px",
             position: "relative",
             textAlign: "center",
+            color: "white",
             transformStyle: "preserve-3d",
             '&::before': {
-                background: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), 
+                background: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .8)), 
                             url(${header}) no-repeat bottom`,
                 backgroundSize: "cover",
                 content: "''",
@@ -411,8 +413,9 @@ const useStyles = makeStyles((theme: Theme) =>
                 right: "-5%",
                 top: "90%",
                 transformOrigin: "0 0",
-                transform: "rotateZ(-4deg)",
+                // transform: "rotateZ(-4deg)", // animation handles rotation
                 zIndex: -1,
+                animation: `$rotate-up .5s .5s cubic-bezier(0, .5, 0, 1) forwards`,
             },
         },
         '@keyframes fade-slide-down': {
@@ -424,8 +427,38 @@ const useStyles = makeStyles((theme: Theme) =>
                 opacity: 1,
                 transform: "none",
             },
-        }
-        // pseudo-elements :hover :after
+        },
+        '@keyframes rotate-up': {
+            '100%': { 
+                transform: "rotateZ(-4deg)",
+            },
+        },
+        popIn: {
+            animation: "$pop-in .6s cubic-bezier(0, .9, .3, 1.2) forwards",
+            opacity: 0,
+        },
+        '@keyframes pop-in': {
+            '0%': { 
+                opacity: 0,
+                transform: "translateY(-4rem) scale(.8)",
+            },
+            '100%': { 
+                opacity: 1,
+                transform: "none",
+            },
+        },
+        headerLightning: {
+            animationDelay: ".6s !important",
+        },
+        headerTitle: {
+            animationDelay: ".8s !important",
+        },
+        headerSubtitle: {
+            animationDelay: "1s !important",
+        },
+        headerButton: {
+            animationDelay: "1.1s",
+        },
     })
 );
 
