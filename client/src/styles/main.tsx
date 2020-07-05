@@ -215,7 +215,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginTop: `${toolbarHeight}px`,
             position: "absolute",
             color: "#fff",
-            height: "100vh",
+            height: `calc(100vh - ${toolbarHeight}px)`,
         },
         jumbotronImg: {
             position: 'absolute',
