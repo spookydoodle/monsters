@@ -74,27 +74,27 @@ module.exports = app => {
 
     /*              Users               */
 
-    // INDEX - note that the path is /users not /auth
-    app.get(`/api/users`, async (req, res) => {
-        User.find({})
-            .then(users => res.status(200).send(users))
-            .catch(err => res.status(500).send({ err }));
-    });
+    // // INDEX - note that the path is /users not /auth
+    // app.get(`/api/users`, async (req, res) => {
+    //     User.find({})
+    //         .then(users => res.status(200).send(users))
+    //         .catch(err => res.status(500).send({ err }));
+    // });
 
-    // UPDATE 
-    app.put('/api/users/:id', middleware.isUser, async (req, res) => {
-        const { id } = req.params;
-        const user = {
-            ...req.body,
-            edited: Date.now(),
-        };
+    // // UPDATE 
+    // app.put('/api/users/:id', middleware.isUser, async (req, res) => {
+    //     const { id } = req.params;
+    //     const user = {
+    //         ...req.body,
+    //         edited: Date.now(),
+    //     };
 
-        User.findByIdAndUpdate(id, user)
-            .then(user => {
-                res.status(200).send({ error: false, user });
-            })
-            .catch(err => res.status(500).send({ err }));
-    });
+    //     User.findByIdAndUpdate(id, user)
+    //         .then(user => {
+    //             res.status(200).send({ error: false, user });
+    //         })
+    //         .catch(err => res.status(500).send({ err }));
+    // });
 
     // DELETE is not supported. 
     // When user decides to delete the account -> set the value of attribute "active" to false 

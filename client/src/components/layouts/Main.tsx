@@ -11,13 +11,15 @@ import { DrawerType, ModeType, JumbotronType, UserType } from '../../logic/types
 // TODO: remove changeQuery from here
 /*
   This component should serve as a wrapper for all pages. 
-  Jumbotron is optional.
+  Jumbotron and appBar are optional so the component can be use for either an option with both, with only jumbotron or only appBar.
+  Drawer allows additional properties, like variant. Not specified (default) is temporary. Other option is: persistent.
 */
 interface Props {
   user: UserType,
   children: React.ReactChild,
   jumbotron?: JumbotronType,
   drawer?: DrawerType,
+  appBar?: boolean,
   mode: ModeType,
   setDarkMode: any,
   changeQuery: any,
@@ -28,6 +30,7 @@ const Layout = ({
   children,
   jumbotron,
   drawer,
+  appBar,
   mode,
   setDarkMode,
   changeQuery,
@@ -65,7 +68,7 @@ const Layout = ({
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <NavBar
+      {appBar && <NavBar
         user={user}
         name="Monsters Gallery"
         mode={mode}
@@ -73,7 +76,7 @@ const Layout = ({
         open={open}
         handleDrawerOpen={handleDrawerOpen}
         handleDrawerClose={handleDrawerClose}
-      />
+      />}
 
       <MenuDrawer
         user={user}
@@ -82,7 +85,6 @@ const Layout = ({
         mode={mode}
         setDarkMode={setDarkMode}
         open={open}
-        changeQuery={changeQuery}
         toggleDrawer={toggleDrawer}
       />
 

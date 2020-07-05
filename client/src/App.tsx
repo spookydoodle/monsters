@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import './App.css';
 import Landing from './pages/Landing';
 import Home from './pages/Home';
+import Animations from './pages/Animations';
 import Monsters from './pages/Monsters';
 import Register from './pages/Register'
 import Login from './pages/Login'
@@ -76,7 +77,7 @@ class App extends Component<{}, StateType> {
 
   render() {
     const { mode, query, data } = this.state;
-    const { root, landing, home, main, login, logout, register } = PATHS;
+    const { root, landing, home, animations, main, login, logout, register } = PATHS;
     
     // TODO: consider using , { Suspense, lazy } - https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
     return (
@@ -144,6 +145,16 @@ class App extends Component<{}, StateType> {
             */}
             <Route path={home}>
               <Home
+                user={this.state.user}
+                query={query}
+                data={data}
+                mode={this.state.mode}
+                changeQuery={this.changeQuery}
+                setDarkMode={this.setDarkMode}
+              />
+            </Route>
+            <Route path={animations}>
+              <Animations
                 user={this.state.user}
                 query={query}
                 data={data}
