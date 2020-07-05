@@ -27,7 +27,7 @@ const Gallery = ({ user, data, mode, changeQuery }: Props) => {
     // TODO: Handle timeout
     return (
         data && Array.isArray(data) && data.length > 0 ? (
-            <React.Fragment>
+            <>
                 <Tabs
                     style={{ marginTop: "1.5em" }}
                     value={value}
@@ -78,7 +78,7 @@ const Gallery = ({ user, data, mode, changeQuery }: Props) => {
                         </Grid>
                     )}
                 </Grid>
-            </React.Fragment>
+            </>
         ) : (
                 <LinearBuffer />
             )

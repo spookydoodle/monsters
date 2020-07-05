@@ -7,8 +7,9 @@ import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import { PATHS } from '../constants/data';
 const { home } = PATHS;
 
+// TODO: move to components/landings and migrate styles from css file to makeStyles
 const Landing = (props: any) => (
-    <React.Fragment>
+    <>
         <div className="fade-in">
             <div className="landing-header">
                 <Typography variant="h4">A large, ugly, and frightening imaginary creature</Typography>
@@ -28,7 +29,7 @@ const Landing = (props: any) => (
             <li></li>
             <li></li>
         </ul>
-    </React.Fragment>
+    </>
 );
 
 export default Landing;

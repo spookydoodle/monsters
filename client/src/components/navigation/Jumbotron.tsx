@@ -18,7 +18,7 @@ const Jumbotron = ({
     const classes = useStyles();
 
     return (
-        <React.Fragment>
+        <>
             {/* Background image */}
             <div className={classes.jumbotronImg} style={{ backgroundImage: `url(${img})` }} />
 
@@ -66,7 +66,7 @@ const Jumbotron = ({
 
                 </Grid>
             </Grow>
-        </React.Fragment>
+        </>
     );
 }
 

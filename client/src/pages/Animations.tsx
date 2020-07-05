@@ -2,8 +2,10 @@ import React from 'react';
 import { guestPage } from '../utils/authenticatedPage';
 import { withPush } from '../utils/routingDecorators';
 import { useStyles } from '../styles/main';
-import { Box, Button, Grid, Typography } from '@material-ui/core';
+import { Container } from '@material-ui/core';
+import Header1 from '../components/landings/Header1';
 import { ModeType, UserType } from '../logic/types';
+import { PATHS } from '../constants/data';
 
 interface Props {
     user: UserType,
@@ -14,32 +16,19 @@ interface Props {
 
 const Animations = ({ user, mode, setDarkMode, push }: Props) => {
     const classes = useStyles();
+    const { home } = PATHS;
 
     return (
-        <Grid 
-            container 
-            justify="center"
-            alignItems="center"
-            className={classes.header}
-        >
-            <Grid item>
-                <Box className={`${classes.headerLightning} ${classes.popIn}`}>
-                    ⚡
-                </Box>
-
-                <Typography className={`${classes.headerTitle} ${classes.popIn}`} variant="h2">
-                    Awesome landing page
-                </Typography>
-
-                <Typography className={`${classes.headerSubtitle} ${classes.popIn}`} variant="h6" gutterBottom>
-                    Start of the project
-                </Typography>
-                
-                <Button className={`${classes.headerButton} ${classes.popIn}`} variant="outlined" size="large" color="inherit" style={{ margin: "1em" }}>
-                    Get started
-                </Button>
-            </Grid>
-        </Grid>
+        <>
+            <Header1
+                user={user}
+                mode={mode}
+                setDarkMode={setDarkMode}
+                title="Awesome landing page"
+                subtitle="Start of the coolest project"
+                button={{ name: "Get started", path: home }}
+            />
+        </>
     );
 }
 

@@ -27,7 +27,7 @@ export const ActionButtons = ({
     expanded
 }: Props) => {
     return (
-        <React.Fragment>
+        <>
             <IconButton style={{marginLeft: "auto"}} aria-label="add to favorites">
                 {/* <Typography variant="caption">{likes.length}</Typography> */}
                 <FavoriteBorderOutlinedIcon color={mode === "light" ? "primary" : undefined} />
@@ -43,6 +43,6 @@ export const ActionButtons = ({
                 <ModeCommentOutlinedIcon />
                 <Typography variant="caption">{comments.length}</Typography>
             </IconButton> */}
-        </React.Fragment>
+        </>
     );
 };
