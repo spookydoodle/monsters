@@ -27,7 +27,6 @@ const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: P
             mode={mode}
             appBar={true}
             setDarkMode={setDarkMode}
-            changeQuery={changeQuery}
         >
             <FeedLayout posts={[
                 {

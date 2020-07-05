@@ -14,11 +14,10 @@ interface Props {
     user: UserType,
     mode: ModeType,
     setDarkMode: any,
-    changeQuery: any,
     onSuccess: any,
 }
 
-const Logout = ({ user, mode, setDarkMode, changeQuery, onSuccess }: Props) => {
+const Logout = ({ user, mode, setDarkMode, onSuccess }: Props) => {
 
     const [logoutRequestDone, setLogoutRequestDone] = useState(false);
 
@@ -42,7 +41,6 @@ const Logout = ({ user, mode, setDarkMode, changeQuery, onSuccess }: Props) => {
                 user={user}
                 mode={mode}
                 setDarkMode={setDarkMode}
-                changeQuery={changeQuery}
             >
                 <AppFormLayout>
                     <Fade timeout={1000} in={true}>

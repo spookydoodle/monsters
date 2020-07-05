@@ -15,12 +15,11 @@ interface Props {
     user: UserType,
     mode: ModeType,
     setDarkMode: any,
-    changeQuery: any,
     next?: any,
     onSuccess: any,
 }
 
-const Register = ({ user, mode, setDarkMode, changeQuery, next, onSuccess }: Props) => {
+const Register = ({ user, mode, setDarkMode, next, onSuccess }: Props) => {
     const [error, setError] = useState('');
 
     const setErrorMessage = (err: {message: string, request: any}) => {
@@ -32,7 +31,6 @@ const Register = ({ user, mode, setDarkMode, changeQuery, next, onSuccess }: Pro
             user={user}
             mode={mode}
             setDarkMode={setDarkMode}
-            changeQuery={changeQuery}
         >
             <AuthForm
                 mode={mode}

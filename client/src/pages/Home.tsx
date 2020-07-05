@@ -42,7 +42,6 @@ const Home = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props
             appBar={true}
             mode={mode}
             setDarkMode={setDarkMode}
-            changeQuery={changeQuery}
         >
             <FeedLayout posts={[
                 {
