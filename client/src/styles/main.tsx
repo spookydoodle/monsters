@@ -400,10 +400,11 @@ const useStyles = makeStyles((theme: Theme) =>
                 left: 0,
                 zIndex: -1,
                 opacity: 0,
+                transform: "translateY(-4rem)",     // the same effect if initialized like this and animated using the 'no-transform'
                 // animation: name duration delay? easing 
                 // animation: `$fade-slide-down 2000ms ease-out forwards`,
                 // animation: `$fade-slide-down 2000ms ${theme.transitions.easing.easeOut} forwards`,
-                animation: `$fade-slide-down 2s .5s cubic-bezier(0, .5, 0, 1) forwards`,
+                animation: `$no-transform 2s .5s cubic-bezier(0, .5, 0, 1) forwards`,
             },
             '&::after': {
                 backgroundColor: "#F9FCFF",
@@ -419,35 +420,37 @@ const useStyles = makeStyles((theme: Theme) =>
                 animation: `$rotate-up .5s .5s cubic-bezier(0, .5, 0, 1) forwards`,
             },
         },
-        '@keyframes fade-slide-down': {
-            '0%': { 
-                opacity: 0,
-                transform: "translateY(-4rem)",
-            },
-            '100%': { 
-                opacity: 1,
-                transform: "none",
-            },
-        },
+        // '@keyframes fade-slide-down': {
+        //     '0%': { 
+        //         opacity: 0,
+        //         transform: "translateY(-4rem)",
+        //     },
+        //     '100%': { 
+        //         opacity: 1,
+        //         transform: "none",
+        //     },
+        // },
         '@keyframes rotate-up': {
             '100%': { 
                 transform: "rotateZ(-4deg)",
             },
         },
         popIn: {
-            animation: "$pop-in .6s cubic-bezier(0, .9, .3, 1.2) forwards",
+            // animation: "$pop-in .6s cubic-bezier(0, .9, .3, 1.2) forwards",
+            animation: "$no-transform .6s cubic-bezier(0, .9, .3, 1.2) forwards",
             opacity: 0,
+            transform: "translateY(-4rem) scale(.8)",
         },
-        '@keyframes pop-in': {
-            '0%': { 
-                opacity: 0,
-                transform: "translateY(-4rem) scale(.8)",
-            },
-            '100%': { 
-                opacity: 1,
-                transform: "none",
-            },
-        },
+        // '@keyframes pop-in': {
+        //     '0%': { 
+        //         opacity: 0,
+        //         transform: "translateY(-4rem) scale(.8)",
+        //     },
+        //     '100%': { 
+        //         opacity: 1,
+        //         transform: "none",
+        //     },
+        // },
         headerLightning: {
             animationDelay: ".6s !important",
         },
@@ -467,19 +470,20 @@ const useStyles = makeStyles((theme: Theme) =>
             right: "0",
             margin: "0 auto", 
             zIndex: 10,
-            animation: `$fade-slide-up .5s 1s ease-out forwards, $pulse 2s 3s ease-out infinite`,
+            transform: "translateY(4rem)",
+            // animation: `$fade-slide-up .5s 1s ease-out forwards, $pulse 2s 3s ease-out infinite`,
+            animation: `$no-transform .5s 1s ease-out forwards, $pulse 2s 3s ease-out infinite`,
             opacity: 0,
         },
-        '@keyframes fade-slide-up': {
-            '0%': { 
-                opacity: 0,
-                transform: "translateY(4rem)",
-            },
-            '100%': { 
-                opacity: 1,
-                transform: "none",
-            },
-        },
+        // '@keyframes fade-slide-up': {    // Removed thanks to the no-transform and moving transform prop to the class
+        //     '0%': { 
+        //         opacity: 0,
+        //     },
+        //     '100%': { 
+        //         opacity: 1,
+        //         transform: "none",
+        //     },
+        // },
         '@keyframes pulse': {
             '0%': { 
                 opacity: 1,
@@ -489,6 +493,13 @@ const useStyles = makeStyles((theme: Theme) =>
                 opacity: .8,
                 transform: "scale(.8)",
             },
+            '100%': { 
+                opacity: 1,
+                transform: "none",
+            },
+        },
+        // To remove redundancy in the other keyframes
+        '@keyframes no-transform': {
             '100%': { 
                 opacity: 1,
                 transform: "none",

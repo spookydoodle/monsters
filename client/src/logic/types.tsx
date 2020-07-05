@@ -89,6 +89,15 @@ interface FeedLayoutType {
     }>,
 }
 
+interface LandingType {
+    user: UserType,
+    mode: ModeType,
+    setDarkMode: any,
+    title: string,
+    subtitle: string,
+    button: { name: string, path: string },
+}
+
 export type {
     DataItemType,
     UserType,
@@ -105,4 +114,5 @@ export type {
     PostLayoutType,
     PostType,
     FeedLayoutType,
+    LandingType,
 }

@@ -1,36 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Suspense, lazy } from 'react';
 import '../styles/landing.css';
-// import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import { LinearBuffer } from '../components/Loading';
 import { PATHS } from '../constants/data';
+const Header2 = lazy(() => import('../components/landings/Header2'));
 const { home } = PATHS;
 
 // TODO: move to components/landings and migrate styles from css file to makeStyles
-const Landing = (props: any) => (
-    <>
-        <div className="fade-in">
-            <div className="landing-header">
-                <Typography variant="h4">A large, ugly, and frightening imaginary creature</Typography>
-                <Typography className="offset" variant="h5">
-                    noun | UK <VolumeUpIcon />
-                    /ˈmɒn.stər/ | US <VolumeUpIcon /> /ˈmɑːn.stɚ/
-                </Typography>
-                <Link to={home} className="btn-slideshow">
-                ENTER IF YOU DARE
-                </Link>
-            </div>
-        </div>
-        <ul className="slideshow">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </>
-);
+const Landing = ({ user, mode, setDarkmode }: any) => {
+
+    return <Suspense fallback={<LinearBuffer/>}>
+        <Header2 
+            user={user}
+            mode={mode}
+            setDarkMode={setDarkmode}
+            title="A large, ugly, and frightening imaginary creature" 
+            subtitle="noun | UK /ˈmɒn.stər/ | US /ˈmɑːn.stɚ/"
+            button={{ name: "ENTER IF YOU DARE", path: home }}
+        />
+    </Suspense>
+};
 
 export default Landing;
 

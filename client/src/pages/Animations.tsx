@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { guestPage } from '../utils/authenticatedPage';
 import { withPush } from '../utils/routingDecorators';
 import { useStyles } from '../styles/main';
 import { Container } from '@material-ui/core';
-import Header1 from '../components/landings/Header1';
+import { LinearBuffer } from '../components/Loading';
+// import Header1 from '../components/landings/Header1';
 import { ModeType, UserType } from '../logic/types';
 import { PATHS } from '../constants/data';
+const Header1 = lazy(() => import('../components/landings/Header1'));
 
 interface Props {
     user: UserType,
@@ -19,7 +21,7 @@ const Animations = ({ user, mode, setDarkMode, push }: Props) => {
     const { home } = PATHS;
 
     return (
-        <>
+        <Suspense fallback={<LinearBuffer />}>
             <Header1
                 user={user}
                 mode={mode}
@@ -28,7 +30,7 @@ const Animations = ({ user, mode, setDarkMode, push }: Props) => {
                 subtitle="Start of the coolest project"
                 button={{ name: "Get started", path: home }}
             />
-        </>
+        </Suspense>
     );
 }
 

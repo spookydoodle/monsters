@@ -94,7 +94,11 @@ class App extends Component<{}, StateType> {
               <Redirect to={landing} />
             </Route> */}
             <Route exact path={landing}>
-              <Landing />
+              <Landing
+                user={this.state.user}
+                mode={this.state.mode}
+                setDarkMode={this.setDarkMode}
+              />
             </Route>
             <Route path={login}>
               <Login
