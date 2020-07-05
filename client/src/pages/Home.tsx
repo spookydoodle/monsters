@@ -39,6 +39,7 @@ const Home = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props
                 ],
                 onClick: undefined,
             }}
+            appBar={true}
             mode={mode}
             setDarkMode={setDarkMode}
             changeQuery={changeQuery}

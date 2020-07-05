@@ -29,6 +29,7 @@ const PATHS = {
     logout: "/logout",
     register: "/register",
     main: "/feed",
+    animations: "/anim",
 }
 
 export { INITIAL_STATE, PATHS, CATEGORIES, SEARCH_METHODS }

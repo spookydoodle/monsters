@@ -25,6 +25,7 @@ const Monsters = ({ user, query, data, mode, setDarkMode, changeQuery, push }: P
         <Layout
             user={user}
             mode={mode}
+            appBar={true}
             setDarkMode={setDarkMode}
             changeQuery={changeQuery}
         >
