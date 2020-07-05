@@ -101,7 +101,6 @@ class App extends Component<{}, StateType> {
                 onLoginSuccess={this.setUser}
                 // notificationsProps={notificationsProps}
                 mode={this.state.mode}
-                changeQuery={this.changeQuery}
                 setDarkMode={this.setDarkMode}
               />
             </Route>
@@ -111,7 +110,6 @@ class App extends Component<{}, StateType> {
                 onSuccess={this.setUser}
                 // notificationsProps={notificationsProps}
                 mode={this.state.mode}
-                changeQuery={this.changeQuery}
                 setDarkMode={this.setDarkMode}
               />
             </Route>
@@ -121,7 +119,6 @@ class App extends Component<{}, StateType> {
                 onSuccess={this.clearUser}
                 // notificationsProps={notificationsProps}
                 mode={this.state.mode}
-                changeQuery={this.changeQuery}
                 setDarkMode={this.setDarkMode}
               />
             </Route>
@@ -156,10 +153,7 @@ class App extends Component<{}, StateType> {
             <Route path={animations}>
               <Animations
                 user={this.state.user}
-                query={query}
-                data={data}
                 mode={this.state.mode}
-                changeQuery={this.changeQuery}
                 setDarkMode={this.setDarkMode}
               />
             </Route>

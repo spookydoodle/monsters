@@ -9,15 +9,12 @@ import { PATHS } from '../constants/data';
 
 interface Props {
     user: UserType,
-    query: string,
-    data: Array<DataItemType>
     mode: ModeType,
     setDarkMode: any,
-    changeQuery: any,
     push: string,
 }
 
-const Animations = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props) => {
+const Animations = ({ user, mode, setDarkMode, push }: Props) => {
     const classes = useStyles();
     const { login, register } = PATHS;
     
@@ -26,7 +23,6 @@ const Animations = ({ user, query, data, mode, setDarkMode, changeQuery, push }:
             user={user}
             mode={mode}
             setDarkMode={setDarkMode}
-            changeQuery={changeQuery}
         >
             <Grid container>
                 

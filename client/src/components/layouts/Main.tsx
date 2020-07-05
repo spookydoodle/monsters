@@ -8,7 +8,6 @@ import MenuDrawer from '../navigation/MenuDrawer';
 import NavBar from '../navigation/NavBar';
 import { DrawerType, ModeType, JumbotronType, UserType } from '../../logic/types';
 
-// TODO: remove changeQuery from here
 /*
   This component should serve as a wrapper for all pages. 
   Jumbotron and appBar are optional so the component can be use for either an option with both, with only jumbotron or only appBar.
@@ -22,7 +21,6 @@ interface Props {
   appBar?: boolean,
   mode: ModeType,
   setDarkMode: any,
-  changeQuery: any,
 }
 
 const Layout = ({
@@ -33,7 +31,6 @@ const Layout = ({
   appBar,
   mode,
   setDarkMode,
-  changeQuery,
 }: Props) => {
   const classes = useStyles();
   const theme = createTheme(mode);
