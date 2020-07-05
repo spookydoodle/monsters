@@ -8,6 +8,7 @@ import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/co
 // Below components need to be imported to correctly overwrite styles with classes in useStyle
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
+import header from '../img/header-1.jpg';
 
 // // Custom palette - colors should be defined here and referenced in classes
 // const color1 = '#1A1A1D'; // black
@@ -232,11 +233,11 @@ const useStyles = makeStyles((theme: Theme) =>
         image: {
             display: "block",
             // height: "auto", 
-            width: "90%", 
+            width: "90%",
             borderRadius: "3px",
             margin: "0 auto",
         },
-        
+
         /* 
             Lists
         */
@@ -300,7 +301,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 duration: theme.transitions.duration.enteringScreen,
             }),
         },
-        toolbar: { 
+        toolbar: {
             minHeight: `${toolbarHeight}px !important`,
         },
         menuButton: {
@@ -357,6 +358,74 @@ const useStyles = makeStyles((theme: Theme) =>
             fontSize: '10em',
             color: theme.palette.primary.light,
         },
+
+        /* 
+            For Animations page. Notes:
+            Material-ui handles pseudo elements and animations in a specific way. Pay attention to:
+            - pseudo elements go inside a class and are named "$:<name>" ("$::before" , "$::hover")
+            - content style need to be 'double quoted' to work, so content: "''" or content: "'before'"
+            - keyframes can be defined by a name in double quotes, e.g. "@keyframes anim: { "0%": {...}, "100%": {...}, }"
+            - animation timing function property (ease in etc) can use theme provider theme.transitions.easing.easeOut
+            - images need to be imported (import image from '../img/image.png)' and referred to as relative path in background properties
+                e.g. background: `url(${image})`. Otherwise they won't be displayed (do not use background: url('../img/image.png)).
+            
+            Useful links:
+            - https://cubic-bezier.com/
+        */
+        header: {
+            // display: "flex",
+            // alignItems: "center",
+            // justifyContent: "center",
+            fontSize: "1.1em",
+            backgroundColor: "#333",
+            height: "100vh",
+            width: "100%",
+            overflow: "hidden",
+            perspective: "100px",
+            position: "relative",
+            textAlign: "center",
+            transformStyle: "preserve-3d",
+            '&::before': {
+                background: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), 
+                            url(${header}) no-repeat bottom`,
+                backgroundSize: "cover",
+                content: "''",
+                position: "absolute",
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                zIndex: -1,
+                opacity: 0,
+                // animation: name duration delay? easing 
+                // animation: `$fade-slide-down 2000ms ease-out forwards`,
+                // animation: `$fade-slide-down 2000ms ${theme.transitions.easing.easeOut} forwards`,
+                animation: `$fade-slide-down 2s .5s cubic-bezier(0, .5, 0, 1) forwards`,
+            },
+            '&::after': {
+                backgroundColor: "#F9FCFF",
+                content: "''",
+                height: "40rem",
+                left: "-5%",
+                position: "absolute",
+                right: "-5%",
+                top: "90%",
+                transformOrigin: "0 0",
+                transform: "rotateZ(-4deg)",
+                zIndex: -1,
+            },
+        },
+        '@keyframes fade-slide-down': {
+            '0%': { 
+                opacity: 0,
+                transform: "translateY(-4rem)",
+            },
+            '100%': { 
+                opacity: 1,
+                transform: "none",
+            },
+        }
+        // pseudo-elements :hover :after
     })
 );
 
