@@ -4,8 +4,9 @@ import { withPush } from '../utils/routingDecorators';
 import { useStyles } from '../styles/main';
 import { Grid } from '@material-ui/core';
 import Layout from '../components/layouts/Main';
-import { DataItemType, ModeType, UserType } from '../logic/types';
+import { ModeType, UserType } from '../logic/types';
 import { PATHS } from '../constants/data';
+import header from '../img/header-1.jpg';
 
 interface Props {
     user: UserType,
@@ -16,18 +17,11 @@ interface Props {
 
 const Animations = ({ user, mode, setDarkMode, push }: Props) => {
     const classes = useStyles();
-    const { login, register } = PATHS;
-    
+
     return (
-        <Layout
-            user={user}
-            mode={mode}
-            setDarkMode={setDarkMode}
-        >
-            <Grid container>
-                
-            </Grid>
-        </Layout>
+        <Grid container className={classes.header}>
+            
+        </Grid>
     );
 }
 
