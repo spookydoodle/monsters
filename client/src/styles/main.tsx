@@ -9,6 +9,7 @@ import { fade, makeStyles, useTheme, Theme, createStyles } from '@material-ui/co
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import header from '../img/header-1.jpg';
+import header2 from '../img/header-2.jpg';
 
 // // Custom palette - colors should be defined here and referenced in classes
 // const color1 = '#1A1A1D'; // black
@@ -136,6 +137,26 @@ const createTheme = (type: ModeType) => {
     });
 
     theme = responsiveFontSizes(theme);
+
+    theme.typography.h1 = {
+        ...theme.typography.h1,
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '3.25rem',
+        },
+        [theme.breakpoints.only('xs')]: {
+          fontSize: '2.25rem',
+        },
+      };
+
+      theme.typography.h2 = {
+        ...theme.typography.h2,
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '2.75rem',
+        },
+        [theme.breakpoints.only('xs')]: {
+          fontSize: '1.75rem',
+        },
+      };
 
     return theme
 }
@@ -373,7 +394,7 @@ const useStyles = makeStyles((theme: Theme) =>
             Useful links:
             - https://cubic-bezier.com/
         */
-        header: {
+        headerSimple: {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -431,7 +452,7 @@ const useStyles = makeStyles((theme: Theme) =>
         //     },
         // },
         '@keyframes rotate-up': {
-            '100%': { 
+            '100%': {
                 transform: "rotateZ(-4deg)",
             },
         },
@@ -451,16 +472,16 @@ const useStyles = makeStyles((theme: Theme) =>
         //         transform: "none",
         //     },
         // },
-        headerLightning: {
+        headerSimpleLightning: {
             animationDelay: ".6s !important",
         },
-        headerTitle: {
+        headerSimpleTitle: {
             animationDelay: ".8s !important",
         },
-        headerSubtitle: {
+        headerSimpleSubtitle: {
             animationDelay: "1s !important",
         },
-        headerButton: {
+        headerSimpleButton: {
             animationDelay: "1.1s",
         },
         headerDownArrow: {
@@ -468,7 +489,7 @@ const useStyles = makeStyles((theme: Theme) =>
             bottom: "4vh",
             left: "0",
             right: "0",
-            margin: "0 auto", 
+            margin: "0 auto",
             zIndex: 10,
             transform: "translateY(4rem)",
             // animation: `$fade-slide-up .5s 1s ease-out forwards, $pulse 2s 3s ease-out infinite`,
@@ -485,25 +506,100 @@ const useStyles = makeStyles((theme: Theme) =>
         //     },
         // },
         '@keyframes pulse': {
-            '0%': { 
+            '0%': {
                 opacity: 1,
                 transform: "none",
             },
-            '50%': { 
+            '50%': {
                 opacity: .8,
                 transform: "scale(.8)",
             },
-            '100%': { 
+            '100%': {
                 opacity: 1,
                 transform: "none",
             },
         },
         // To remove redundancy in the other keyframes
         '@keyframes no-transform': {
-            '100%': { 
+            '100%': {
                 opacity: 1,
                 transform: "none",
             },
+        },
+        // TODO refactor and remove redundancy
+        headerFrame: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#333",
+            height: "100vh",
+            width: "100%",
+            overflow: "hidden",
+            perspective: "100px",
+            position: "relative",
+            textAlign: "center",
+            color: "white",
+            textTransform: "uppercase",
+            transformStyle: "preserve-3d",
+            '&::before': {
+                background: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .8)), 
+                            url(${header2}) no-repeat top`,
+                backgroundSize: "cover",
+                content: "''",
+                position: "absolute",
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                zIndex: -1,
+                // opacity: 0,
+                // transform: "translateY(-4rem)",     // the same effect if initialized like this and animated using the 'no-transform'
+                // animation: `$no-transform 2s .5s cubic-bezier(0, .5, 0, 1) forwards`,
+            },
+            '&::after': {
+                // backgroundColor: "#F9FCFF",
+                content: "''",
+                position: "absolute",
+                top: "30px",
+                bottom: "30px",
+                height: "auto",
+                width: "auto",
+                left: "30px",
+                right: "30px",
+                backgroundColor: "transparent",
+                border: "15px solid #F9FCFF",
+                transformOrigin: "0 0",
+                // transform: "rotateZ(-4deg)", // animation handles rotation
+                zIndex: -1,
+                // animation: `$rotate-up .5s .5s cubic-bezier(0, .5, 0, 1) forwards`,
+            },
+        },
+        headerFrameInner: {
+            position: "absolute",
+            width: "auto",
+            height: "auto",
+            left: "15%",
+            right: "15%",
+            top: "10vh",
+            bottom: "10vh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+        },
+        headerFrameTitle: {
+            // animationDelay: ".8s !important",
+        },
+        headerFrameSubtitle: {
+            fontWeight: "bold",
+        },
+        headerFrameButton: {
+            '&:hover': {
+                backgroundColor: "#F9FCFF",
+                color: "rgba(0, 0, 0, 0.8)",
+                padding: "0 .2em"
+            }
         },
     })
 );

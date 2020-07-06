@@ -46,12 +46,13 @@ module.exports = app => {
     // For example when connection cannot be established or when user credentials are wrong
     // Therefore needed to create a custom method
     app.post('/api/auth/login', (req, res) => {
-        passport.authenticate('local', (err, user) => {
+        console.log(res)
+        passport.authenticate('local', (err, user, response) => {
             if (err) {
                 res.status(500).send(err)
             }
             else if (!user) {
-                res.status(401).send("Wrong username or password")
+                res.status(401).send(response.message)
             }
             else {
                 res.status(200).send({

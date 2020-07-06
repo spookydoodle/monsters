@@ -21,15 +21,17 @@ const SEARCH_METHODS = {
     "HTML": getGoogleHTML,
 };
 
+// TODO read landing variant from URL parameter and display on one route only
 const PATHS = {
     root: "/",
-    landing: "/",
+    landingSlideShow: "/landing-slideshow",
+    landingFrame: "/landing-frame",
+    landingSimple: "/landing-simple",
     home: "/home",
     login: "/login",
     logout: "/logout",
     register: "/register",
     main: "/feed",
-    animations: "/anim",
 }
 
 export { INITIAL_STATE, PATHS, CATEGORIES, SEARCH_METHODS }
