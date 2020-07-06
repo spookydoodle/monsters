@@ -33,6 +33,6 @@ const userSchema = new mongoose.Schema({
 });
 
 // Add methods from passport-local-mongoose (authenticate, register etc)
-userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(passportLocalMongoose, { usernameQueryFields: ["publicName"]});
 
 module.exports = mongoose.model('User', userSchema);

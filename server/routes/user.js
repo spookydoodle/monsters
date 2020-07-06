@@ -72,8 +72,9 @@ module.exports = app => {
         });
     });
 
+    // TODO: below temporarily commented as it requires a proper middleware
     /*              Users               */
-
+    // TODO add middleware or reuse that method inside the login method, do not expose freely in the available api
     // // INDEX - note that the path is /users not /auth
     // app.get(`/api/users`, async (req, res) => {
     //     User.find({})
