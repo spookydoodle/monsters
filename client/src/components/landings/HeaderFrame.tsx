@@ -12,16 +12,16 @@ const HeaderFrame = ({ user, mode, setDarkMode, title, subtitle, button }: Landi
     return (
         <Box className={classes.headerFrame}>
             <Box className={classes.headerFrameInner}>
-                <Typography className={`${classes.headerFrameTitle}`} variant="h1">
+                <Typography className={`${classes.headerFrameTitle} ${classes.fadeIn}`} variant="h1">
                     {title}
                 </Typography>
 
-                <Typography className={`${classes.headerFrameSubtitle}`} variant="h1" style={{ fontWeight: "bold" }} gutterBottom>
+                <Typography className={`${classes.headerFrameSubtitle} ${classes.fadeIn}`} variant="h1" style={{ fontWeight: "bold" }} gutterBottom>
                     {subtitle}
                 </Typography>
 
                 <Link to={button.path}>
-                    <Typography className={`${classes.headerFrameButton}`} variant="h2">
+                    <Typography className={`${classes.headerFrameButton} ${classes.fadeIn}`} variant="h2">
                         {button.name}
                     </Typography>
                 </Link>

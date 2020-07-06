@@ -462,6 +462,10 @@ const useStyles = makeStyles((theme: Theme) =>
             opacity: 0,
             transform: "translateY(-4rem) scale(.8)",
         },
+        fadeIn: {
+            animation: "$no-transform 1s ease-in forwards",
+            opacity: 0,
+        },
         // '@keyframes pop-in': {
         //     '0%': { 
         //         opacity: 0,
@@ -554,25 +558,24 @@ const useStyles = makeStyles((theme: Theme) =>
                 left: 0,
                 zIndex: -1,
                 // opacity: 0,
-                // transform: "translateY(-4rem)",     // the same effect if initialized like this and animated using the 'no-transform'
-                // animation: `$no-transform 2s .5s cubic-bezier(0, .5, 0, 1) forwards`,
+                animation: `$scale-up 20s ease-in-out`,
             },
             '&::after': {
                 // backgroundColor: "#F9FCFF",
                 content: "''",
                 position: "absolute",
-                top: "30px",
-                bottom: "30px",
+                top: "-15px",
+                bottom: "-15px",
                 height: "auto",
                 width: "auto",
-                left: "30px",
-                right: "30px",
+                left: "-15px",
+                right: "-15px",
                 backgroundColor: "transparent",
                 border: "15px solid #F9FCFF",
                 transformOrigin: "0 0",
                 // transform: "rotateZ(-4deg)", // animation handles rotation
                 zIndex: -1,
-                // animation: `$rotate-up .5s .5s cubic-bezier(0, .5, 0, 1) forwards`,
+                animation: `$frame-in 1s 1s ease-out forwards`,
             },
         },
         headerFrameInner: {
@@ -589,17 +592,31 @@ const useStyles = makeStyles((theme: Theme) =>
             justifyContent: "center",
         },
         headerFrameTitle: {
-            // animationDelay: ".8s !important",
+            animationDelay: ".2s !important",
         },
         headerFrameSubtitle: {
-            fontWeight: "bold",
+            animationDelay: "1.2s !important",
         },
         headerFrameButton: {
+            animationDelay: "2.4s !important",
             '&:hover': {
                 backgroundColor: "#F9FCFF",
                 color: "rgba(0, 0, 0, 0.8)",
                 padding: "0 .2em"
             }
+        },
+        '@keyframes frame-in': {
+            '100%': {
+                left: "30px",
+                right: "30px",
+                top: "30px",
+                bottom: "30px",
+            },
+        },
+        '@keyframes scale-up': {
+            '100%': {
+                transform: "scale(1.4)"
+            },
         },
     })
 );
