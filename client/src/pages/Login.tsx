@@ -43,14 +43,6 @@ const Login = ({ user, mode, setDarkMode, next, onLoginSuccess, showError }: Pro
                     password: '',
                 }}
                 onSubmit={async ({ password, email }: { password: string, email: string }) => {
-                    if (email.indexOf('@') === -1)
-                        await usersService.getAll()
-                            .then((users: Array<{ publicName: string, password: string, username: string }>) => {
-                                let matchedUsers = users.filter(user => user.publicName === email);
-                                email = matchedUsers.length > 0 ? matchedUsers[0].username : email;
-                            })
-                            .catch(setErrorMessage)
-
                     authService
                         .login(password, email)
                         .then(({ user }) => {

@@ -7,7 +7,7 @@ const { home } = PATHS;
 
 // TODO: move to components/landings and migrate styles from css file to makeStyles
 const Landing = ({ user, mode, setDarkmode }: any) => {
-
+// TODO: replace LinearBuffer with something nicer
     return <Suspense fallback={<LinearBuffer/>}>
         <Header2 
             user={user}
