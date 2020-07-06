@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
-import { Theme } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemText, Divider, IconButton, Hidden } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -13,7 +12,6 @@ import { DrawerVariantType, ModeType, UserType } from '../../logic/types';
 
 interface Props {
   user: UserType,
-  theme: Theme,
   mode: ModeType,
   setDarkMode: any,
   open: boolean,
@@ -22,9 +20,9 @@ interface Props {
 }
 
 // This component can be either temporary or persistent. By default temporary. use prop 'variant' to change to "persistent"
-const MenuDrawer = ({ user, variant = "temporary", theme, mode, setDarkMode, open, toggleDrawer }: Props) => {
+const MenuDrawer = ({ user, variant = "temporary", mode, setDarkMode, open, toggleDrawer }: Props) => {
   const classes = useStyles();
-  const { animations } = PATHS;
+  const { landingSimple, landingSlideShow, landingFrame } = PATHS;
 
   return (
     <Drawer
@@ -39,16 +37,26 @@ const MenuDrawer = ({ user, variant = "temporary", theme, mode, setDarkMode, ope
     >
       <div className={classes.drawerHeader}>
         <IconButton onClick={toggleDrawer(false)}>
-          {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          <ChevronLeftIcon />
         </IconButton>
       </div>
 
       <Divider />
 
       <List>
-        <Link to={animations}>
+        <Link to={landingSimple}>
           <ListItem button>
-            <ListItemText primary="Animations" />
+            <ListItemText primary="Simple" />
+          </ListItem>
+        </Link>
+        <Link to={landingSlideShow}>
+          <ListItem button>
+            <ListItemText primary="Slide Show" />
+          </ListItem>
+        </Link>
+        <Link to={landingFrame}>
+          <ListItem button>
+            <ListItemText primary="Frame" />
           </ListItem>
         </Link>
       </List>

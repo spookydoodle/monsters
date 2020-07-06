@@ -9,7 +9,7 @@ import HideOnScroll from '../../utils/HideOnScroll';
 import { AuthButtonsHorizontal } from './AuthButtons';
 import { ModeType, UserType } from '../../logic/types';
 import { PATHS } from '../../constants/data';
-const { landing, home, login, logout, register } = PATHS;
+const { home, login, logout, register } = PATHS;
 
 
 interface Props {
@@ -54,7 +54,7 @@ const NavBar = ({ user, name, mode, setDarkMode, open, handleDrawerOpen, handleD
                     </Link>
                     
                     {/* Show auth buttons only on other pages than authentication or home (includes those buttons on the jumbotron) */}
-                    {![landing, home, login, logout, register].includes(path) &&
+                    {![home, login, logout, register].includes(path) &&
                         <Hidden smDown>
                             <AuthButtonsHorizontal style={{ marginLeft: "auto" }} user={user} />
                         </Hidden>}

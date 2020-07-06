@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import { useStyles, createTheme } from '../../styles/main';
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { useStyles } from '../../styles/main';
+import ThemeWrapper from './ThemeWrapper';
 import Jumbotron from '../navigation/Jumbotron';
 import MenuDrawer from '../navigation/MenuDrawer';
 import NavBar from '../navigation/NavBar';
@@ -33,7 +32,6 @@ const Layout = ({
   setDarkMode,
 }: Props) => {
   const classes = useStyles();
-  const theme = createTheme(mode);
 
   // Drawer functions
   const [open, setOpen] = useState(false);
@@ -62,8 +60,7 @@ const Layout = ({
 
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <ThemeWrapper mode={mode}>
 
       {appBar && <NavBar
         user={user}
@@ -78,7 +75,6 @@ const Layout = ({
       <MenuDrawer
         user={user}
         {...drawer}
-        theme={theme}
         mode={mode}
         setDarkMode={setDarkMode}
         open={open}
@@ -96,7 +92,7 @@ const Layout = ({
         {children}
 
       </main>
-    </ThemeProvider>
+    </ThemeWrapper>
   );
 }
 
