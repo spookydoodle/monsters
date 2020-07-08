@@ -1,5 +1,5 @@
 # Demo
-See [here](https://monsters-282316.nw.r.appspot.com/home#gallery) to be amazed. Work in progress.
+See [here](https://monsters-282316.nw.r.appspot.com) to be amazed. Work in progress.
 
 And see [demo pics here](#demo-pics)
 
