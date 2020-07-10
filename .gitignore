@@ -120,3 +120,6 @@ env_vars.yaml
 
 # Misc
 notes.js
+
+# Build
+build
