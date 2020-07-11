@@ -4,7 +4,10 @@ import './App.css';
 import LandingSlideShow from './pages/LandingSlideShow';
 import LandingSimple from './pages/LandingSimple';
 import LandingFrame from './pages/LandingFrame';
+<<<<<<< HEAD
 import LandingHover from './pages/LandingHover';
+=======
+>>>>>>> dde1bf6ef325757be65ca05f2b620acbb9203c47
 import Home from './pages/Home';
 import Animations from './pages/LandingSimple';
 import Monsters from './pages/Monsters';
@@ -80,7 +83,11 @@ class App extends Component<{}, StateType> {
 
   render() {
     const { mode, query, data } = this.state;
+<<<<<<< HEAD
     const { root, landingSimple, landingSlideShow, landingFrame, landingHover, home, main, login, logout, register } = PATHS;
+=======
+    const { root, landingSimple, landingSlideShow, landingFrame, home, main, login, logout, register } = PATHS;
+>>>>>>> dde1bf6ef325757be65ca05f2b620acbb9203c47
     
     // TODO: consider using , { Suspense, lazy } - https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
     return (
@@ -102,6 +109,7 @@ class App extends Component<{}, StateType> {
                 mode={this.state.mode}
                 setDarkMode={this.setDarkMode}
               />
+<<<<<<< HEAD
             </Route>
             <Route exact path={landingSlideShow}>
               <LandingSlideShow
@@ -110,12 +118,23 @@ class App extends Component<{}, StateType> {
                 setDarkMode={this.setDarkMode}
               />
             </Route>
+=======
+            </Route>
+            <Route exact path={landingSlideShow}>
+              <LandingSlideShow
+                user={this.state.user}
+                mode={this.state.mode}
+                setDarkMode={this.setDarkMode}
+              />
+            </Route>
+>>>>>>> dde1bf6ef325757be65ca05f2b620acbb9203c47
             <Route exact path={landingFrame}>
               <LandingFrame
                 user={this.state.user}
                 mode={this.state.mode}
                 setDarkMode={this.setDarkMode}
               />
+<<<<<<< HEAD
             </Route>
             <Route exact path={landingHover}>
               <LandingHover
@@ -123,6 +142,8 @@ class App extends Component<{}, StateType> {
                 mode={this.state.mode}
                 setDarkMode={this.setDarkMode}
               />
+=======
+>>>>>>> dde1bf6ef325757be65ca05f2b620acbb9203c47
             </Route>
             <Route path={login}>
               <Login
