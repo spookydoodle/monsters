@@ -394,7 +394,7 @@ const useStyles = makeStyles((theme: Theme) =>
             Useful links:
             - https://cubic-bezier.com/
         */
-       
+
         jsLoading: {
             '@global': {
                 '*': {
@@ -657,7 +657,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 right: 0,
             }
         },
-        
+
         linkUnderlineAnim: {
             position: "relative",
             color: `${theme.palette.secondary.dark}`,
@@ -729,11 +729,208 @@ const useStyles = makeStyles((theme: Theme) =>
                 transition: "opacity .2s ease-out, transform .2s cubic-bezier(0, 1, .5, 1)",
             }
         },
+
+        // Option tiles
+        option: {
+            textAlign: "center",
+        },
+        moreInfo: {
+            visibility: "hidden",
+            opacity: 0,
+            // transform: "visibility 0s .5s, translateY(-4em)",
+        },
+        highlighted: {
+            background: "#fff",
+            borderColor: theme.palette.secondary.main,
+            transform: "scale(1.2) translateY(1em)",
+            visibility: "visible",
+        },
+        badge: {
+            transform: "translateY(-5em) scale(1.2)",
+        },
+        optionTitle: {
+            transform: "translateY(-3em)",
+        },
+        callToAction: {
+            transform: "translateY(1.25em)",
+            visibility: "visible",
+        },
+        //
+        linkSwipeDown: {
+            color: "transparent",
+            fontWeight: "bold",
+            display: "inline-block",
+            position: "relative",
+            // margin: "0 .2em",
+            textDecoration: "none",
+            transformStyle: "preserve-3d",
+            perspective: "800px",
+            '&::before': {
+                bottom: 0,
+                color: theme.palette.secondary.dark,
+                content: "attr(placeholder)",
+                left: 0,
+                position: "absolute",
+                right: 0,
+                top: 0,
+                transition: "opacity .2s ease-out, transform .4s cubic-bezier(.2,1.5,1,1)",
+            },
+            '&::after': {
+                bottom: 0,
+                color: theme.palette.secondary.main,
+                content: "attr(placeholder)",
+                left: 0,
+                opacity: 0,
+                position: "absolute",
+                right: 0,
+                top: 0,
+                transform: "translateY(-.6em) rotateX(90deg)",
+                transition: "transform .4s cubic-bezier(.2,1.5,1,1), opacity .2s ease-out"
+            },
+            '&:hover::before': {
+                opacity: 0,
+                transform: "translateY(.6em) rotateX(-90deg)",
+                transition: "opacity .2s ease-out, transform .4s cubic-bezier(.2,1.5,1,1)"
+            },
+            '&:hover::after': {
+                opacity: 1,
+                transform: "none",
+                transition: "opacity .2s ease-out, transform .4s cubic-bezier(.2,1.5,1,1)"
+            },
+        },
+
+        // Must be last, sequence impacts importance.
         show: {
             opacity: 1,
             transform: "none",
             visibility: "visible",
             transition: "opacity .2s ease-out, transform .5s cubic-bezier(0, 1, .5, 1)",
+        },
+
+        // Styled tooltip
+        styledTooltip: {
+            color: theme.palette.secondary.dark,
+            fontWeight: "bold",
+            "&:hover": {
+                position: "relative"
+            },
+            // "&[title]:hover:after": { // TODO: default tooltip does not disappear with this solution
+            "&:hover:after": {
+                content: "attr(placeholder)",
+                color: theme.palette.secondary.main,
+                fontWeight: "400",
+                fontSize: ".5em",
+                backgroundColor: "white",
+                padding: "4px 8px",
+                position: "absolute",
+                left: 0,
+                top: "100%",
+                // height: "50px",
+                whiteSpace: "nowrap",
+                zIndex: 20,
+                borderRadius: "5px",
+                boxShadow: `0px 0px 4px ${theme.palette.secondary.main}`,
+            },
+        },
+
+        // Button
+        decoratedButton: {
+            // margin: "1em",
+            background: "none",
+            textDecoration: "none",
+            position: "relative",
+            padding: "1em",
+            transition: "all .5s cubic-bezier(0, 1, .3, 1)",
+            '&::before': {
+                content: "''",
+                background: "rgba(200, 200, 200, 0.8)",
+                borderRadius: ".25em",
+                position: "absolute",
+                top: "5em",
+                right: ".1em",
+                bottom: "-.1em",
+                left: ".1em",
+                zIndex: -1,
+                transition: "all .5s cubic-bezier(0, 1, .3, 1)",
+            },
+            '&::after': {
+                backgroundColor: "#1A9E3F",
+                borderRadius: ".25em",
+                content: "''",
+                position: "absolute",
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                zIndex: -1,
+                transition: "all .5s cubic-bezier(0, 1, .3, 1)",
+            },
+            '&:hover': {
+                textDecoration: "none",
+                transform: "scale(1.1)",
+            },
+            '&:hover::before': {
+                transform: "translateY(.1em)"
+            },
+            '&:hover::after': {
+                backgroundColor: "#28B54F"
+            },
+            '&:active': {
+                transform: "translateY(.2em)",
+            },
+            '&:active:before': {
+                transform: "translateY(-.1em)",
+                transition: "none"
+            }
+        },
+
+        // Glitch
+        glitch: {
+            color: "black",
+            fontSize: "100px",
+            position: "relative",
+            width: "400px",
+            margin: "0 auto",
+            '&::before': {
+                content: "attr(data-text)",
+                position: "absolute",
+                left: "-2px",
+                textShadow: "1px 0 blue",
+                top: 0,
+                color: "black",
+                background: "white",
+                overflow: "hidden",
+                clip: "rect(0,900px,0,0)",
+                animation: "noise-anim-2 3s infinite linear alternate-reverse",
+            },
+            "&::after": {
+                content: "attr(data-text)",
+                position: "absolute",
+                left: "2px",
+                textShadow: "-1px 0 red",
+                top: 0,
+                color: "black",
+                background: "white",
+                overflow: "hidden",
+                clip: "rect(0,900px,0,0)",
+                animation: "noise-anim 2s infinite linear alternate-reverse",
+            }
+        },
+        "@keyframes noise-anim": {
+            "$steps": 20,
+            "@for $i from 0 through $steps": {
+                "#{percentage($i*(1/$steps))}": {
+                    clip: "rect(random(100)+px,9999px,random(100)+px,0)",
+                }
+            }
+        },
+        "@keyframes noise-anim-2": {
+            "$steps": 20,
+            "@for $i from 0 through $steps": {
+                "#{percentage($i*(1/$steps))}": {
+                    clip: "rect(random(100)+px,9999px,random(100)+px,0)",
+                }
+            }
         }
     })
 );

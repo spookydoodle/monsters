@@ -11,26 +11,31 @@ const HeaderHover = ({ user, mode, setDarkMode, title, subtitle, button }: Landi
 
     // This variable adds or removes a class responsible for displaying
     let [show, setShow] = useState(false)
+    let [showDetails, setShowDetails] = useState(false)
 
     return (
         <Container maxWidth="md">
             <Grid container direction="column" alignItems="center" justify="center" style={{ height: "100vh" }}>
                 <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
                     Mouse cat is love, cat is life chase
-                    <Link 
-                        to={button.path} 
+                    <Link
+                        to={button.path}
                         // title="See here to learn about what mice are" // This displays a default browser tooltip
                         onMouseEnter={() => setShow(true)}
                         onMouseOut={() => setShow(false)}
                     >
-                        <span className={classes.linkUnderline}> mice {<span className={`${classes.tooltip} ${show && classes.show}`}> See here to learn about what mice are </span>} </span>
-                        
+                        <span className={classes.linkUnderline}> mice {<span className={`${classes.tooltip} ${show && classes.show}`}> This could be any component mice can think of </span>} </span>
+
                     </Link>
-                    have my breakfast spaghetti yarn for plop down in the 
-                    <Link  to={button.path}>
+                    have my breakfast spaghetti yarn for <span placeholder="This is just a styled tooltip" className={classes.styledTooltip}>plop</span> down in the
+                    <Link to={button.path}>
                         <span className={classes.linkUnderlineAnim}> middle </span>
                     </Link>
-                    where everybody walks so i show my fluffy belly but it's a trap!
+                    where everybody walks so i show my 
+                    <Link to={button.path}>
+                         <span placeholder=" fluffy " className={classes.linkSwipeDown}> fluffy </span> 
+                    </Link>
+                     belly but it's a trap!
                 </Typography>
             </Grid>
         </Container>
