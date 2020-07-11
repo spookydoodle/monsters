@@ -27,10 +27,7 @@ const PATHS = {
     landingSlideShow: "/landing-slideshow",
     landingFrame: "/landing-frame",
     landingSimple: "/landing-simple",
-<<<<<<< HEAD
     landingHover: "/landing-hover",
-=======
->>>>>>> dde1bf6ef325757be65ca05f2b620acbb9203c47
     home: "/home",
     login: "/login",
     logout: "/logout",
