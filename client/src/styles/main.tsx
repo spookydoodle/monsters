@@ -636,13 +636,13 @@ const useStyles = makeStyles((theme: Theme) =>
         // Hover effects - use two colons for future compatibility
         linkUnderline: {
             position: "relative",
-            color: `${theme.palette.secondary.main}`,
+            color: `${theme.palette.secondary.dark}`,
             transition: "color .4s ease-out",
             fontWeight: "bold",
             '&::after': {
                 content: "''",
                 borderRadius: "1em",
-                borderTop: `.1em solid ${theme.palette.secondary.main}`,
+                borderTop: `.1em solid ${theme.palette.secondary.dark}`,
                 position: "absolute",
                 right: "100%",
                 bottom: "0em",
@@ -650,23 +650,23 @@ const useStyles = makeStyles((theme: Theme) =>
                 transition: "right .4s cubic-bezier(0, .5, 0, 1), border-color .4s ease-out"
             },
             '&:hover': {
-                color: theme.palette.secondary.dark,
+                color: theme.palette.secondary.main,
             },
             '&:hover::after': {
-                borderColor: theme.palette.secondary.dark,
+                borderColor: theme.palette.secondary.main,
                 right: 0,
             }
         },
         
         linkUnderlineAnim: {
             position: "relative",
-            color: `${theme.palette.secondary.main}`,
+            color: `${theme.palette.secondary.dark}`,
             transition: "color .4s ease-out",
             fontWeight: "bold",
             '&::after': {
                 content: "''",
                 borderRadius: "1em",
-                borderTop: `.1em solid ${theme.palette.secondary.main}`,
+                borderTop: `.1em solid ${theme.palette.secondary.dark}`,
                 position: "absolute",
                 right: "100%",
                 bottom: "0em",
@@ -674,10 +674,10 @@ const useStyles = makeStyles((theme: Theme) =>
                 transition: "right .4s cubic-bezier(0, .5, 0, 1), border-color .4s ease-out"
             },
             '&:hover': {
-                color: theme.palette.secondary.dark,
+                color: theme.palette.secondary.main,
             },
             '&:hover::after': {
-                borderColor: theme.palette.secondary.dark,
+                borderColor: theme.palette.secondary.main,
                 animation: "$anchor-underline 2s cubic-bezier(0, .5, 0, 1) infinite",
             }
         },
@@ -697,21 +697,24 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         tooltip: {
             backgroundColor: "rgba(255, 255, 255, .0)",
-            border: `2px solid ${theme.palette.secondary.dark}`,
+            border: `2px solid ${theme.palette.secondary.main}`,
             borderRadius: ".1em",
             fontSize: ".7em",
+            opacity: 0,
+            visibility: "hidden",
             padding: ".25em .5em",
             position: "absolute",
-            bottom: "2em",
+            bottom: "1.75em",
             left: "calc(50% - 8em)",
             textAlign: "center",
             transform: "translateY(-.25em)",
+            transition: "visibility 0s .5s, opacity, opacity .2s ease-out, transform .5s cubic-bezier(0, 1, .5, 1)",
             width: "16em",
             zIndex: 10,
             '&::after': {
                 content: "''",
                 borderStyle: "solid",
-                borderColor: `${theme.palette.secondary.dark} transparent`,
+                borderColor: `${theme.palette.secondary.main} transparent`,
                 borderRadius: 0,
                 borderWidth: ".2em .2em 0 .2em",
                 position: "absolute",
@@ -719,6 +722,18 @@ const useStyles = makeStyles((theme: Theme) =>
                 left: "calc(50% - .2em)",
                 width: 0
             },
+            '&:hover': {
+                opacity: 1,
+                visibility: "visible",
+                transform: "none",
+                transition: "opacity .2s ease-out, transform .2s cubic-bezier(0, 1, .5, 1)",
+            }
+        },
+        show: {
+            opacity: 1,
+            transform: "none",
+            visibility: "visible",
+            transition: "opacity .2s ease-out, transform .5s cubic-bezier(0, 1, .5, 1)",
         }
     })
 );

@@ -8,6 +8,8 @@ import { LandingType } from '../../logic/types';
 
 const HeaderHover = ({ user, mode, setDarkMode, title, subtitle, button }: LandingType) => {
     const classes = useStyles();
+
+    // This variable adds or removes a class responsible for displaying
     let [show, setShow] = useState(false)
 
     return (
@@ -21,7 +23,7 @@ const HeaderHover = ({ user, mode, setDarkMode, title, subtitle, button }: Landi
                         onMouseEnter={() => setShow(true)}
                         onMouseOut={() => setShow(false)}
                     >
-                        <span className={classes.linkUnderline}> mice {show && <span className={classes.tooltip}> See here to learn about what mice are </span>} </span>
+                        <span className={classes.linkUnderline}> mice {<span className={`${classes.tooltip} ${show && classes.show}`}> See here to learn about what mice are </span>} </span>
                         
                     </Link>
                     have my breakfast spaghetti yarn for plop down in the 
