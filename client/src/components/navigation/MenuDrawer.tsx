@@ -22,7 +22,7 @@ interface Props {
 // This component can be either temporary or persistent. By default temporary. use prop 'variant' to change to "persistent"
 const MenuDrawer = ({ user, variant = "temporary", mode, setDarkMode, open, toggleDrawer }: Props) => {
   const classes = useStyles();
-  const { landingSimple, landingSlideShow, landingFrame } = PATHS;
+  const { landingSimple, landingSlideShow, landingFrame, landingHover } = PATHS;
 
   return (
     <Drawer
@@ -57,6 +57,11 @@ const MenuDrawer = ({ user, variant = "temporary", mode, setDarkMode, open, togg
         <Link to={landingFrame}>
           <ListItem button>
             <ListItemText primary="Frame" />
+          </ListItem>
+        </Link>
+        <Link to={landingHover}>
+          <ListItem button>
+            <ListItemText primary="Hover" />
           </ListItem>
         </Link>
       </List>

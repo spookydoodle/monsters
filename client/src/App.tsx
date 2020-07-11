@@ -4,6 +4,7 @@ import './App.css';
 import LandingSlideShow from './pages/LandingSlideShow';
 import LandingSimple from './pages/LandingSimple';
 import LandingFrame from './pages/LandingFrame';
+import LandingHover from './pages/LandingHover';
 import Home from './pages/Home';
 import Animations from './pages/LandingSimple';
 import Monsters from './pages/Monsters';
@@ -79,7 +80,7 @@ class App extends Component<{}, StateType> {
 
   render() {
     const { mode, query, data } = this.state;
-    const { root, landingSimple, landingSlideShow, landingFrame, home, main, login, logout, register } = PATHS;
+    const { root, landingSimple, landingSlideShow, landingFrame, landingHover, home, main, login, logout, register } = PATHS;
     
     // TODO: consider using , { Suspense, lazy } - https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
     return (
@@ -111,6 +112,13 @@ class App extends Component<{}, StateType> {
             </Route>
             <Route exact path={landingFrame}>
               <LandingFrame
+                user={this.state.user}
+                mode={this.state.mode}
+                setDarkMode={this.setDarkMode}
+              />
+            </Route>
+            <Route exact path={landingHover}>
+              <LandingHover
                 user={this.state.user}
                 mode={this.state.mode}
                 setDarkMode={this.setDarkMode}

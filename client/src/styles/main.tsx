@@ -141,22 +141,22 @@ const createTheme = (type: ModeType) => {
     theme.typography.h1 = {
         ...theme.typography.h1,
         [theme.breakpoints.down('sm')]: {
-          fontSize: '3.25rem',
+            fontSize: '3.25rem',
         },
         [theme.breakpoints.only('xs')]: {
-          fontSize: '2.25rem',
+            fontSize: '2.25rem',
         },
-      };
+    };
 
-      theme.typography.h2 = {
+    theme.typography.h2 = {
         ...theme.typography.h2,
         [theme.breakpoints.down('sm')]: {
-          fontSize: '2.75rem',
+            fontSize: '2.75rem',
         },
         [theme.breakpoints.only('xs')]: {
-          fontSize: '1.75rem',
+            fontSize: '1.75rem',
         },
-      };
+    };
 
     return theme
 }
@@ -394,6 +394,20 @@ const useStyles = makeStyles((theme: Theme) =>
             Useful links:
             - https://cubic-bezier.com/
         */
+       
+        jsLoading: {
+            '@global': {
+                '*': {
+                    animationPlayState: "paused !important",
+                },
+            },
+            '&::before': {
+                animationPlayState: "paused !important",
+            },
+            '&::after': {
+                animationPlayState: "paused !important",
+            }
+        },
         headerSimple: {
             display: "flex",
             flexDirection: "column",
@@ -618,6 +632,94 @@ const useStyles = makeStyles((theme: Theme) =>
                 transform: "scale(1.4)"
             },
         },
+
+        // Hover effects - use two colons for future compatibility
+        linkUnderline: {
+            position: "relative",
+            color: `${theme.palette.secondary.main}`,
+            transition: "color .4s ease-out",
+            fontWeight: "bold",
+            '&::after': {
+                content: "''",
+                borderRadius: "1em",
+                borderTop: `.1em solid ${theme.palette.secondary.main}`,
+                position: "absolute",
+                right: "100%",
+                bottom: "0em",
+                left: 0,
+                transition: "right .4s cubic-bezier(0, .5, 0, 1), border-color .4s ease-out"
+            },
+            '&:hover': {
+                color: theme.palette.secondary.dark,
+            },
+            '&:hover::after': {
+                borderColor: theme.palette.secondary.dark,
+                right: 0,
+            }
+        },
+        
+        linkUnderlineAnim: {
+            position: "relative",
+            color: `${theme.palette.secondary.main}`,
+            transition: "color .4s ease-out",
+            fontWeight: "bold",
+            '&::after': {
+                content: "''",
+                borderRadius: "1em",
+                borderTop: `.1em solid ${theme.palette.secondary.main}`,
+                position: "absolute",
+                right: "100%",
+                bottom: "0em",
+                left: 0,
+                transition: "right .4s cubic-bezier(0, .5, 0, 1), border-color .4s ease-out"
+            },
+            '&:hover': {
+                color: theme.palette.secondary.dark,
+            },
+            '&:hover::after': {
+                borderColor: theme.palette.secondary.dark,
+                animation: "$anchor-underline 2s cubic-bezier(0, .5, 0, 1) infinite",
+            }
+        },
+        '@keyframes anchor-underline': {
+            "0%, 10%": {
+                left: "0%",
+                right: "100%",
+            },
+            "40%, 60%": {
+                left: "0%",
+                right: "0%",
+            },
+            '90%, 100%': {
+                left: "100%",
+                right: "0%",
+            },
+        },
+        tooltip: {
+            backgroundColor: "rgba(255, 255, 255, .0)",
+            border: `2px solid ${theme.palette.secondary.dark}`,
+            borderRadius: ".1em",
+            fontSize: ".7em",
+            padding: ".25em .5em",
+            position: "absolute",
+            bottom: "2em",
+            left: "calc(50% - 8em)",
+            textAlign: "center",
+            transform: "translateY(-.25em)",
+            width: "16em",
+            zIndex: 10,
+            '&::after': {
+                content: "''",
+                borderStyle: "solid",
+                borderColor: `${theme.palette.secondary.dark} transparent`,
+                borderRadius: 0,
+                borderWidth: ".2em .2em 0 .2em",
+                position: "absolute",
+                bottom: "-.2em",
+                left: "calc(50% - .2em)",
+                width: 0
+            },
+        }
     })
 );
 
