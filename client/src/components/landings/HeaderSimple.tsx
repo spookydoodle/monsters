@@ -1,11 +1,13 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { Box, Button, Typography } from '@material-ui/core';
 import { ModeType, UserType } from '../../logic/types';
 import arrow from '../../img/downarrow.png';
 import { LandingType } from '../../logic/types';
 
+// Use this header above a container component with id="main-content" to allow proper scrolling effect on click on the arrow img icon
 const HeaderSimple = ({ user, mode, setDarkMode, title, subtitle, button }: LandingType) => {
     const classes = useStyles();
 
@@ -45,7 +47,9 @@ const HeaderSimple = ({ user, mode, setDarkMode, title, subtitle, button }: Land
                 </Button>
             </Link>
 
-            <img className={classes.headerDownArrow} src={arrow} width="50"/>
+            <HashLink to="#main-content" smooth={true}>
+                <img className={classes.headerDownArrow} src={arrow} width="50"/>
+            </HashLink>
         </Box>
     );
 }

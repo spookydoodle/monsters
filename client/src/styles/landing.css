@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     text-shadow: 1px 1px 6px rgba(117, 115, 111, 0.2);
-    animation: colorAnim 40s ease-in-out infinite;
+    animation: colorAnim 30s ease-in-out infinite;
     font-family: 'Arial',
 }
 
@@ -53,31 +53,31 @@
     background-repeat: no-repeat; /* images wont repeat horiz or vert*/
     opacity: 0;
     z-index: 0;
-    animation: imageAnimation 40s linear infinite; /* linear - the same speed from beg to end*/
+    animation: imageAnimation 30s linear infinite; /* linear - the same speed from beg to end*/
 }
 
 .slideshow li:nth-child(1) {
-    background-image: url('../img/Landing_1.png');
+    background-image: url('../img/landing/Landing_1.png');
 }
 
 .slideshow li:nth-child(2) {
-    background-image: url('../img/Landing_2.png');
-    animation-delay: 8s;
+    background-image: url('../img/landing/Landing_2.png');
+    animation-delay: 6s;
 }
 
 .slideshow li:nth-child(3) {
-    background-image: url('../img/Landing_3.png');
-    animation-delay: 16s;
+    background-image: url('../img/landing/Landing_3.png');
+    animation-delay: 12s;
 }
 
 .slideshow li:nth-child(4) {
-    background-image: url('../img/Landing_4.png');
-    animation-delay: 24s;
+    background-image: url('../img/landing/Landing_4.png');
+    animation-delay: 18s;
 }
 
 .slideshow li:nth-child(5) {
-    background-image: url('../img/Landing_5.png');
-    animation-delay: 32s;
+    background-image: url('../img/landing/Landing_5.png');
+    animation-delay: 24s;
 }
 
 @keyframes imageAnimation {
@@ -108,7 +108,7 @@
     font-weight: bold;
     font-size: 1.2em;
     text-decoration: none;
-    animation: colorAnim 40s ease-in-out infinite;
+    animation: colorAnim 30s ease-in-out infinite;
     cursor: pointer;
 }
 

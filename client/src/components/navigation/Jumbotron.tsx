@@ -3,7 +3,7 @@ import { useStyles } from '../../styles/main';
 import { Link } from 'react-router-dom';
 import { Box, Grid, Button, Typography, Hidden, Grow } from '@material-ui/core';
 import { JumbotronType } from '../../logic/types';
-import jumbotronLight from '../../img/JumbotronLight.png';
+import jumbotronLight from '../../img/landing/JumbotronLight.png';
 import { PATHS } from '../../constants/data';
 const { main } = PATHS;
 

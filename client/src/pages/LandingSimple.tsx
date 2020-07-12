@@ -6,7 +6,9 @@ import { LinearBuffer } from '../components/Loading';
 // import Header1 from '../components/landings/Header1';
 import { ModeType, UserType } from '../logic/types';
 import { PATHS } from '../constants/data';
+import ContentSimple from '../components/animated/ContentSimple';
 const HeaderSimple = lazy(() => import('../components/landings/HeaderSimple'));
+
 
 interface Props {
     user: UserType,
@@ -23,6 +25,14 @@ const LandingSimple = ({ user, mode, setDarkMode, push }: Props) => {
         <Suspense fallback={<LinearBuffer />}>
             <ThemeWrapper mode={mode}>
                 <HeaderSimple
+                    user={user}
+                    mode={mode}
+                    setDarkMode={setDarkMode}
+                    title="Awesome landing page"
+                    subtitle="Start of the coolest project"
+                    button={{ name: "Get started", path: home }}
+                />
+                <ContentSimple
                     user={user}
                     mode={mode}
                     setDarkMode={setDarkMode}

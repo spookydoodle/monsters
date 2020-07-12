@@ -5,8 +5,8 @@ import { LinearBuffer } from '../components/Loading'
 import { MonsterCard } from '../components/Card'
 import { ModeType, MonsterType, UserType } from '../logic/types';
 import { CATEGORIES } from '../constants/data';
-// import jumbotronDark from '../img/JumbotronDark.png';
-// import jumbotronLight from '../img/JumbotronLight.png';
+// import jumbotronDark from '../img/landing/JumbotronDark.png';
+// import jumbotronLight from '../img/landing/JumbotronLight.png';
 
 interface Props {
     user: UserType,
