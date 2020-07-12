@@ -8,7 +8,7 @@ const DivInViewport = ({ forwardedRef, inViewport, children }: Props) => {
     const classes = useStyles();
 
     return (
-        <div ref={forwardedRef} className={`${classes.showOnScroll} ${inViewport && classes.isVisible}`} >
+        <div ref={forwardedRef} className={!inViewport ? classes.showOnScroll : classes.isVisible} >
             {children}
         </div>
     )
@@ -34,7 +34,7 @@ const ImageShowOnScroll = ({ inViewport, forwardedRef, src }: Props) => {
     const classes = useStyles();
 
     return (
-        <img ref={forwardedRef} src={src} className={`${classes.showOnScroll} ${inViewport && classes.isVisible}`} />
+        <img ref={forwardedRef} src={src} className={!inViewport ? classes.showOnScroll : classes.isVisible} />
     );
 };
 
