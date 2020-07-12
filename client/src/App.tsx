@@ -71,6 +71,7 @@ class App extends Component<{}, StateType> {
   }
 
   componentDidMount() {
+    console.log("mounted")
     authService.whoAmI().then(({ user }) => {
       this.resolveWhoAmI(user);
     });

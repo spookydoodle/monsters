@@ -947,7 +947,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginTop: "2em",
             margin: "2em auto 6em auto",
             opacity: 0,
-            transform: "translateY(4em), rotateZ(-5deg)",
+            transform: "translateY(4em) rotateZ(-5deg)",
             transition: "transform 4s .25s cubic-bezier(0, 1, .3, 1), opacity .3s .25s ease-out",
             maxWidth: "600px",
             width: "90%",
@@ -960,13 +960,35 @@ const useStyles = makeStyles((theme: Theme) =>
         // Heading
         heading: {
             opacity: 0,
+            visibility: "hidden",
             marginTop: "6em",
             transform: "translateY(0em), opacity .3s .25s ease-out",
         },
         headingIsVisible: {
             opacity: 1,
+            visibility: "visible",
             transform: "translateY(-4em)",
             transition: "transform 4s .35s cubic-bezier(0, 1, .3, 1), opacity .3s .25s ease-out",
+        },
+
+        // Bottom message
+        message: {
+            backgroundColor: "#fff",
+            boxShadow: "1em 1em 2em .25em rgba(0, 0, 0, .2)",
+            padding: ".5em 50px .5em 1em",
+            position: "absolute",
+            right: 0,
+            opacity: 0,
+            visibility: "hidden",
+            transform: "rotateZ(-5deg) translateX(500px)",
+            transition: "all .5s 1s cubic-bezier(0, 1, .3, 1)",
+            width: "400px",
+            zIndex: 10,
+        },
+        messageIsVisible: {
+            opacity: 1,
+            visibility: "visible",
+            transform: "rotateZ(5deg) translateX(50px)",
         },
     })
 );

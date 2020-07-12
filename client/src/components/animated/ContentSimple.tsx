@@ -11,7 +11,7 @@ import tableDecoration from '../../img/content/interior/table-decoration.jpg';
 import table from '../../img/content/interior/table.jpg';
 import wall from '../../img/content/interior/wall.jpg';
 import { LandingType } from '../../logic/types';
-import { ShowInViewport, ViewportImage } from '../../utils/InViewPort';
+import { ShowInViewport, ShowSlideInViewport, ViewportImage } from '../../utils/InViewPort';
 
 
 const ContentSimple = ({ user, mode, setDarkMode, title, subtitle, button }: LandingType) => {
@@ -54,11 +54,8 @@ const ContentSimple = ({ user, mode, setDarkMode, title, subtitle, button }: Lan
         },
     ];
 
-    return (
+    return (<>
         <Container maxWidth="md" id="main-content" style={{ marginTop: "20px" }}>
-
-
-
             <Grid
                 container
                 direction="column"
@@ -66,14 +63,14 @@ const ContentSimple = ({ user, mode, setDarkMode, title, subtitle, button }: Lan
                 alignItems="center"
                 style={{ minHeight: "100vh" }}
             >
-                <ShowInViewport variant="slideUp">
+                <ShowInViewport>
                     <Typography
                         variant="h1"
                         gutterBottom
                         style={{ color: "#545050", textAlign: "center", fontWeight: "bold" }}
                     >
                         Cupcake halvah toffee bonbon
-                </Typography>
+                    </Typography>
                 </ShowInViewport>
 
                 {contents.map((item, i) => (
@@ -88,8 +85,34 @@ const ContentSimple = ({ user, mode, setDarkMode, title, subtitle, button }: Lan
                         <ViewportImage src={item.img} />
                     </React.Fragment>
                 ))}
+
+
+
             </Grid>
         </Container>
+        <ShowSlideInViewport>
+            <Typography
+                variant="body1"
+                gutterBottom
+                style={{ color: "#545050", textAlign: "center", fontWeight: "bold" }}
+            >
+                Fruitcake cotton candy jelly beans croissant.
+                    </Typography>
+            <Typography
+                variant="subtitle1"
+                style={{ color: "#545050", textAlign: "center" }}
+            >
+                Cake bear claw donut gummi bears.
+                    </Typography>
+            <Typography
+                variant="subtitle1"
+                gutterBottom
+                style={{ color: "#545050", textAlign: "center" }}
+            >
+                Caramels sesame snaps topping pastry muffin chupa chups gummies cake.
+                    </Typography>
+        </ShowSlideInViewport>
+    </>
     );
 }
 
