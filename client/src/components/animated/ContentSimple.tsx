@@ -55,36 +55,38 @@ const ContentSimple = ({ user, mode, setDarkMode, title, subtitle, button }: Lan
     ];
 
     return (
-        <Container maxWidth="md" id="main-content" style={{ marginTop: "20px"}}>
-            
-            <ShowInViewport>
-                <Typography
-                    variant="h1"
-                    gutterBottom
-                    style={{ color: "#545050", textAlign: "center", fontWeight: "bold" }}
-                >
-                    Cupcake halvah toffee bonbon
-                </Typography>
-            </ShowInViewport>
+        <Container maxWidth="md" id="main-content" style={{ marginTop: "20px" }}>
+
+
+
             <Grid
                 container
+                direction="column"
                 justify="center"
                 alignItems="center"
                 style={{ minHeight: "100vh" }}
             >
+                <ShowInViewport variant="slideUp">
+                    <Typography
+                        variant="h1"
+                        gutterBottom
+                        style={{ color: "#545050", textAlign: "center", fontWeight: "bold" }}
+                    >
+                        Cupcake halvah toffee bonbon
+                </Typography>
+                </ShowInViewport>
+
                 {contents.map((item, i) => (
-                    <Grid item key={i}>
+                    <React.Fragment key={i}>
                         <Typography variant="h3" gutterBottom style={{ color: "#545050", textAlign: "center", fontWeight: "bold" }}>
                             {item.title}
                         </Typography>
                         <Typography variant="h4" gutterBottom style={{ color: "#545050", textAlign: "center" }}>
                             {item.text}
                         </Typography>
-                        
-                        <ViewportImage
-                            src={item.img}
-                        />
-                    </Grid>
+
+                        <ViewportImage src={item.img} />
+                    </React.Fragment>
                 ))}
             </Grid>
         </Container>
