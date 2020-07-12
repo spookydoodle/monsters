@@ -708,7 +708,7 @@ const useStyles = makeStyles((theme: Theme) =>
             left: "calc(50% - 8em)",
             textAlign: "center",
             transform: "translateY(-.25em)",
-            transition: "visibility 0s .5s, opacity, opacity .2s ease-out, transform .5s cubic-bezier(0, 1, .5, 1)",
+            transition: "visibility 0s .5s, opacity .2s ease-out, transform .5s cubic-bezier(0, 1, .5, 1)",
             width: "16em",
             zIndex: 10,
             '&::after': {
@@ -931,6 +931,17 @@ const useStyles = makeStyles((theme: Theme) =>
                     clip: "rect(random(100)+px,9999px,random(100)+px,0)",
                 }
             }
+        },
+
+        // Show on scroll
+        showOnScroll: {
+            visibility: "hidden",
+            opacity: 0,
+        },
+        isVisible: {
+            visibility: "visible",
+            opacity: 1,
+            transition: "opacity 1s ease-in",
         }
     })
 );

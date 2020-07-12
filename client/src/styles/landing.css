@@ -57,26 +57,26 @@
 }
 
 .slideshow li:nth-child(1) {
-    background-image: url('../img/landing/Landing_1.png');
+    background-image: url('../img/landing/Landing-1.png');
 }
 
 .slideshow li:nth-child(2) {
-    background-image: url('../img/landing/Landing_2.png');
+    background-image: url('../img/landing/Landing-2.png');
     animation-delay: 6s;
 }
 
 .slideshow li:nth-child(3) {
-    background-image: url('../img/landing/Landing_3.png');
+    background-image: url('../img/landing/Landing-3.png');
     animation-delay: 12s;
 }
 
 .slideshow li:nth-child(4) {
-    background-image: url('../img/landing/Landing_4.png');
+    background-image: url('../img/landing/Landing-4.png');
     animation-delay: 18s;
 }
 
 .slideshow li:nth-child(5) {
-    background-image: url('../img/landing/Landing_5.png');
+    background-image: url('../img/landing/Landing-5.png');
     animation-delay: 24s;
 }
 

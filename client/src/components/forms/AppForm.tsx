@@ -4,7 +4,7 @@ import { Formik, Form } from 'formik';
 import { Grid, Paper, Button, Typography, Hidden } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import { withValidationList } from '../../utils/withValidation';
-import image from '../../img/Register.png'
+import image from '../../img/forms/Register.png'
 import { ModeType } from '../../logic/types';
 
 // const EmailValidator = _;

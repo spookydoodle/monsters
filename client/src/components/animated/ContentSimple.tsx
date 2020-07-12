@@ -1,28 +1,93 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
 import { Link } from 'react-router-dom';
-import { Grid, Button, Typography } from '@material-ui/core';
+import { Container, Grid, Typography } from '@material-ui/core';
 import { ModeType, UserType } from '../../logic/types';
-import arrow from '../../img/downarrow.png';
+import bed from '../../img/content/interior/bed.jpg';
+import couch from '../../img/content/interior/couch.jpg';
+import hall from '../../img/content/interior/hall.jpg';
+import lightBulbs from '../../img/content/interior/light-bulbs.jpg';
+import tableDecoration from '../../img/content/interior/table-decoration.jpg';
+import table from '../../img/content/interior/table.jpg';
+import wall from '../../img/content/interior/wall.jpg';
 import { LandingType } from '../../logic/types';
+import { ShowInViewport, ViewportImage } from '../../utils/InViewPort';
+
 
 const ContentSimple = ({ user, mode, setDarkMode, title, subtitle, button }: LandingType) => {
     const classes = useStyles();
+    const contents = [
+        {
+            title: "Pastry I love cotton candy cake halvah",
+            text: "Sweet tootsie roll dessert bonbon tart. Tiramisu chocolate cake cotton candy ice cream croissant icing. Topping icing topping gummies.",
+            img: table,
+        },
+        {
+            title: "Carrot cake I love sweet roll macaroon gummies",
+            text: "Ice cream sesame snaps pastry. Tootsie roll tootsie roll lollipop cotton candy soufflé cupcake marzipan gummies. Cake lemon drops bear claw cupcake.",
+            img: tableDecoration,
+        },
+        {
+            title: "Tart croissant powder",
+            text: "Chupa chups ice cream jelly. Wafer lollipop chocolate bar. Tiramisu lemon drops oat cake sweet sesame snaps marshmallow. Macaroon sweet sweet roll lemon drops toffee.",
+            img: bed,
+        },
+        {
+            title: "Lollipop dessert halvah bear claw",
+            text: "Jujubes cake wafer sweet pudding topping candy canes. Tiramisu bonbon carrot cake lemon drops powder. Danish marshmallow apple pie pudding danish chupa chups. Marzipan danish toffee oat cake chocolate liquorice chocolate.",
+            img: couch,
+        },
+        {
+            title: "Jelly chupa chups toffee icing",
+            text: "Tootsie roll lemon drops pie jujubes cotton candy liquorice. Sugar plum biscuit marshmallow icing candy bear claw. Wafer marshmallow marshmallow.",
+            img: lightBulbs,
+        },
+        {
+            title: "Fruitcake soufflé jelly-o powder bear claw icing chocolate cake",
+            text: "Chocolate icing apple pie marzipan. Marshmallow sugar plum cake marzipan tootsie roll tiramisu candy. Jujubes chocolate cake sesame snaps dragée pastry candy canes jelly-o cake. Jelly-o icing dragée jelly-o.",
+            img: wall,
+        },
+        {
+            title: "I love marzipan apple pie",
+            text: "Gummi bears jujubes chocolate topping. Tart marzipan sesame snaps croissant caramels chocolate dessert. Lemon drops sesame snaps donut. Tart dessert macaroon cake cotton candy apple pie liquorice lollipop donut.",
+            img: hall,
+        },
+    ];
 
     return (
-        <Grid
-            id="main-content"
-            container
-            justify="center"
-            alignItems="center"
-            style={{ minHeight: "100vh" }}
-        >
-            <Grid item>
-                <Typography variant="h4" color="secondary">
-                    Some content goes here
+        <Container maxWidth="md" id="main-content" style={{ marginTop: "20px"}}>
+            
+            <ShowInViewport>
+                <Typography
+                    variant="h1"
+                    gutterBottom
+                    style={{ color: "#545050", textAlign: "center", fontWeight: "bold" }}
+                >
+                    Cupcake halvah toffee bonbon
                 </Typography>
+            </ShowInViewport>
+            <Grid
+                container
+                justify="center"
+                alignItems="center"
+                style={{ minHeight: "100vh" }}
+            >
+                {contents.map((item, i) => (
+                    <Grid item key={i}>
+                        <Typography variant="h3" gutterBottom style={{ color: "#545050", textAlign: "center", fontWeight: "bold" }}>
+                            {item.title}
+                        </Typography>
+                        <Typography variant="h4" gutterBottom style={{ color: "#545050", textAlign: "center" }}>
+                            {item.text}
+                        </Typography>
+                        
+                        <ViewportImage
+                            src={item.img}
+                        />
+                    </Grid>
+                ))}
             </Grid>
-        </Grid>
+        </Container>
     );
 }
 
