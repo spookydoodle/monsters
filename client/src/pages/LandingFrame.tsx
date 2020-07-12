@@ -6,6 +6,7 @@ import { LinearBuffer } from '../components/Loading';
 // import Header1 from '../components/landings/Header1';
 import { ModeType, UserType } from '../logic/types';
 import { PATHS } from '../constants/data';
+import Parallax from '../components/animated/Parallax';
 const HeaderFrame = lazy(() => import('../components/landings/HeaderFrame'));
 
 interface Props {
