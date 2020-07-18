@@ -15,7 +15,7 @@ const FeedLayout = ({ posts }: FeedLayoutType) => {
 
     return (
         <Container  id="main-content" maxWidth="xl">
-            <Grid container spacing={2}>
+            <Grid container spacing={6}>
                 {/* Left area - navigation menu for the whole page */}
                 <Hidden mdDown>
                     <Grid item xs={2}>

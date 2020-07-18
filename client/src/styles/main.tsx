@@ -262,17 +262,33 @@ const useStyles = makeStyles((theme: Theme) =>
             zIndex: 10,
             // backgroundColor: "transparent",
             position: "absolute",
-            height: "10vh",
-            top: "90vh",
+            height: "5vh",
+            top: "95vh",
             width: "100%",
             background: "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3))",
             transition: "height .4s ease-out, top .4s ease-out",
+            // animation: `$pulseHeight 2s .5s ease-out infinite`,
             '&:hover': {
-                top: "87vh",
-                height: "13vh",
+                top: "90vh",
+                height: "10vh",
                 transition: "height .4s ease-out, top .4s ease-out",
             }
         },
+        '@keyframes pulseHeight': {
+            '0%': {
+                height: "5vh",
+                top: "95vh",
+            },
+            '50%': {
+                top: "90vh",
+                height: "10vh",
+            },
+            '100%': {
+                height: "5vh",
+                top: "95vh",
+            },
+        },
+        
         /* 
             Lists
         */
