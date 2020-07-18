@@ -38,7 +38,6 @@ interface JumbotronType {
     title: string,
     subtitle: string,
     actions?: Array<ActionType>,
-    onClick?: any,
 }
 
 interface DrawerType {

@@ -39,7 +39,6 @@ const Home = ({ user, query, data, mode, setDarkMode, changeQuery, push }: Props
                         { name: "Join the other side", path: register },
                         { name: "Show your true face", path: login },
                     ],
-                    onClick: undefined,
                 }}
                 appBar={true}
                 mode={mode}

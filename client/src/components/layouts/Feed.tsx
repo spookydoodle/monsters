@@ -14,7 +14,7 @@ const FeedLayout = ({ posts }: FeedLayoutType) => {
     const contentsList = posts.map(post => ({ name: post.title, path: `#${post.id}` }))
 
     return (
-        <Container maxWidth="xl">
+        <Container  id="main-content" maxWidth="xl">
             <Grid container spacing={2}>
                 {/* Left area - navigation menu for the whole page */}
                 <Hidden mdDown>

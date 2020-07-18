@@ -258,7 +258,21 @@ const useStyles = makeStyles((theme: Theme) =>
             borderRadius: "3px",
             margin: "0 auto",
         },
-
+        bottomNav: {
+            zIndex: 10,
+            // backgroundColor: "transparent",
+            position: "absolute",
+            height: "10vh",
+            top: "90vh",
+            width: "100%",
+            background: "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3))",
+            transition: "height .4s ease-out, top .4s ease-out",
+            '&:hover': {
+                top: "87vh",
+                height: "13vh",
+                transition: "height .4s ease-out, top .4s ease-out",
+            }
+        },
         /* 
             Lists
         */

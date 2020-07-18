@@ -1,9 +1,11 @@
 import React from 'react';
 import { useStyles } from '../../styles/main';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { Box, Grid, Button, Typography, Hidden, Grow } from '@material-ui/core';
 import { JumbotronType } from '../../logic/types';
 import jumbotronLight from '../../img/landing/JumbotronLight.png';
+import arrow from '../../img/downarrow.png';
 import { PATHS } from '../../constants/data';
 const { main } = PATHS;
 
@@ -13,7 +15,6 @@ const Jumbotron = ({
     title = "Hello",
     subtitle = "Welcome",
     actions = [],
-    onClick
 }: JumbotronType) => {
     const classes = useStyles();
 
@@ -21,6 +22,11 @@ const Jumbotron = ({
         <>
             {/* Background image */}
             <div className={classes.jumbotronImg} style={{ backgroundImage: `url(${img})` }} />
+
+            {/* Bottom blur effect */}
+            <HashLink to="#main-content" smooth={true}>
+                <Box className={classes.bottomNav} />
+            </HashLink>
 
             {/* Main content */}
             <Grow timeout={2000} in={true}>

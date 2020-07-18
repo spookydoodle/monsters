@@ -3,7 +3,6 @@ import { useStyles } from '../../styles/main';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { Box, Button, Typography } from '@material-ui/core';
-import { ModeType, UserType } from '../../logic/types';
 import arrow from '../../img/downarrow.png';
 import { LandingType } from '../../logic/types';
 
