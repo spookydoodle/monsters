@@ -11,14 +11,14 @@ const useStyles = makeStyles((theme: Theme) =>
         // Landings hub
         hub: {
             position: "absolute",
-            width: "100%",
+            minWidth: "100%",
             minHeight: "100vh",
             color: "#000",
             backgroundColor: "#D90429",
             zIndex: -10,
         },
         hubHeader: {
-            height: "3em",
+            display: "block"
         },
         hubTitle: {
             display: "inline-block",
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
             border: "solid .2em #000",
             zIndex: 10,
         },
-        hubTitleHover: { 
+        hubTitleButton: { 
             '&:hover': {
                 backgroundColor: "#D90429",
                 color: "#EDF2F4",
@@ -48,6 +48,8 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: "4em",
             zIndex: -1,
             position: "relative",
+            marginTop: "1em !important",
+            marginBottom: "1em !important",
             '&::before': {
                 content: "''",
                 position: "absolute",

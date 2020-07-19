@@ -3,7 +3,7 @@ import { createTheme, } from '../styles/themes';
 import { useStyles } from '../styles/landings';
 import { Link } from 'react-router-dom';
 import { withPush } from '../utils/routingDecorators';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Hidden } from '@material-ui/core';
 import { ModeType, UserType } from '../logic/types';
 import { PATHS } from '../constants/data';
 
@@ -42,14 +42,16 @@ const LandingsHub = ({ user, mode, setDarkMode, push }: Props) => {
         <Grid container justify="center" alignItems="flex-start" className={classes.hub}>
             <Grid item xs={12} className={classes.hubHeader}>
                 <Link to={home}>
-                    <Typography variant="h3" component="span" className={`${classes.hubTitle} ${classes.hubTitleHover}`}>
+                    <Typography variant="h3" component="span" className={`${classes.hubTitle} ${classes.hubTitleButton}`}>
                         {`<<`}
                     </Typography>
                 </Link>
 
-                <Typography variant="h3" component="span" className={classes.hubTitle}>
-                    Landings
+                <Hidden only="xs">
+                    <Typography variant="h3" component="span" className={classes.hubTitle}>
+                        Landings
                 </Typography>
+                </Hidden>
             </Grid>
 
             <Grid item xs={12} sm={9} md={6} lg={4} xl={3} className={classes.hubList}>
