@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { withPush } from '../utils/routingDecorators';
-import { useStyles } from '../styles/main';
+import { useStyles } from '../styles/landings';
 import ThemeWrapper from '../components/layouts/ThemeWrapper';
 import { LinearBuffer } from '../components/Loading';
 // import Header1 from '../components/landings/Header1';

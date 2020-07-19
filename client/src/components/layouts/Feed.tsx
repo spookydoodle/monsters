@@ -21,7 +21,7 @@ const FeedLayout = ({ posts }: FeedLayoutType) => {
                     <Grid item xs={2}>
                         <Divider style={{ marginTop: "2em", marginBottom: "2em" }} />
 
-                        <Typography variant="h4" style={{ marginBottom: "0.45em" }}>
+                        <Typography variant="h5" style={{ marginBottom: "0.45em" }}>
                             Jump to:
                         </Typography>
 

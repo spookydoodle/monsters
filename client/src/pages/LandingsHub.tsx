@@ -1,10 +1,9 @@
 import React from 'react';
 import { createTheme, } from '../styles/themes';
+import { useStyles } from '../styles/landings';
 import { Link } from 'react-router-dom';
 import { withPush } from '../utils/routingDecorators';
-import { useStyles } from '../styles/main';
-import { Box, Container, Grid, Typography, List, ListItem, ListItemText } from '@material-ui/core';
-import ThemeWrapper from '../components/layouts/ThemeWrapper';
+import { Grid, Typography } from '@material-ui/core';
 import { ModeType, UserType } from '../logic/types';
 import { PATHS } from '../constants/data';
 

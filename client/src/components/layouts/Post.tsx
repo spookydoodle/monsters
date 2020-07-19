@@ -25,8 +25,8 @@ const PostLayout = ({ id, additional, ...props }: PostLayoutType) => {
 
                     {additional &&
                         <>
-                            <Typography variant="h4" style={{ marginBottom: "0.45em" }}>
-                                Cool stuff:
+                            <Typography variant="h5" style={{ marginBottom: "0.45em" }}>
+                                Related stuff:
                             </Typography>
 
                             {additional}

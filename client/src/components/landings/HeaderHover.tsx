@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useStyles } from '../../styles/main';
+import { useStyles } from '../../styles/landings';
 import { Link } from 'react-router-dom';
-import { Container, Grid, Button, Typography } from '@material-ui/core';
-import { ModeType, UserType } from '../../logic/types';
-import arrow from '../../img/downarrow.png';
+import { Container, Grid, Typography } from '@material-ui/core';
 import { LandingType } from '../../logic/types';
 
 const HeaderHover = ({ user, mode, setDarkMode, title, subtitle, button }: LandingType) => {

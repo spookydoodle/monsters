@@ -7,6 +7,7 @@ import { ActionType } from '../../logic/types';
 interface Props {
     items: Array<ActionType>
 }
+
 // TODO: investigate why Link from router does not handle hashes #
 const ContentsList = ({ items }: Props) => {
     const classes = useStyles();
@@ -16,7 +17,7 @@ const ContentsList = ({ items }: Props) => {
             {items.map((item, i) =>
                 <Link key={`link-item-${i}`} to={item.path} smooth={true}>
                     <ListItem key={`item-${i}`} className={classes.pageNavList} button>
-                        <Typography key={`item-text-${i}`} variant="body1" title={item.name} gutterBottom noWrap >
+                        <Typography key={`item-text-${i}`} variant="body2" title={item.name} gutterBottom noWrap>
                             {item.name}
                         </Typography>
                     </ListItem>

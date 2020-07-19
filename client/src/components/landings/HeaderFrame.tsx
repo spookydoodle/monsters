@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useStyles } from '../../styles/main';
+import { useStyles } from '../../styles/landings';
 import { Link } from 'react-router-dom';
 import { Box, Button, Typography } from '@material-ui/core';
 import { ModeType, UserType } from '../../logic/types';
