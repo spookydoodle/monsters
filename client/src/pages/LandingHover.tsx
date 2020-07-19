@@ -7,6 +7,7 @@ import { LinearBuffer } from '../components/Loading';
 import { ModeType, UserType } from '../logic/types';
 import { PATHS } from '../constants/data';
 import HeaderHover from '../components/landings/HeaderHover';
+const { landingsHub } = PATHS;
 
 interface Props {
     user: UserType,
@@ -17,7 +18,6 @@ interface Props {
 
 const LandingFrame = ({ user, mode, setDarkMode, push }: Props) => {
     const classes = useStyles();
-    const { home } = PATHS;
 
     return (
         <Suspense fallback={<LinearBuffer />}>
@@ -28,7 +28,7 @@ const LandingFrame = ({ user, mode, setDarkMode, push }: Props) => {
                     setDarkMode={setDarkMode}
                     title="Starship Enterprise"
                     subtitle="is our destiny"
-                    button={{ name: "Explore", path: home }}
+                    button={{ name: "Explore", path: landingsHub }}
                 />
             </ThemeWrapper>
         </Suspense>

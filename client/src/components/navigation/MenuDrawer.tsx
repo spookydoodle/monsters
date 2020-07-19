@@ -3,7 +3,7 @@ import { useStyles } from '../../styles/main';
 import { Link } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemText, Divider, IconButton, Hidden } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+// import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DarkModeSwitch from '../DarkModeSwitch';
 import { AuthButtonsVertical } from './AuthButtons';
 import { PATHS } from '../../constants/data';
@@ -22,7 +22,18 @@ interface Props {
 // This component can be either temporary or persistent. By default temporary. use prop 'variant' to change to "persistent"
 const MenuDrawer = ({ user, variant = "temporary", mode, setDarkMode, open, toggleDrawer }: Props) => {
   const classes = useStyles();
-  const { landingSimple, landingSlideShow, landingFrame, landingHover } = PATHS;
+  const { home, landingsHub } = PATHS;
+
+  const items = [
+    {
+      name: "Home",
+      path: home,
+    },
+    {
+      name: "Landing pages",
+      path: landingsHub,
+    }
+  ];
 
   return (
     <Drawer
@@ -44,26 +55,13 @@ const MenuDrawer = ({ user, variant = "temporary", mode, setDarkMode, open, togg
       <Divider />
 
       <List>
-        <Link to={landingSimple}>
-          <ListItem button>
-            <ListItemText primary="Simple" />
-          </ListItem>
-        </Link>
-        <Link to={landingSlideShow}>
-          <ListItem button>
-            <ListItemText primary="Slide Show" />
-          </ListItem>
-        </Link>
-        <Link to={landingFrame}>
-          <ListItem button>
-            <ListItemText primary="Frame" />
-          </ListItem>
-        </Link>
-        <Link to={landingHover}>
-          <ListItem button>
-            <ListItemText primary="Hover" />
-          </ListItem>
-        </Link>
+        {items.map(item => (
+          <Link to={item.path}>
+            <ListItem button>
+              <ListItemText primary={item.name} />
+            </ListItem>
+          </Link>
+        ))}
       </List>
       <Hidden mdUp>
         <Divider />

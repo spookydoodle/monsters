@@ -4,7 +4,7 @@ import ThemeWrapper from '../components/layouts/ThemeWrapper';
 import { LinearBuffer } from '../components/Loading';
 import { PATHS } from '../constants/data';
 const HeaderSlideshow = lazy(() => import('../components/landings/HeaderSlideshow'));
-const { home } = PATHS;
+const { landingsHub } = PATHS;
 
 // TODO: move to components/landings and migrate styles from css file to makeStyles
 const LandingSlideShow = ({ user, mode, setDarkmode }: any) => {
@@ -18,7 +18,7 @@ const LandingSlideShow = ({ user, mode, setDarkmode }: any) => {
                     setDarkMode={setDarkmode}
                     title="A large, ugly, and frightening imaginary creature"
                     subtitle="noun | UK /ˈmɒn.stər/ | US /ˈmɑːn.stɚ/"
-                    button={{ name: "ENTER IF YOU DARE", path: home }}
+                    button={{ name: "ENTER IF YOU DARE", path: landingsHub }}
                 />
             </ThemeWrapper>
         </Suspense>

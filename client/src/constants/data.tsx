@@ -24,6 +24,7 @@ const SEARCH_METHODS = {
 // TODO read landing variant from URL parameter and display on one route only
 const PATHS = {
     root: "/",
+    landingsHub: "/landings",
     landingSlideShow: "/landing-slideshow",
     landingFrame: "/landing-frame",
     landingSimple: "/landing-simple",

@@ -8,6 +8,7 @@ import { ModeType, UserType } from '../logic/types';
 import { PATHS } from '../constants/data';
 import ContentSimple from '../components/animated/ContentSimple';
 const HeaderSimple = lazy(() => import('../components/landings/HeaderSimple'));
+const { landingsHub } = PATHS;
 
 
 interface Props {
@@ -19,7 +20,6 @@ interface Props {
 
 const LandingSimple = ({ user, mode, setDarkMode, push }: Props) => {
     const classes = useStyles();
-    const { home } = PATHS;
 
     return (
         <Suspense fallback={<LinearBuffer />}>
@@ -30,7 +30,7 @@ const LandingSimple = ({ user, mode, setDarkMode, push }: Props) => {
                     setDarkMode={setDarkMode}
                     title="Awesome landing page"
                     subtitle="Start of the coolest project"
-                    button={{ name: "Get started", path: home }}
+                    button={{ name: "Get started", path: landingsHub }}
                 />
                 <ContentSimple
                     user={user}
@@ -38,7 +38,7 @@ const LandingSimple = ({ user, mode, setDarkMode, push }: Props) => {
                     setDarkMode={setDarkMode}
                     title="Awesome landing page"
                     subtitle="Start of the coolest project"
-                    button={{ name: "Get started", path: home }}
+                    button={{ name: "Get started", path: landingsHub }}
                 />
             </ThemeWrapper>
         </Suspense>

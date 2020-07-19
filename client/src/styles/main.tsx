@@ -409,6 +409,82 @@ const useStyles = makeStyles((theme: Theme) =>
             fontSize: '10em',
             color: theme.palette.primary.light,
         },
+        // Landings hub
+        hub: {
+            position: "absolute",
+            width: "100%",
+            minHeight: "100vh",
+            color: "#000",
+            backgroundColor: "#D90429",
+            zIndex: -10,
+        },
+        hubHeader: {
+            height: "3em",
+        },
+        hubTitle: {
+            display: "inline-block",
+            textTransform: "uppercase",
+            color: "#D90429",
+            backgroundColor: "#000",
+            fontWeight: "bold",
+            textAlign: "center",
+            transition: "background .2s ease-in, color .2s ease-in, border .2s ease-in",
+            padding: "0 .3em",
+            border: "solid .2em #000",
+            zIndex: 10,
+        },
+        hubTitleHover: { 
+            '&:hover': {
+                backgroundColor: "#D90429",
+                color: "#EDF2F4",
+                transition: "background .2s ease-in, color .2s ease-in, border .2s ease-in",
+                borderColor: "#EDF2F4",
+            }
+        },
+        hubListContainer: {
+            width: "100%",
+            position: "relative",
+        },
+        hubList: {
+            padding: "4em",
+            zIndex: 1,
+            position: "relative",
+            '&::before': {
+                content: "''",
+                position: "absolute",
+                left: "1em",
+                top: 0,
+                width: "20%",
+                height: "20%",
+                borderTop: "1em solid #000",
+                borderLeft: "1em solid #000",
+                zIndex: 1,
+            },
+            '&::after': {
+                content: "''",
+                position: "absolute",
+                right: "1em",
+                bottom: 0,
+                width: "20%",
+                height: "20%",
+                borderBottom: "1em solid #000",
+                borderRight: "1em solid #000",
+                zIndex: 1
+            }
+        },
+        hubListItem: {
+            textAlign: "center", 
+            textTransform: "uppercase",
+            transition: "background .2s ease-in, color .2s ease-in",
+            fontWeight: "bolder",
+            padding: ".5em",
+            margin: ".4em 0 !important",
+            '&:hover': {
+                backgroundColor: "#000",
+                color: "#D90429",
+                transition: "background .2s ease-in, color .2s ease-in",
+            }
+        },
 
         /* 
             For Animations page. Notes:

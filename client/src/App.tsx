@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
+import LandingsHub from './pages/LandingsHub';
 import LandingSlideShow from './pages/LandingSlideShow';
 import LandingSimple from './pages/LandingSimple';
 import LandingFrame from './pages/LandingFrame';
 import LandingHover from './pages/LandingHover';
 import Home from './pages/Home';
-import Animations from './pages/LandingSimple';
 import Monsters from './pages/Monsters';
 import Register from './pages/Register'
 import Login from './pages/Login'
@@ -81,7 +81,7 @@ class App extends Component<{}, StateType> {
 
   render() {
     const { mode, query, data } = this.state;
-    const { root, landingSimple, landingSlideShow, landingFrame, landingHover, home, main, login, logout, register } = PATHS;
+    const { root, landingsHub, landingSimple, landingSlideShow, landingFrame, landingHover, home, main, login, logout, register } = PATHS;
     
     // TODO: consider using , { Suspense, lazy } - https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
     return (
@@ -96,6 +96,13 @@ class App extends Component<{}, StateType> {
               */}
             <Route exact path={root}>
               <Redirect to={home} />
+            </Route>
+            <Route exact path={landingsHub}>
+              <LandingsHub
+                user={this.state.user}
+                mode={this.state.mode}
+                setDarkMode={this.setDarkMode}
+              />
             </Route>
             <Route exact path={landingSimple}>
               <LandingSimple
