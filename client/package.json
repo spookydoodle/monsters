@@ -29,7 +29,7 @@
     "formik": "^2.1.4",
     "gh-pages": "^3.0.0",
     "http-proxy-middleware": "^1.0.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "puppeteer": "^2.1.1",
     "qs": "^6.9.4",
     "react": "^16.13.1",
